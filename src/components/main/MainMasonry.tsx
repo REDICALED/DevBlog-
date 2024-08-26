@@ -25,16 +25,16 @@ export default function Notes(props: any) {
                     className="relative flex h-full transform items-end border-2 border-[var(--text-color)] transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2"
                 >
                     <div
-                    className="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8"
+                    className="pb-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 "
                     >
 
-                    <h2 className="mt-4 text-xl font-bold sm:text-2xl">{value.title}</h2>
+                    <h2 className="mt-4 text-sm font-bold sm:text-2xl">{value.title}</h2>
                     </div>
 
                     <div
-                    className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8"
+                    className="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100"
                     >
-                    <h3 className="mt-4 text-xl font-bold sm:text-2xl">{value.title}</h3>
+                    <h3 className="mt-4 text-sm font-bold sm:text-2xl">{value.title}</h3>
 
                     <p className="mt-4 text-sm sm:text-base max-w-[10vw] break-words whitespace-normal">
                     {value.content.length > maxContentLength 
