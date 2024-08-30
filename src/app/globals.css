@@ -16,3 +16,19 @@
   svg {
     transition: fill 0.5s ease; /* fill 색상에 대한 transition 속도를 더 빠르게 설정 */
   }
+
+
+  .pirate-logo {
+    width: 13vw; /* 기본 크기 */
+    height: 13vw;
+    fill: var(--text-color);
+}
+
+/* 화면 크기가 1024px 이하일 때 */
+@media (max-width: 1024px) {
+    .pirate-logo {
+        width: 15vw; /* 작은 화면 크기 */
+        height: 15vw;
+        fill: var(--text-color);
+    }
+}
