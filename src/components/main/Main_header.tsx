@@ -17,21 +17,15 @@ export default function Main_header() {
     }
     return (
         <>
-            <div className=" hidden lg:block">
-            <div className="text-right h-[25vh]">
-                    <span className=" font-semibold text-[25vh] leading-[25vh] flex">
+            <div className="">
+            <span className=" h-[20vw] mt-10 flex flex-row justify-center items-center">
+                    <span className="">
                     <Pirate_logo/>
-                    Redicaled
                     </span>
-                </div>
-            </div>
-            <div className="lg:hidden">
-                <div className="text-right h-[10vh]">
-                    <span className=" font-semibold text-[10vh] leading-[10vh] flex">
-                    <Pirate_logo/>
-                        Redicaled
+                    <span className="font-semibold text-[11vw]">
+                        Redi Blog
                     </span>
-                </div>
+                </span>
             </div>
         </>
     );
