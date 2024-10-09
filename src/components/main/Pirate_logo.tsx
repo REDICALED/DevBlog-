@@ -40,7 +40,7 @@ export default function Pirate_logo() {
         <button onClick={()=>{handleClick();}} className="">
             <motion.div
             animate={{ rotate: 360 }} // 360도 회전
-            transition={{ repeat: Infinity, duration: 8, ease: "linear" }} // 무한 반복, 3초에 한 번 회전
+            transition={{ repeat: Infinity, duration: 12, ease: "linear" }} // 무한 반복, x초에 한 번 회전
             style={LgimageStyle}
             onMouseEnter={() => setCurrentColor(hoverColor)}
             onMouseLeave={() => setCurrentColor('var(--text-color)')}
