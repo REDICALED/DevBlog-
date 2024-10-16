@@ -3,8 +3,8 @@ import MainPostlist from '../components/main/MainPostlist';
 
 export default function Home() {
     return (
-        <div className='h-[25vh]'>
-            <div className='row-span-1'>
+        <div className=''>
+            <div className='row-span-1 place-items-center grid'>
                 <Main_header/>
             </div>
             <div className='row-span-1 w-full'>
