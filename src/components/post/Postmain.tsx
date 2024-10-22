@@ -14,9 +14,7 @@ export default async function Notes(props: any) {
   console.log(supaArray);
   return (
     <div className=' p-10'>
-      <div className=''>
-      <Main_header/>
-      </div>
+
       {/* 서버 사이드에서 렌더링되지 않는 클라이언트 전용 콘텐츠 */}
       <div className=' '> {supaArray.title}</div>
 

@@ -4,8 +4,11 @@ import Pirate_circle from "/pirate_circle.svg";
 import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import Pirate_logo from "@/components/main/Pirate_logo";
+import { useRecoilState } from "recoil";
+import { OpeningState } from "@/Atoms/OpeningAtom";
 
 export default function Main_header() {
+    const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
     const text = "Redi Blog";  // 애니메이션할 텍스트
 
@@ -16,14 +19,17 @@ export default function Main_header() {
 
     // 글자 애니메이션이 끝난 후 컨테이너 크기를 축소하는 콜백
     const onAnimationComplete = () => {
-        containerControls.start({ height: '20vh', transition: { duration: 1 } });
+        containerControls.start({ height: '20vh', transition: { duration: 1 } })
+        .then(() => {
+            setOpeningState(false);  // 애니메이션 완료 후 상태 업데이트
+        });
     };
 
     return (
         <>
             <motion.span
                 className="flex flw-row justify-center items-center"
-                style={{ height: '100vh' }}  // 처음에는 전체 높이
+                style={{ height: openingstate ? '100vh' : '20vh' }} // 처음에는 전체 높이
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
                 <span className="">

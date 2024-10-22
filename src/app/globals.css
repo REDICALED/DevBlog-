@@ -19,16 +19,16 @@
 
 
   .pirate-logo {
-    width: 13vw; /* 기본 크기 */
-    height: 13vw;
+    width: 140px; /* 기본 크기 */
+    height: 140px;
     fill: var(--text-color);
 }
 
 /* 화면 크기가 1024px 이하일 때 */
 @media (max-width: 1024px) {
     .pirate-logo {
-        width: 15vw; /* 작은 화면 크기 */
-        height: 15vw;
+        width: 60px; /* 작은 화면 크기 */
+        height: 60px;
         fill: var(--text-color);
     }
 }
