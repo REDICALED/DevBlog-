@@ -7,7 +7,7 @@ const MainMasonry = dynamic(() =>import('@/components/main/MainMasonry'), {
 
 export default async function Notes() {
   const supabase = createClient();
-  const { data: notes } = await supabase.from('posts').select();
+  const { data: notes } = await supabase.from('posts').select().order('date', { ascending: false });
   const supaArray = JSON.parse(JSON.stringify(notes));
 
   return <div>

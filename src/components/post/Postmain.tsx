@@ -11,7 +11,7 @@ export default async function Notes(props: any) {
   const supabase = createClient();
   const { data: notes } = await supabase.from('posts').select().eq('uuid', props.id).single();
   const supaArray = JSON.parse(JSON.stringify(notes));
-  console.log(supaArray);
+  // console.log(supaArray);
   return (
     <div className=' p-10'>
 

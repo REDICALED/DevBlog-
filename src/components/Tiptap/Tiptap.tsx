@@ -7,16 +7,18 @@ import { useState, useEffect, useRef } from 'react'
 import { createClient } from'@supabase/supabase-js';
 import { v4 as uuidv4 } from 'uuid';
 import CalComponent from '@/components/Tiptap/Calendar';
+import { TagsInput } from '@mantine/core';
+import {Dropzon} from '@/components/mantine/Dropzone';
 
 const primaryKey = uuidv4();
-console.log(primaryKey);
+// console.log(primaryKey);
 export default function Tiptap() {
   const [editor, setEditor] = useState<any>(null);
   const [Preview, setPreview] = useState("");
   const [Tags, setTags] = useState<string[]>([]);
   const maintextRef = useRef<HTMLInputElement>(null);
   const titletextRef = useRef<HTMLInputElement>(null);
-  const tagsRef = useRef<HTMLInputElement>(null);
+  const [acceptedFile, setAcceptedFile] = useState<string | null>(null);
 
   const [CalDate, setCalDate] = useState<Date|null>(null);
 
@@ -37,7 +39,7 @@ export default function Tiptap() {
       const { data, error } = await supabase
         .from('posts') // 테이블 이름
         .insert([
-          { uuid: primaryKey, title: titletextRef.current?.value, content: Preview, date: formattedDate, user_id: maintextRef.current?.value ?? 'testUser', tags: Tags },
+          { uuid: primaryKey, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, user_id: maintextRef.current?.value ?? 'testUser', tags: Tags },
         ]);
   
     if (error) {
@@ -60,27 +62,18 @@ export default function Tiptap() {
             <input type="text" placeholder='제목' ref={titletextRef} className='border-2 border-black' />
         </div>
 
-        <div className=' m-2  '>
-            <input type="text" placeholder='Tags' ref={tagsRef} className='border-2 border-black ' />
-            <button className=' transition-colors ml-2 inline-block rounded border border-black bg-black px-6 py-2 text-sm font-medium text-white hover:bg-transparent hover:text-black focus:outline-none focus:ring active:text-black' onClick={() => {
-              if (tagsRef.current?.value) {
-                setTags([...Tags, tagsRef.current.value]);
-                tagsRef.current.value = '';
-            } }}>
-              태그추가
-            </button>
-            <div>
-              {Tags.map((tag, index) => (
-                <div onClick={()=>{
-                    setTags(Tags.filter((_, i) => i !== index));}}
-                    key={index} 
-                    className=' transition-colors cursor-pointer inline-block rounded border border-white bg-white px-6 py-2 text-sm font-medium text-black hover:bg-gray-300 hover:text-black focus:outline-none focus:ring active:text-white'>
-                  {tag}
-                </div>
-              ))}
-            </div>
+        <div className=''>
+        <TagsInput
+          label="태그 입력"
+          placeholder="Enter tag"
+          value={Tags}
+          onChange={setTags}
+        />
         </div>
+        <div className=' m-2 border-black border-2 p-10'>
+        <Dropzon setFile={setAcceptedFile}/>
 
+        </div>
           <EditorProvider 
             slotBefore={<MenuBar />} 
             extensions={extensions} 
