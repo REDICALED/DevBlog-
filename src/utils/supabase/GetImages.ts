@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       .storage
       .from('images') // Storage 버킷 이름
       .getPublicUrl(path);
-    console.log(path);
+    // console.log(path);
 
     res.status(200).json({ url: data.publicUrl });
   } catch (error) {

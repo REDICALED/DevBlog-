@@ -45,34 +45,33 @@ const MenuBar = (props: any) => {
             (uri) => res(uri as File), // responseUriFunc
             "file" // outputType : Can be either base64, blob or file.(Default type is base64)	
           );
-        console.log("resizeFile");
+        // console.log("resizeFile");
         }
       );
 
-    const handleUploadPhoto = async (files: FileList | null) => {
-      if (!files) {
-        return;
-      }
-
-      const file = await resizeFile(files[0]);
-      if (file) {
-        const objectUrl = URL.createObjectURL(file);
-        // const reader = new FileReader();
-        // reader.onload = () => {
-        //   const imageData = reader.result as string; // Cast the result to string
-        //   editor.commands.setImage({ src: imageData }); // 이미지 삽입
-        //   editor.commands.insertContent(`<div>${file.name}</div>`); // file이름
-        // };
-        // reader.readAsDataURL(file); // 파일을 base64로 변환
-        editor.commands.setImage({ src: objectUrl });
-      }
-    };
-  
+      const handleUploadPhoto = async (files: FileList | null) => {
+        if (!files) {
+          return;
+        }
+      
+        const file = await resizeFile(files[0]);
+        if (file) {
+          const reader = new FileReader();
+      
+          reader.onload = () => {
+            const imageData = reader.result as string; // Base64로 변환된 데이터
+            editor.commands.setImage({ src: imageData }); // Base64 이미지 삽입
+            editor.commands.insertContent(`<div>${file.name}</div>`); // 파일 이름 삽입
+          };
+      
+          reader.readAsDataURL(file); // 파일을 Base64로 변환
+        }
+      };
   
   const handleButtonClick = () => {
     const url = prompt('Please enter URL:');
     if (url) {
-      console.log("url:", url)
+      // console.log("url:", url)
       editor.commands.insertContent(`------\n[비디오입니다!]\nVideourl=<<<${url}>>>\n[!비디오입니다]\n------`);
   
     }
