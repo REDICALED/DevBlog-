@@ -8,7 +8,7 @@ import Postmain from '../../../components/post/Postmain';
 
 export default function Post({params}: Props) {
     return (
-        <div>
+        <div className='cursor-none'>
           <Postmain id={params.id}/>
         </div>
     );
