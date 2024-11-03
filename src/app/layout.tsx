@@ -5,6 +5,7 @@ import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import { Montserrat, Noto_Sans_KR } from "next/font/google";
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import CustomCursor from "@/components/CustomCursor";
 
 const montserrat = Montserrat({
   preload: true,
@@ -37,7 +38,10 @@ export default function RootLayout({
     <html>
       <body className={`${montserrat.className} ${notoSansKr.variable}`}>
       <RecoilRootWrapper>
-      <MantineProvider>{children}</MantineProvider>
+      <MantineProvider>
+      <CustomCursor />
+      {children}
+      </MantineProvider>
 				</RecoilRootWrapper>
       </body>
     </html>
