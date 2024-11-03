@@ -6,9 +6,11 @@ import { useRecoilState } from "recoil";
 import { useState } from "react";
 
 export function updateTheme(bgColor: string, textColor: string) {
-    document.documentElement.style.setProperty('--bg-color', bgColor);
-    document.documentElement.style.setProperty('--text-color', textColor);
-  }
+  requestAnimationFrame(() => {
+      document.documentElement.style.setProperty('--bg-color', bgColor);
+      document.documentElement.style.setProperty('--text-color', textColor);
+  });
+}
 
   const palettes = [
     { bg: "#ede8e4", text: "#000000" },
