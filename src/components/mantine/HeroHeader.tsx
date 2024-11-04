@@ -4,8 +4,13 @@
 import { Image, Container, Title, Button, Group, Text, List, ThemeIcon, rem } from '@mantine/core';
 import { IconCheck } from '@tabler/icons-react';
 import classes from './HeroBullets.module.css';
-import Hero from "@/assets/hero.svg";
+import dynamic from 'next/dynamic';
+import { SVGProps } from 'react';
 
+const Hero = dynamic<SVGProps<SVGSVGElement>>(() => import("@/assets/hero.svg"), {
+    loading: () => <div className="w-[1600px] h-[1600px]" />,
+    ssr: false
+});
 export function HeroHeader() {
   return (
     <Container size="md">
@@ -52,8 +57,12 @@ export function HeroHeader() {
             </Button>
           </Group>
         </div>
-        <Hero alt="Pirate_circle" className="pirate-logo" style={{ fill: 'var(--text-color)' }} width={1600} height={1600}/>
-        </div>
+        <Hero 
+  className="pirate-logo" 
+  style={{ fill: 'var(--text-color)' }} 
+  width={800}    // 실제 필요한 크기로 조정
+  height={800}   // 실제 필요한 크기로 조정
+/>        </div>
     </Container>
   );
 }
