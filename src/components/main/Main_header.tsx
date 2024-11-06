@@ -19,7 +19,7 @@ export default function Main_header() {
 
     // 글자 애니메이션이 끝난 후 컨테이너 크기를 축소하는 콜백
     const onAnimationComplete = () => {
-        requestAnimationFrame(() => {containerControls.start({ height: '20vh', transition: { duration: 1 } })
+        requestAnimationFrame(() => {containerControls.start({ height: '33vh', transition: { duration: 1 } })
         .then(() => {
             setOpeningState(false);  // 애니메이션 완료 후 상태 업데이트
         });});
@@ -30,7 +30,7 @@ export default function Main_header() {
         <>
             <motion.span
                 className="flex flw-row justify-center items-center"
-                style={{ height: openingstate ? '100vh' : '20vh' }} // 처음에는 전체 높이
+                style={{ height: openingstate ? '100vh' : '33vh' }} // 처음에는 전체 높이
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
                 <span className="">
