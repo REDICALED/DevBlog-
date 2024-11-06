@@ -13,11 +13,11 @@ export function updateTheme(bgColor: string, textColor: string) {
 }
 
   const palettes = [
-    { bg: "#ede8e4", text: "#000000" },
-    { bg: "#040f49", text: "#E06E12" },
-    { bg: "#272727", text: "#D3FF25" },
-    { bg: "#226246", text: "#FDBCD2" },
-    { bg: "#4F4D27", text: "#E8FF26" },
+    { bg: "#ede8e4", text: "#000000" }, //Welcome!!! 저는 김병찬이구요 어쩌구 - 내 얼굴 모자이크로
+    { bg: "#B1C1BC ", text: "#002E1E" }, //Welcome!!! 개발자 일 하고 있어요 - 불타는 컴터 명나라 그림
+    { bg: "#FFEAEA ", text: "#450000" }, //일상 같은 거 올릴게요. - 코비, 일본 
+    { bg: "#B5B8C3 ", text: "#020A2F" }, //웹 아트도 해볼게요 - lucien freud zebra
+    { bg: "#FFF9EA ", text: "#453900" }, //여러가지 올릴 수도 있고 잘해봅시다잉 - 리애기공룡둘리애 또치
   ];
 
 export default function Pirate_logo() {
@@ -27,7 +27,7 @@ export default function Pirate_logo() {
     }
     const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
     const [currentColor, setCurrentColor] = useState<string>('var(--text-color)');
-    const [hoverColor, sethoverColor] = useState('#E06E12');
+    const [hoverColor, sethoverColor] = useState('#002E1E');
 
     const handleClick = () => {
         const newIndex = (paletteIndex + 1) % palettes.length;
