@@ -9,10 +9,12 @@ export default function Home() {
                 <Main_header/>
             </div>
             <hr className=" h-[2.5px] my-8 border-0 " style={{ backgroundColor: 'var(--text-color)' }}/>
+            
+            <div>
             <div style={{ borderColor: 'var(--text-color)'}} className=" mx-10 h-5 border-l-2 border-r-2 border-t-2"></div>
             <HeroHeader/>
             <div style={{ borderColor: 'var(--text-color)'}} className=" mx-10 h-5 border-l-2 border-r-2 border-b-2"></div>
-
+            </div>
             <div className='row-span-1 w-full'>
                 <div className='h-screen grid grid-cols-3'>
                     <p></p>

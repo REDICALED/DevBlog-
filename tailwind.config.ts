@@ -1,5 +1,8 @@
 import type { Config } from "tailwindcss";
 
+const bounce_right = require("./tailanimista/bounce-in-right")
+const slide_right = require("./tailanimista/slide-in-right")
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +11,8 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      ...bounce_right,
+      ...slide_right,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

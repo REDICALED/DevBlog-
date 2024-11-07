@@ -11,19 +11,19 @@ import Bc_sit from '@/assets/bc_sit.png'
 
 export function HeroHeader() {
   return (
-    <div className='h-96 w-full '>
-      <div className='absolute left-0 top-1/2 transform -translate-y-1/2'>
-      <IconCaretLeftFilled className=' lg:size-[70px] size-[45px]'/>
+    <div className='h-96 w-full flex  '>
+      <div className=' flex-shrink-0 grid place-items-center '>
+      <IconCaretLeftFilled className=' lg:size-[70px] size-[45px] h-[100vh]' />
         </div>
 
-        <div className=' grid place-items-center'>
+        <div className=' flex-grow text-center grid place-items-center'>
         <img 
-          className="h-96"
+          className="h-96 animate-slide-in-right"
           src={ Bc_sit.src }
           alt={'asdf'}/>  
         </div>
         
-        <div className='absolute right-0 top-1/2 transform -translate-y-1/2'>
+        <div className=' grid place-items-center flex-shrink-0'>
         <IconCaretRightFilled className=' lg:size-[70px] size-[45px]'/>
         </div>
 
