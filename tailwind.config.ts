@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
-const bounce_right = require("./tailanimista/bounce-in-right")
-const slide_right = require("./tailanimista/slide-in-right")
+const tailwindCSSAnimista = require("tailwindcss-animistacss");
 
 const config: Config = {
   content: [
@@ -11,8 +10,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      ...bounce_right,
-      ...slide_right,
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -31,6 +28,19 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    tailwindCSSAnimista({
+      classes: ['animate__slide-in-top'], // 사용할 애니메이션 클래스 명시
+      settings: {
+        'animate__slide-in-top': {
+          duration: 1200,   // 애니메이션 지속 시간
+          delay: 0,      // 애니메이션 지연 시간
+          iterationCounts: 1, // 애니메이션 반복 횟수
+          isInfinite: false,  // 반복 무한 여부
+        },
+      },
+      variants: ['responsive', 'hover'],  // 다양한 variant 추가 가능
+    }),
+  ],
 };
 export default config;
