@@ -37,6 +37,7 @@ export default function Pirate_logo() {
         const { bg, text } = palettes[newIndex];
         updateTheme(bg, text);
       };
+    
     return (
         <>
         <button onClick={()=>{handleClick();}} className="">
