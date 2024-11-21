@@ -31,7 +31,7 @@ export function HeroHeader() {
     <div className='h-[55vh] w-full flex'>
       <Hero_Carousel 
         slides={[
-          <div>
+          <div key={"carousel_1"}>
             { !openingstate &&  paletteIndex === 0 && (
               <div className=' grid grid-cols-3 h-[55vh]'>
                 <div className=' grid grid-rows-2'>
@@ -59,7 +59,7 @@ export function HeroHeader() {
             )}
           </div>,
 
-          <div>
+          <div key={"carousel_2"}>
             {paletteIndex === 1 && (
               <img
               key={0}
@@ -70,7 +70,7 @@ export function HeroHeader() {
             )}
           </div>,
 
-          <div>
+          <div key={"carousel_3"}>
             {paletteIndex === 2 && (
               <img
               key={0}
@@ -80,7 +80,7 @@ export function HeroHeader() {
             />
             )}
           </div>,
-          <div>
+          <div key={"carousel_4"}>
           {paletteIndex === 3 && (
             <img
             key={0}
@@ -90,7 +90,7 @@ export function HeroHeader() {
           />
           )}
         </div>,
-        <div>
+        <div key={"carousel_5"}>
         {paletteIndex === 4 && (
           <img
           key={0}
