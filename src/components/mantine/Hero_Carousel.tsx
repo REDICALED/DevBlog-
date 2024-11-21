@@ -71,25 +71,25 @@ const handleClickNext = () => {
   };
 
   return (
-    <div className="w-full relative rounded-md embla flex">
-      <button className="embla__prev grid place-items-center flex-shrink-0" onClick={scrollPrev}>
-        <IconCaretLeftFilled className=' lg:size-[70px] size-[45px]'/>
-      </button>
-      
-      <div className=" relative rounded-md w-full" ref={emblaRef}>
-        <div className="flex flex-col flex-wrap flex-none">
-          {slides.map((slide, index) => (
-            <div className="w-full relative mx-1 h-[55vh]" key={index}>
-              {slide}
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className="w-full h-[55vh] relative flex">
+  <button className="embla__prev grid place-items-center flex-shrink-0" onClick={scrollPrev}>
+    <IconCaretLeftFilled className='lg:size-[70px] size-[45px]' />
+  </button>
 
-      <button className="embla__next grid place-items-center flex-shrink-0" onClick={scrollNext}>
-        <IconCaretRightFilled className=' lg:size-[70px] size-[45px]'/>
-      </button>
+  <div className="w-full h-[55vh] relative" ref={emblaRef}> {/* 부모 높이 고정 */}
+    <div className="flex flex-wrap">
+      {slides.map((slide, index) => (
+        <div className="w-full h-full relative mx-1" key={index}>
+          {slide}
+        </div>
+      ))}
     </div>
+  </div>
+
+  <button className="embla__next grid place-items-center flex-shrink-0" onClick={scrollNext}>
+    <IconCaretRightFilled className='lg:size-[70px] size-[45px]' />
+  </button>
+</div>
   );
 };
 

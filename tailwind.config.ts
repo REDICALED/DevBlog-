@@ -30,13 +30,22 @@ const config: Config = {
   },
   plugins: [
     tailwindCSSAnimista({
-      classes: ['animate__slide-in-top'], // 사용할 애니메이션 클래스 명시
+      classes: ['animate__slide-in-top','animate__flicker-3'], // 사용할 애니메이션 클래스 명시
       settings: {
         'animate__slide-in-top': {
           duration: 1200,   // 애니메이션 지속 시간
-          delay: 0,      // 애니메이션 지연 시간
+          delay: 1000,      // 애니메이션 지연 시간
           iterationCounts: 1, // 애니메이션 반복 횟수
           isInfinite: false,  // 반복 무한 여부
+        },
+        'animate__flicker-3': {
+          duration: 200,   // 애니메이션 지속 시간
+          delay: 0,      // 애니메이션 지연 시간
+          iterationCounts: 3, // 애니메이션 반복 횟수
+          isInfinite: false,  // 반복 무한 여부
+          timingFunction: 'linear', // 애니메이션 타이밍 함수
+          direction: 'normal', // 애니메이션 방향
+          fillMode: 'both', // 애니메이션 상태
         },
       },
       variants: ['responsive', 'hover'],  // 다양한 variant 추가 가능

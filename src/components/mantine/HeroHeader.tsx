@@ -19,16 +19,20 @@ import zebra from '@/assets/zebra.png'
 import { motion,AnimatePresence } from 'framer-motion';
 import { colorIndexState } from '@/Atoms/ColorAtom';
 import { useRecoilState } from 'recoil';
+import { OpeningState } from '@/Atoms/OpeningAtom';
+
+
 
 export function HeroHeader() {
   const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
+  const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
   return (
     <div className='h-[55vh] w-full flex'>
       <Hero_Carousel 
         slides={[
           <div>
-            {paletteIndex === 0 && (
+            { !openingstate &&  paletteIndex === 0 && (
               <div className=' grid grid-cols-3 h-[55vh]'>
                 <div className=' grid grid-rows-2'>
                     <div className=' row-span-2 '>
