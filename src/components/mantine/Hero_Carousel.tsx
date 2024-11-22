@@ -71,12 +71,12 @@ const handleClickNext = () => {
   };
 
   return (
-    <div className="w-full h-[55vh] relative flex">
+    <div className="w-full h-[45vh] lg:h-[60vh] relative flex">
   <button className="embla__prev grid place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[70px] size-[45px]' />
   </button>
 
-  <div className="w-full h-[55vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
+  <div className="w-full h-[45vh] lg:h-[60vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
     <div className="flex flex-wrap ">
       {slides.map((slide, index) => (
         <div className="w-full h-full relative ml-1" key={index}>

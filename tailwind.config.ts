@@ -30,7 +30,7 @@ const config: Config = {
   },
   plugins: [
     tailwindCSSAnimista({
-      classes: ['animate__slide-in-top','animate__flicker-3'], // 사용할 애니메이션 클래스 명시
+      classes: ['animate__slide-in-top', 'animate__slide-in-bottom', 'animate__flicker-3'], // 사용할 애니메이션 클래스 명시
       settings: {
         'animate__slide-in-top': {
           duration: 850,   // 애니메이션 지속 시간
@@ -38,6 +38,14 @@ const config: Config = {
           iterationCounts: 1, // 애니메이션 반복 횟수
           isInfinite: false,  // 반복 무한 여부
         },
+        
+        'animate__slide-in-bottom': {
+          duration: 850,   // 애니메이션 지속 시간
+          delay: 600,      // 애니메이션 지연 시간
+          iterationCounts: 1, // 애니메이션 반복 횟수
+          isInfinite: false,  // 반복 무한 여부
+        },
+
         'animate__flicker-3': {
           duration: 200,   // 애니메이션 지속 시간
           delay: 0,      // 애니메이션 지연 시간
