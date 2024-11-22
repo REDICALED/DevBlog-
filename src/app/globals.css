@@ -14,6 +14,10 @@
     cursor: none;
   }
 
+  button, a {
+    cursor: none;  /* 커스텀 커서만 활성화 */
+  }
+  
   svg {
     transition: fill 0.5s ease; /* fill 색상에 대한 transition 속도를 더 빠르게 설정 */
   }

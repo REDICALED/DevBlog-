@@ -28,38 +28,33 @@ export function HeroHeader() {
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
   return (
-    <div className='h-[55vh] w-full flex'>
+    <div className='h-[55vh] w-full flex overflow-hidden '>
       <Hero_Carousel 
         slides={[
           <div key={"carousel_1"}>
             { !openingstate &&  paletteIndex === 0 && (
-              <div className=' grid grid-cols-3 h-[55vh]'>
-                <div className=' grid grid-rows-2'>
-                    <div className=' row-span-2 '>
+              <div className='lg:flex w-full h-[55vh]  '>
+                <div className='lg:w-1/3 w-full '>
+                    <div className='grid place-items-center'>
                       <img
                         key={0}
                         src={Bc_sit.src}
                         alt="Image"
-                        className="object-contain h-[55vh] rounded-md animate__slide-in-top  "
+                        className=" grid place-items-center object-contain h-[25vh] lg:h-[55vh] rounded-md animate__slide-in-top  "
                       />
                     </div>
                 </div>
 
-                <div className=' grid grid-rows-2'>
-                  <div>a</div>
-                  <div>a</div>
-                </div>
-
-                <div className=' grid grid-rows-2'>
-                  <div>a</div>
-                  <div>a</div>
+                <div className=" font-semibold lg:w-2/3 lg:text-[15.5vh] leading-none">
+                <span>ByeongChan Kim .</span>
+                <p className=" font-semibold lg:text-[7.5vh] " ></p>
                 </div>
 
               </div>
             )}
           </div>,
 
-          <div key={"carousel_2"}>
+          <div key={"carousel_2"} className=' overflow-hidden '>
             {paletteIndex === 1 && (
               <img
               key={0}
@@ -70,7 +65,7 @@ export function HeroHeader() {
             )}
           </div>,
 
-          <div key={"carousel_3"}>
+          <div key={"carousel_3"}className=' overflow-hidden '>
             {paletteIndex === 2 && (
               <img
               key={0}
@@ -80,7 +75,7 @@ export function HeroHeader() {
             />
             )}
           </div>,
-          <div key={"carousel_4"}>
+          <div key={"carousel_4"}className=' overflow-hidden '>
           {paletteIndex === 3 && (
             <img
             key={0}
@@ -90,7 +85,7 @@ export function HeroHeader() {
           />
           )}
         </div>,
-        <div key={"carousel_5"}>
+        <div key={"carousel_5"}className=' overflow-hidden '>
         {paletteIndex === 4 && (
           <img
           key={0}

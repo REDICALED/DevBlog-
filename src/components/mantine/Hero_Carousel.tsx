@@ -76,10 +76,10 @@ const handleClickNext = () => {
     <IconCaretLeftFilled className='lg:size-[70px] size-[45px]' />
   </button>
 
-  <div className="w-full h-[55vh] relative" ref={emblaRef}> {/* 부모 높이 고정 */}
-    <div className="flex flex-wrap">
+  <div className="w-full h-[55vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
+    <div className="flex flex-wrap ">
       {slides.map((slide, index) => (
-        <div className="w-full h-full relative mx-1" key={index}>
+        <div className="w-full h-full relative ml-1" key={index}>
           {slide}
         </div>
       ))}
