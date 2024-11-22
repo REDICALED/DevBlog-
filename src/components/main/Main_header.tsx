@@ -22,7 +22,7 @@ export default function Main_header() {
             // 깜빡이기 시작
             blinkControls.start("blink").then(() => {
                 containerControls.start({
-                    height: '33vh',
+                    height: '25vh',
                     transition: { duration: 1 }
                 }).then(() => {
                     setOpeningState(false);
@@ -35,7 +35,7 @@ export default function Main_header() {
         <>
             <motion.span
                 className="flex flw-row justify-center items-center "
-                style={{ height: openingstate ? '100vh' : '33vh' }} // 처음에는 전체 높이
+                style={{ height: openingstate ? '100vh' : '25vh' }} // 처음에는 전체 높이
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
                 <motion.div
@@ -86,7 +86,7 @@ export default function Main_header() {
                             },
                           }}
                         >
-                          <span className="inline-block font-semibold lg:text-[25vh] text-[50px] overflow-hidden">
+                          <span className="inline-block font-medium lg:text-[20vh] text-[45px] overflow-hidden">
                             {letter}
                           </span>
                         </motion.span>

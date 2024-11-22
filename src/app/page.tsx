@@ -20,9 +20,9 @@ export default function Home() {
             
             <div className=' mb-10'>
             
-            <BlinkerBar/>
+            <BlinkerBar direction={true}/>
             <HeroHeader/>
-            <div style={{ borderColor: 'var(--text-color)'}} className=" mx-10 h-5 border-l-4 border-r-4 border-b-4"></div>
+            <BlinkerBar direction={false}/>
             </div>
 
             <div className='row-span-1 w-full'>

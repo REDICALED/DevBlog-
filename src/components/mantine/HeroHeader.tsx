@@ -8,6 +8,10 @@ import dynamic from 'next/dynamic';
 import { SVGProps } from 'react';
 import Kobe_run from '@/assets/kobe_run.png'
 import {Hero_Carousel} from "@/components/mantine/Hero_Carousel";
+import SlideupTextLoop from "@/components/main/SlideupTextLoop";
+import SlideupText from "@/components/main/SlideupText";
+
+import Slide_1 from "@/components/herocards/Slide_1";
 
 import Bc_sit from '@/assets/bc_sit.jpg'
 import budda from '@/assets/budda.png'
@@ -28,29 +32,12 @@ export function HeroHeader() {
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
   return (
-    <div className='h-[55vh] w-full flex overflow-hidden '>
+    <div className=' h-[45vh] lg:h-[60vh] w-full flex overflow-hidden '>
       <Hero_Carousel 
         slides={[
           <div key={"carousel_1"}>
             { !openingstate &&  paletteIndex === 0 && (
-              <div className='lg:flex w-full h-[55vh]  '>
-                <div className='lg:w-1/3 w-full '>
-                    <div className='grid place-items-center'>
-                      <img
-                        key={0}
-                        src={Bc_sit.src}
-                        alt="Image"
-                        className=" grid place-items-center object-contain h-[25vh] lg:h-[55vh] rounded-md animate__slide-in-top  "
-                      />
-                    </div>
-                </div>
-
-                <div className=" font-semibold lg:w-2/3 lg:text-[15.5vh] leading-none">
-                <span>ByeongChan Kim .</span>
-                <p className=" font-semibold lg:text-[7.5vh] " ></p>
-                </div>
-
-              </div>
+              <Slide_1/>
             )}
           </div>,
 
