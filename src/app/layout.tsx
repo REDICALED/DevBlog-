@@ -10,7 +10,7 @@ import CustomCursor from "@/components/CustomCursor";
 const montserrat = Montserrat({
   preload: true,
   subsets: ["latin"], // 또는 preload: false
-  weight: ["100", "400", "700", "900"], // 가변 폰트가 아닌 경우, 사용할 fontWeight 배열
+  weight: ["100","200","300", "400","500","600", "700", "900"], // 가변 폰트가 아닌 경우, 사용할 fontWeight 배열
 });
 
 const notoSansKr= Noto_Sans_KR({

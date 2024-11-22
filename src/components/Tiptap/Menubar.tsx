@@ -217,7 +217,7 @@ const MenuBar = (props: any) => {
   
         <button
         type="button"
-        className="relative cursor-pointer border border-black p-[10px] hover:bg-gray-200  "
+        className="relative cursor-pointer border border-black p-[10px] hover:bg-gray-200 "
       >
         <input
           type="file"
