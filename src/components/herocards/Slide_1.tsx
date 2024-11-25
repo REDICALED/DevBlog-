@@ -25,11 +25,13 @@ export default function Slide_1() {
                 <p className=" font-medium lg:text-[3.5vh] lg:h-[4.5vh] text-[1.5vh] h-[2.5vh] mt-3 lg:mt-20 overflow-hidden">
                 <SlideupText text={"Savoring all things Web/CS"}></SlideupText>
                 </p>
-                <div className='overflow-hidden font-medium lg:text-[2.5vh] lg:h-[3.5vh] text-[1.0vh] h-[2.0vh] mt-3 lg:mt-20'>
+
+                <div className='overflow-hidden font-medium lg:text-[2.5vh] lg:h-[3.5vh] text-[1.0vh] h-[2.0vh] mt-3 lg:mt-20 p-2'>
                 <SlideupTextLoop 
                 text={["Programmer 🖥️" ,"@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
                 />
                 </div>
+                
                 </div>
 
               </div>
