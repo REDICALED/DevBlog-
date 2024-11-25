@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SlideupText({ delay = 0, text }: { delay?: number, text: string }) {
+export default function SlideupText({ delay = 0, children }: { delay?: number, children: React.ReactNode }) {
   return (
     <AnimatePresence
       onExitComplete={() => {}}
@@ -16,7 +16,7 @@ export default function SlideupText({ delay = 0, text }: { delay?: number, text:
           times: [0, 1],
         }}
       >
-        {text}
+        {children}
       </motion.div>
     </AnimatePresence>
   );

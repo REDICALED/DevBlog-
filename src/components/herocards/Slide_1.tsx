@@ -1,6 +1,10 @@
 import Bc_sit from '@/assets/bc_sit.jpg'
 import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
+import {IconBrandGithubFilled} from "@tabler/icons-react";
+import Link from 'next/link'
+import SlideupChildren from "@/components/main/SlideupChildren";
+ 
 
 export default function Slide_1() {
     return (
@@ -26,7 +30,18 @@ export default function Slide_1() {
                 <SlideupText text={"Savoring all things Web/CS"}></SlideupText>
                 </p>
 
-                <div className='overflow-hidden font-medium lg:text-[2.5vh] lg:h-[3.5vh] text-[1.0vh] h-[2.0vh] mt-3 lg:mt-20 p-2'>
+                <div>
+                  <Link href={'https://www.github.com/REDICALED'} >
+                  <div className=' hover:bg-[var(--text-color)] flex place-items-center font-medium lg:text-[3.5vh] text-[1.5vh] mt-3 lg:mt-10 overflow-hidden'>
+                  <SlideupChildren delay={0.85}>
+                  <IconBrandGithubFilled className='lg:size-[80px] size-[45px] ' />
+                  </SlideupChildren>
+                  <SlideupText text={"Github"}></SlideupText>
+                  </div>
+                  </Link>
+                </div>
+
+                <div className='overflow-hidden font-medium lg:text-[2.5vh] lg:h-[3.5vh] text-[1.0vh] h-[2.0vh] mt-3 lg:mt-10 p-2'>
                 <SlideupTextLoop 
                 text={["Programmer 🖥️" ,"@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
                 />
