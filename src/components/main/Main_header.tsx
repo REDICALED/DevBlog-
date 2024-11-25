@@ -38,6 +38,10 @@ export default function Main_header() {
                 style={{ height: openingstate ? '100vh' : '25vh' }} // 처음에는 전체 높이
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
+              <span className="lg:h-[130px] h-[60px] overflow-hidden pr-5">
+                    <Pirate_logo />
+                </span>
+                
                 <motion.div
                     className="overflow-hidden"
                     style={{ display: 'flex' }}

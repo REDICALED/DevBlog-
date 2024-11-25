@@ -55,6 +55,7 @@ const CustomCursor: React.FC = () => {
         transform: 'translate(-50%, -50%)',
         zIndex: 9999,
       }}
+      className=' lg:block hidden'
     >
       <svg
         width="24"

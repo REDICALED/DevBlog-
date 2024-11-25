@@ -18,8 +18,8 @@ export function updateTheme(bgColor: string, textColor: string) {
 
   const palettes = [
     { bg: "#f9f9f9", text: "#000000" }, //Welcome!!! 저는 김병찬이구요 어쩌구 - 내 얼굴 모자이크로
-    { bg: "#B1C1BC ", text: "#002E1E" }, //Welcome!!! 개발자 일 하고 있어요 - 불타는 컴터 명나라 그림
-    { bg: "#FFEAEA ", text: "#450000" }, //일상 같은 거 올릴게요. - 코비, 일본 
+    { bg: "#FFEAEA ", text: "#450000" }, //Welcome!!! 개발자 일 하고 있어요 - 불타는 컴터 명나라 그림
+    { bg: "#B1C1BC ", text: "#002E1E" }, //일상 같은 거 올릴게요. - 코비, 일본 
     { bg: "#B5B8C3 ", text: "#020A2F" }, //웹 아트도 해볼게요 - lucien freud zebra
     { bg: "#FFF9EA ", text: "#453900" }, //여러가지 올릴 수도 있고 잘해봅시다잉 - 리애기공룡둘리애 또치
   ];
@@ -72,7 +72,7 @@ const handleClickNext = () => {
 
   return (
     <div className="w-full h-[45vh] lg:h-[60vh] relative flex">
-  <button className="embla__prev grid place-items-center flex-shrink-0" onClick={scrollPrev}>
+  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev m-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
@@ -86,7 +86,7 @@ const handleClickNext = () => {
     </div>
   </div>
 
-  <button className="embla__next grid place-items-center flex-shrink-0" onClick={scrollNext}>
+  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev m-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
     <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
 </div>
