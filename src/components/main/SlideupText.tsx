@@ -2,8 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function SlideupText(props: any) {
-
+export default function SlideupText({ delay = 0, text }: { delay?: number, text: string }) {
   return (
     <AnimatePresence
       onExitComplete={() => {}}
@@ -13,11 +12,11 @@ export default function SlideupText(props: any) {
         initial={{ y: 500 }}
         animate={{ y: [500, 0] }}
         transition={{
-          duration: 1.9,
+          duration: 1.9+delay,
           times: [0, 1],
         }}
       >
-        {props.text}
+        {text}
       </motion.div>
     </AnimatePresence>
   );
