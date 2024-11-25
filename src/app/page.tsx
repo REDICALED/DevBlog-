@@ -12,7 +12,7 @@ export default function Home() {
 
     
     return (
-        <div className=''>
+        <div className=' '>
             <div className='row-span-1 place-items-center grid'>
                 <Main_header/>
             </div>

@@ -1,9 +1,11 @@
 'use client';
-import Pirate_circle from "@/assets/pirate_circle.svg";
+import Pirate_circle from "@/assets/emergency-button.svg";
 import { motion } from 'framer-motion';
 import { colorIndexState } from "@/Atoms/ColorAtom";
 import { useRecoilState } from "recoil";
 import { useState } from "react";
+import { OpeningState } from "@/Atoms/OpeningAtom";
+import SlideupChildren from "@/components/main/SlideupChildren";
 
 export function updateTheme(bgColor: string, textColor: string) {
   requestAnimationFrame(() => {
@@ -21,37 +23,56 @@ export function updateTheme(bgColor: string, textColor: string) {
   ];
 
 export default function Pirate_logo() {
+  
     const LgimageStyle = {
         fill: 'var(--text-color)'
 
     }
     const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
+    const [openingstate, setOpeningState] = useRecoilState(OpeningState);
     const [currentColor, setCurrentColor] = useState<string>('var(--text-color)');
-    const [hoverColor, sethoverColor] = useState('#002E1E');
+    const [hoverColor, sethoverColor] = useState('#000000');
+    const [NextColor, setNextColor] = useState<{ bg: string, text: string }>({ bg: "#f9f9f9", text: "#000000" });
+
 
     const handleClick = () => {
-        const newIndex = (paletteIndex + 1) % palettes.length;
-        setPaletteIndex(newIndex);
-        sethoverColor(palettes[(paletteIndex + 2) % palettes.length].text);
-        setCurrentColor(palettes[newIndex].text);
-        const { bg, text } = palettes[newIndex];
-        updateTheme(bg, text);
+      let TextColor = '';
+        let BgColor = '';
+  
+      // 0부터 64 사이의 랜덤 숫자 3개를 생성하여 16진수로 변환하고, 동시에 hexColor와 hexColor2를 계산
+        for (let i = 0; i < 3; i++) {
+          const randomValue = Math.floor(Math.random() * 95);  // 0~64 사이의 랜덤 숫자
+          const hexValue = randomValue.toString(16).padStart(2, '0'); // 16진수로 변환
+          TextColor += hexValue;  // hexColor 생성
+  
+          // whiteColor에서 해당 값 빼기
+          const difference = 255 - randomValue;
+          BgColor += difference.toString(16).padStart(2, '0');  // hexColor2 생성
+        }
+          sethoverColor(`#${TextColor}`);
+          setNextColor({ bg: `#${BgColor}`, text: `#${TextColor}` });
+          updateTheme(NextColor.bg, NextColor.text);
+
       };
+
     
     return (
         <>
-        <button onClick={()=>{handleClick();}} className="">
+        { !openingstate && 
+        <SlideupChildren  >
+          <button onClick={()=>{handleClick();}} className=" ">
             <motion.div
-            animate={{ rotate: 360 }} // 360도 회전
-            transition={{ repeat: Infinity, duration: 12, ease: "linear" }} // 무한 반복, x초에 한 번 회전
+            animate={{ rotateX: 20, rotateY: 3 }} // 360도 회전
+            transition={{ repeat: Infinity, type: "spring", bounce: 0.85, repeatDelay: 4.5, duration:1}} // 무한 반복, x초에 한 번 회전
             style={LgimageStyle}
             onMouseEnter={() => setCurrentColor(hoverColor)}
             onMouseLeave={() => setCurrentColor('var(--text-color)')}
             >
-                <Pirate_circle alt="Pirate_circle" className="pirate-logo" style={{ fill: currentColor }} width={800} height={800}/>
+                <Pirate_circle alt="Pirate_circle" className="pirate-logo " style={{ fill: currentColor }} width={800} height={800}/>
             </motion.div>
         </button>
-
+        </SlideupChildren>
+        }
         </>
 
     );

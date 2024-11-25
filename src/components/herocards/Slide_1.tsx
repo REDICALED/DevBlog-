@@ -1,14 +1,14 @@
 import Bc_sit from '@/assets/bc_sit.jpg'
 import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
-import {IconBrandGithubFilled} from "@tabler/icons-react";
+import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
 import Link from 'next/link'
 import SlideupChildren from "@/components/main/SlideupChildren";
  
 
 export default function Slide_1() {
     return (
-        <div className='lg:flex w-full h-[45vh] lg:h-[60vh]  '>
+        <div className='lg:flex w-full h-[45vh] lg:h-[60vh] place-items-center '>
                 <div className='lg:w-1/3 w-full '>
                     <div className='grid place-items-center'>
                       <img
@@ -30,20 +30,30 @@ export default function Slide_1() {
                 <SlideupText text={"Savoring all things Web/CS"}></SlideupText>
                 </p>
 
-                <div>
-                  <Link href={'https://www.github.com/REDICALED'} >
-                  <div className=' hover:bg-[var(--text-color)] flex place-items-center font-medium lg:text-[3.5vh] text-[1.5vh] mt-3 lg:mt-10 overflow-hidden'>
-                  <SlideupChildren delay={0.85}>
-                  <IconBrandGithubFilled className='lg:size-[80px] size-[45px] ' />
-                  </SlideupChildren>
-                  <SlideupText text={"Github"}></SlideupText>
+                <div className='flex'>
+
+                  <a href={'https://www.github.com/REDICALED'} target='_blank' >
+                  <div className=" rounded-md lg:mr-10 transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] px-2 inline-flex place-items-center font-medium lg:text-[3.5vh] text-[1.5vh] mt-3 lg:mt-10 overflow-hidden">
+                    <SlideupChildren delay={0.65}>
+                      <IconBrandGithubFilled className="lg:size-[80px] size-[20px]" />
+                    </SlideupChildren>
+                    <SlideupText text={"Github"} />
                   </div>
-                  </Link>
+                  </a>
+
+                  <a href="https://mail.google.com/mail/?view=cm&fs=1&to=redicaled@gmail.com" target="_blank" rel="noopener noreferrer" >
+                  <div className=" rounded-md lg:mr-10 transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] px-2 inline-flex place-items-center font-medium lg:text-[3.5vh] text-[1.5vh] mt-3 lg:mt-10 overflow-hidden">
+                    <SlideupChildren delay={0.65}>
+                      <IconMailFilled className="lg:size-[80px] size-[20px]" />
+                    </SlideupChildren>
+                    <SlideupText text={"Mail"} />
+                  </div>
+                  </a>
                 </div>
 
                 <div className='overflow-hidden font-medium lg:text-[2.5vh] lg:h-[3.5vh] text-[1.0vh] h-[2.0vh] mt-3 lg:mt-10 p-2'>
                 <SlideupTextLoop 
-                text={["Programmer 🖥️" ,"@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
+                text={["Annyeong Haseyo 👋", "Programmer 🖥️" , "@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
                 />
                 </div>
                 
