@@ -73,7 +73,7 @@ const handleClickNext = () => {
   return (
     <div className="w-full h-[45vh] lg:h-[60vh] relative flex">
   <button className="embla__prev grid place-items-center flex-shrink-0" onClick={scrollPrev}>
-    <IconCaretLeftFilled className='lg:size-[70px] size-[45px]' />
+    <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
   <div className="w-full h-[45vh] lg:h-[60vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
@@ -87,7 +87,7 @@ const handleClickNext = () => {
   </div>
 
   <button className="embla__next grid place-items-center flex-shrink-0" onClick={scrollNext}>
-    <IconCaretRightFilled className='lg:size-[70px] size-[45px]' />
+    <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
 </div>
   );
