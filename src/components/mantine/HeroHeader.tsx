@@ -1,6 +1,5 @@
 'use client';
 
-
 import Image from 'next/image';
 import { IconCaretRightFilled, IconCaretLeftFilled } from '@tabler/icons-react';
 import classes from './HeroBullets.module.css';
