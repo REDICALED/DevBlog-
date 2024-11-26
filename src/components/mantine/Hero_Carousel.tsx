@@ -71,12 +71,12 @@ const handleClickNext = () => {
   };
 
   return (
-    <div className="w-full h-[45vh] lg:h-[60vh] relative flex">
-  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev m-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
+    <div className="w-full h-[60vh] lg:h-[60vh] relative flex">
+  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
-  <div className="w-full h-[45vh] lg:h-[60vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
+  <div className="w-full h-[60vh] lg:h-[60vh] " ref={emblaRef}> {/* 부모 높이 고정 */}
     <div className="flex flex-wrap ">
       {slides.map((slide, index) => (
         <div className="w-full h-full relative ml-1" key={index}>
@@ -86,7 +86,7 @@ const handleClickNext = () => {
     </div>
   </div>
 
-  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev m-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
+  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
     <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
 </div>
