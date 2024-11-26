@@ -4,6 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import Pirate_logo from "@/components/main/Pirate_logo";
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";
+import { useEffect, useState } from 'react';
 
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
@@ -22,7 +23,7 @@ export default function Main_header() {
             // 깜빡이기 시작
             blinkControls.start("blink").then(() => {
                 containerControls.start({
-                    height: isLargeScreen ? '25vh' : '15vh',
+                    height: isLargeScreen ? isScrolledlarge : isScrolled, //이걸 string state로 관리
                     transition: { duration: 1 }
                 }).then(() => {
                     setOpeningState(false);
@@ -31,14 +32,42 @@ export default function Main_header() {
         });
     };
 
+    const [isScrolled, setIsScrolled] = useState<string>('15vh');
+    const [isScrolledlarge, setIsScrolledLarge] = useState<string>('25vh');
+
+
+    useEffect(() => {
+      window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); //clean up
+    };
+  }, []);
+
+const handleScroll = () => {
+  if(window.scrollY < 50){
+    containerControls.start({
+      height:  isLargeScreen ? '25vh' : '15vh', //이걸 string state로 관리
+      transition: { duration: 0.5 }
+  });
+  }
+  else{
+    containerControls.start({
+      height:  isLargeScreen ? '15vh' : '10vh', //이걸 string state로 관리
+      transition: { duration: 0.5 }
+  });
+  }
+  };
+
+
     return (
         <>
             <motion.span
-                className={`flex flex-row justify-center items-center ${openingstate ? 'h-screen' : 'h-[15vh] lg:h-[25vh]'}`}
+                className={`flex flex-row justify-center items-center ${openingstate ? 'h-screen' : ` bg-[var(--bg-color)] w-full fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
-              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 transition-none hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] bg-[var(--bg-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 transition-none hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                     <Pirate_logo />
+                    
                 </span>
                 
                 <motion.div
@@ -89,7 +118,7 @@ export default function Main_header() {
                             },
                           }}
                         >
-                          <span className="inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden">
+                          <span className={`inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden`}>
                             {letter}
                           </span>
                         </motion.span>
@@ -97,6 +126,12 @@ export default function Main_header() {
                     ))}
                 </motion.div>
             </motion.span>
+            {!openingstate && (
+        <div
+            className={`transition-all duration-500 h-[15vh] lg:h-[25vh] `}
+        ></div>
+    )}
+
         </>
     );
 }
