@@ -1,16 +1,13 @@
+'use client';
+
 import Bc_sit from '@/assets/bc_sit.jpg'
-import dynamic from 'next/dynamic'
+import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
 import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
 import SlideupChildren from "@/components/main/SlideupChildren";
  
 
 export default function Slide_1() {
-
-  const SlideupTextLoop = dynamic(() => import('@/components/main/SlideupTextLoop'), {
-    loading: () => <p>Loading...</p>,
-    ssr: false
-  })
     return (
         <div className='lg:flex w-full h-[45vh] lg:h-[60vh] place-items-center '>
                 <div className='lg:w-1/3 w-full '>
