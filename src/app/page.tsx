@@ -1,14 +1,15 @@
 import { motion } from 'framer-motion';
-import Main_header from '../components/main/Main_header';
 import MainPostlist from '../components/main/MainPostlist';
+import {HeroHeader} from  '@/components/mantine/HeroHeader'
 import dynamic from 'next/dynamic';
 const BlinkerBar = dynamic(() => import('../components/main/BlinkerBar'), {
     ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
   });
 
-  const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader').then(mod => mod.HeroHeader), {
+  const Main_header = dynamic(() => import('../components/main/Main_header'), {
     ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
   });
+
 
 export default function Home() {
 

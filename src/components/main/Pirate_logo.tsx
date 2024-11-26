@@ -1,9 +1,7 @@
 'use client';
 import Pirate_circle from "@/assets/emergency-button.svg";
 import { motion } from 'framer-motion';
-import { colorIndexState } from "@/Atoms/ColorAtom";
 import { useRecoilState } from "recoil";
-import { useState } from "react";
 import { OpeningState } from "@/Atoms/OpeningAtom";
 import SlideupChildren from "@/components/main/SlideupChildren";
 
