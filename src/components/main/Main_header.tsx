@@ -62,10 +62,10 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={` lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen' : ` bg-[var(--bg-color)] w-full fixed top-0 z-50 `}`}
+                className={` transition-[background-color] duration-500 lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen' : ` bg-[var(--bg-color)] w-full fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
-              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 transition-none hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                     <Pirate_logo />
                 </span>
                 
@@ -117,7 +117,7 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                          <span className={`inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden`}>
+                          <span className={` inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden`}>
                             {letter}
                           </span>
                         </motion.span>
@@ -127,7 +127,7 @@ const handleScroll = () => {
             </motion.span>
             {!openingstate && (
         <div
-            className={`transition-all duration-500 h-[15vh] lg:h-[25vh] mt-8 `}
+            className={` h-[15vh] lg:h-[25vh] mt-8 `}
         ></div>
     )}
 
