@@ -9,6 +9,7 @@ export default function Slide_1() {
 
   const SlideupTextLoop = dynamic(() => import('@/components/main/SlideupTextLoop'), {
     loading: () => <p>Loading...</p>,
+    ssr: false
   })
     return (
         <div className='lg:flex w-full h-[45vh] lg:h-[60vh] place-items-center '>
