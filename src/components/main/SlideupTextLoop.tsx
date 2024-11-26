@@ -26,7 +26,7 @@ export default function SlideupTextLoop(props: any) {
         initial={{ y: 500 }}
         animate={{ y: [500, 0, 0, 200] }}
         transition={{
-          duration: 4.5,
+          duration: 4.5+props.delay,
           times: [0, 0.2, 0.75, 1],
           repeat: Infinity,  // 무한 반복
         }}

@@ -54,6 +54,7 @@ export default function Slide_1() {
 
                 <div className='overflow-hidden font-medium lg:text-[32px] text-[16px] h-auto my-3 lg:mt-10 p-2'>
                 <SlideupTextLoop 
+                delay={0.65}
                 text={["Annyeong Haseyo 👋", "Programmer 🖥️" , "@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
                 />
                 </div>
