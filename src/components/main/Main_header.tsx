@@ -9,7 +9,7 @@ export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
     const text = "Redi Blog";  // 애니메이션할 텍스트
-
+    const isLargeScreen = window.innerWidth >= 1024;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
 
@@ -22,7 +22,7 @@ export default function Main_header() {
             // 깜빡이기 시작
             blinkControls.start("blink").then(() => {
                 containerControls.start({
-                    height: '25vh',
+                    height: isLargeScreen ? '25vh' : '15vh',
                     transition: { duration: 1 }
                 }).then(() => {
                     setOpeningState(false);
@@ -34,11 +34,10 @@ export default function Main_header() {
     return (
         <>
             <motion.span
-                className="flex flw-row justify-center items-center "
-                style={{ height: openingstate ? '100vh' : '25vh' }} // 처음에는 전체 높이
+                className={`flex flex-row justify-center items-center ${openingstate ? 'h-screen' : 'h-[15vh] lg:h-[25vh]'}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
-              <span className="lg:h-[130px] h-[60px] overflow-hidden pr-5">
+              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 transition-none hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] bg-[var(--bg-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                     <Pirate_logo />
                 </span>
                 
@@ -90,7 +89,7 @@ export default function Main_header() {
                             },
                           }}
                         >
-                          <span className="inline-block font-medium lg:text-[20vh] text-[45px] overflow-hidden">
+                          <span className="inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden">
                             {letter}
                           </span>
                         </motion.span>

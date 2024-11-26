@@ -14,25 +14,17 @@ export function updateTheme(bgColor: string, textColor: string) {
   });
 }
 
-  const palettes = [
-    { bg: "#f9f9f9", text: "#000000" }, //Welcome!!! 저는 김병찬이구요 어쩌구 - 내 얼굴 모자이크로
-    { bg: "#B1C1BC ", text: "#002E1E" }, //Welcome!!! 개발자 일 하고 있어요 - 불타는 컴터 명나라 그림
-    { bg: "#FFEAEA ", text: "#450000" }, //일상 같은 거 올릴게요. - 코비, 일본 
-    { bg: "#B5B8C3 ", text: "#020A2F" }, //웹 아트도 해볼게요 - lucien freud zebra
-    { bg: "#FFF9EA ", text: "#453900" }, //여러가지 올릴 수도 있고 잘해봅시다잉 - 리애기공룡둘리애 또치
-  ];
+  // const palettes = [
+  //   { bg: "#f9f9f9", text: "#000000" }, //Welcome!!! 저는 김병찬이구요 어쩌구 - 내 얼굴 모자이크로
+  //   { bg: "#B1C1BC ", text: "#002E1E" }, //Welcome!!! 개발자 일 하고 있어요 - 불타는 컴터 명나라 그림
+  //   { bg: "#FFEAEA ", text: "#450000" }, //일상 같은 거 올릴게요. - 코비, 일본 
+  //   { bg: "#B5B8C3 ", text: "#020A2F" }, //웹 아트도 해볼게요 - lucien freud zebra
+  //   { bg: "#FFF9EA ", text: "#453900" }, //여러가지 올릴 수도 있고 잘해봅시다잉 - 리애기공룡둘리애 또치
+  // ];
 
 export default function Pirate_logo() {
   
-    const LgimageStyle = {
-        fill: 'var(--text-color)'
-
-    }
-    const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
-    const [currentColor, setCurrentColor] = useState<string>('var(--text-color)');
-    const [hoverColor, sethoverColor] = useState('#000000');
-    const [NextColor, setNextColor] = useState<{ bg: string, text: string }>({ bg: "#f9f9f9", text: "#000000" });
 
 
     const handleClick = () => {
@@ -49,9 +41,7 @@ export default function Pirate_logo() {
           const difference = 255 - randomValue;
           BgColor += difference.toString(16).padStart(2, '0');  // hexColor2 생성
         }
-          sethoverColor(`#${TextColor}`);
-          setNextColor({ bg: `#${BgColor}`, text: `#${TextColor}` });
-          updateTheme(NextColor.bg, NextColor.text);
+          updateTheme(`#${BgColor}`, `#${TextColor}`);
 
       };
 
@@ -60,15 +50,12 @@ export default function Pirate_logo() {
         <>
         { !openingstate && 
         <SlideupChildren  >
-          <button onClick={()=>{handleClick();}} className=" ">
+          <button onClick={()=>{handleClick();}} className="">
             <motion.div
             animate={{ rotateX: 20, rotateY: 3 }} // 360도 회전
             transition={{ repeat: Infinity, type: "spring", bounce: 0.85, repeatDelay: 4.5, duration:1}} // 무한 반복, x초에 한 번 회전
-            style={LgimageStyle}
-            onMouseEnter={() => setCurrentColor(hoverColor)}
-            onMouseLeave={() => setCurrentColor('var(--text-color)')}
             >
-                <Pirate_circle alt="Pirate_circle" className="pirate-logo " style={{ fill: currentColor }} width={800} height={800}/>
+                <Pirate_circle alt="5억년 버튼" className="pirate-logo" width={800} height={800}/>
             </motion.div>
         </button>
         </SlideupChildren>

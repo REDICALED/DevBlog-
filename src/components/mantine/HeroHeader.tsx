@@ -32,7 +32,7 @@ export function HeroHeader() {
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
   return (
-    <div className=' h-[45vh] lg:h-[60vh] w-full flex overflow-hidden '>
+    <div className=' h-[60vh] lg:h-[60vh] w-full flex overflow-hidden '>
       <Hero_Carousel 
         slides={[
           <div key={"carousel_1"}>

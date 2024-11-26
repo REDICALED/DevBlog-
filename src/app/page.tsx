@@ -16,7 +16,7 @@ export default function Home() {
             <div className='row-span-1 place-items-center grid'>
                 <Main_header/>
             </div>
-            <hr className=" h-[2.5px] lg:h-[3.5px] my-8 border-0 " style={{ backgroundColor: 'var(--text-color)' }}/>
+            <hr className=" h-[2.5px] lg:h-[3.5px] mb-8 lg:mt-8 border-0 " style={{ backgroundColor: 'var(--text-color)' }}/>
             
             <div className=' mb-10'>
             

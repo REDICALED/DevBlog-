@@ -26,7 +26,6 @@
   .pirate-logo {
     width: 110px; /* 기본 크기 */
     height: 110px;
-    fill: var(--text-color);
 }
 
 /* 화면 크기가 1024px 이하일 때 */
@@ -34,7 +33,6 @@
     .pirate-logo {
         width: 50px; /* 작은 화면 크기 */
         height: 50px;
-        fill: var(--text-color);
     }
 }
 
