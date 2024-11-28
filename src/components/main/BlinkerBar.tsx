@@ -12,7 +12,7 @@ export default function BlinkerBar(props: any) {
                               opacity: [1, 0, 1, 0,   1, 0, 1],  // 깜빡임 효과
                               transition: {
                                 duration: 1.5,
-                                delay: 4.3,
+                                delay: 3.5,
                                 repeat: 0,
                                 times: [0, 0.1, 0.15, 0.2,  0.3, 0.35, 0.6], 
                                 ease: "easeInOut",
