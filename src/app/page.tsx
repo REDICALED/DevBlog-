@@ -21,9 +21,7 @@ export default function Home() {
             
             <div className=' mb-10'>
             
-            <BlinkerBar direction={true}/>
                 <HeroHeader/>
-            <BlinkerBar direction={false}/>
             </div>
 
             <div className='row-span-1 w-full'>

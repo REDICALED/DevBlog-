@@ -23,6 +23,7 @@ import { motion,AnimatePresence } from 'framer-motion';
 import { colorIndexState } from '@/Atoms/ColorAtom';
 import { useRecoilState } from 'recoil';
 import { OpeningState } from '@/Atoms/OpeningAtom';
+import BlinkerBar from '../main/BlinkerBar';
 
 
 
@@ -31,7 +32,9 @@ export function HeroHeader() {
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
   return (
-    <div className=' h-[60vh] lg:h-[60vh] w-full flex overflow-hidden '>
+    <div>
+      <BlinkerBar direction={true}/>
+      <div className=' h-[60vh] lg:h-[60vh] w-full flex overflow-hidden '>
       <Hero_Carousel 
         slides={[
           <div key={"carousel_1"}>
@@ -90,5 +93,8 @@ export function HeroHeader() {
         }}
       />
     </div>
+    <BlinkerBar direction={false}/>
+    </div>
+    
   );
 }
