@@ -5,11 +5,13 @@ import Pirate_logo from "@/components/main/Pirate_logo";
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";
 import { useEffect, useState } from 'react';
+import Greyscale from "@/assets/dark.svg";
+import SlideupChildren from "@/components/main/SlideupChildren";
 
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
-    const text = "Redi Blog";  // 애니메이션할 텍스트
+    const text = "®Kobe-Kernel";  // 애니메이션할 텍스트
     const isLargeScreen = window.innerWidth >= 1024;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
@@ -23,7 +25,7 @@ export default function Main_header() {
             // 깜빡이기 시작
             blinkControls.start("blink").then(() => {
                 containerControls.start({
-                    height: isLargeScreen ? isScrolledlarge : isScrolled, //이걸 string state로 관리
+                    height: isLargeScreen ? '150px' : '60px', //이걸 string state로 관리
                     transition: { duration: 1 }
                 }).then(() => {
                     setOpeningState(false);
@@ -32,8 +34,6 @@ export default function Main_header() {
         });
     };
 
-    const [isScrolled, setIsScrolled] = useState<string>('15vh');
-    const [isScrolledlarge, setIsScrolledLarge] = useState<string>('25vh');
 
 
     useEffect(() => {
@@ -46,13 +46,13 @@ export default function Main_header() {
 const handleScroll = () => {
   if(window.scrollY < 50){
     containerControls.start({
-      height:  isLargeScreen ? '25vh' : '15vh', //이걸 string state로 관리
+      height:  isLargeScreen ? '150px' : '60px',
       transition: { duration: 0.5 }
   });
   }
   else{
     containerControls.start({
-      height:  isLargeScreen ? '15vh' : '10vh', //이걸 string state로 관리
+      height:  isLargeScreen ? '75px' : '30px',
       transition: { duration: 0.5 }
   });
   }
@@ -62,15 +62,13 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={` transition-[background-color] duration-500 lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen' : ` bg-[var(--bg-color)] w-full fixed top-0 z-50 `}`}
+                className={`w-[100vw] transition-[background-color] duration-500 lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
-              <span className="lg:h-[130px] h-[60px] overflow-hidden lg:mr-5 mr-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
-                    <Pirate_logo />
-                </span>
+
                 
                 <motion.div
-                    className="overflow-hidden"
+                    className={`overflow-hidden ${openingstate ? '' : 'animate-slide-left-parent'} `}
                     style={{ display: 'flex' }}
                     initial="hidden"
                     animate="visible"
@@ -117,17 +115,41 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                          <span className={` inline-block font-medium lg:text-[120px] text-[45px] overflow-hidden`}>
+                          <span className={` inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
                             {letter}
                           </span>
                         </motion.span>
                       </motion.span>
                     ))}
                 </motion.div>
+                
+                {
+                  !openingstate && 
+                  
+                <span 
+                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500 mr-2 lg:mr-10 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
+                  <SlideupChildren>
+                <Greyscale
+                    className=" place-items-center lg:size-[60px] size-[35px] overflow-hidden p-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" 
+
+                 onClick={()=>{
+                  requestAnimationFrame(() => {
+                    document.documentElement.style.setProperty('--bg-color', `#f9f9f9`);
+                    document.documentElement.style.setProperty('--text-color', `#000000`);
+                });  
+                }}>
+                </Greyscale>
+                  </SlideupChildren>
+                </span>
+                  
+                  }
+                <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-5 mr-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                    <Pirate_logo />
+                </span>
             </motion.span>
-            {!openingstate && (
+            {openingstate ? <></> : (
         <div
-            className={` h-[15vh] lg:h-[25vh] mt-8 `}
+          className={` h-[60px] lg:h-[150px] mt-8 `}
         ></div>
     )}
 

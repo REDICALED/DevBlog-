@@ -10,6 +10,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+
+      keyframes: {
+        'slide-left-parent': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-20vw)' }, // 50%로 이동
+        },
+        'slide-right-parent': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(+20vw)' }, // 50%로 이동
+        },
+      },
+      animation: {
+        'slide-left-parent': 'slide-left-parent 1s ease-in-out forwards', // forwards 추가
+        'slide-right-parent': 'slide-right-parent 1s ease-in-out forwards', // forwards 추가
+
+      },
+
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

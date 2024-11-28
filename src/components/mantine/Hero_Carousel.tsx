@@ -7,9 +7,11 @@ import Pirate_circle from "@/assets/pirate_circle.svg";
 import { motion } from 'framer-motion';
 import { colorIndexState } from "@/Atoms/ColorAtom";
 import { useRecoilState } from "recoil";
+import { OpeningState } from "@/Atoms/OpeningAtom";
 
 
 export function updateTheme(bgColor: string, textColor: string) {
+
   requestAnimationFrame(() => {
       document.documentElement.style.setProperty('--bg-color', bgColor);
       document.documentElement.style.setProperty('--text-color', textColor);
@@ -32,6 +34,7 @@ type PropType = {
 };
 
 export const Hero_Carousel = (props: PropType) => {
+  const [openingstate, setOpeningState] = useRecoilState(OpeningState);
   const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
   const { options, slides } = props; 
   const [emblaRef, embla] = useEmblaCarousel(options); 
@@ -71,7 +74,8 @@ const handleClickNext = () => {
   };
 
   return (
-    <div className="w-full h-[60vh] lg:h-[60vh] relative flex">
+    <>
+    { !openingstate && <div className="w-full h-[60vh] lg:h-[60vh] relative flex">
   <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
@@ -89,7 +93,8 @@ const handleClickNext = () => {
   <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
     <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
-</div>
+</div>}
+    </>
   );
 };
 

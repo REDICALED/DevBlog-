@@ -48,12 +48,12 @@ export default function Pirate_logo() {
         <>
         { !openingstate && 
         <SlideupChildren  >
-          <button onClick={()=>{handleClick();}} className="">
+          <button onClick={()=>{handleClick();}} className=" grid place-items-center p-1">
             <motion.div
             animate={{ rotateX: 20, rotateY: 3 }} // 360도 회전
             transition={{ repeat: Infinity, type: "spring", bounce: 0.85, repeatDelay: 4.5, duration:1}} // 무한 반복, x초에 한 번 회전
             >
-                <Pirate_circle alt="5억년 버튼" className="pirate-logo" width={800} height={800}/>
+                <Pirate_circle alt="5억년 버튼" className="pirate-logo " width={100} height={100}/>
             </motion.div>
         </button>
         </SlideupChildren>

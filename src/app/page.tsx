@@ -16,8 +16,7 @@ export default function Home() {
     
     return (
         <div className=' '>
-            <div className='row-span-1 place-items-center grid'>
-                <Main_header/>
+            <div className='row-span-1 place-items-center grid w-[100vw]'>
             </div>
             
             <div className=' mb-10'>
