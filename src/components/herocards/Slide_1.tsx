@@ -28,7 +28,7 @@ export default function Slide_1() {
                 </div>
 
                 <p className=" font-medium lg:text-[64px] text-[18px] h-auto mt-1 lg:mt-10 overflow-hidden">
-                <SlideupText text={"Savoring all things Web/CS"}></SlideupText>
+                <SlideupText text={"Savoring all things Web"}></SlideupText>
                 </p>
 
                 <div className='flex'>

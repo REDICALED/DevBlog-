@@ -1,17 +1,22 @@
 import type { Metadata, Viewport } from "next";
 import '@mantine/core/styles.css';
-import { Inter } from "next/font/google";
 import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import { Montserrat, Noto_Sans_KR } from "next/font/google";
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import CustomCursor from "@/components/CustomCursor";
+import dynamic from "next/dynamic";
 
 const montserrat = Montserrat({
   preload: true,
   subsets: ["latin"], // 또는 preload: false
   weight: ["100","200","300", "400","500","600", "700", "900"], // 가변 폰트가 아닌 경우, 사용할 fontWeight 배열
 });
+
+const Mainheader = dynamic(() => import('@/components/main/Main_header')
+, {
+  ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
+  });
 
 const notoSansKr= Noto_Sans_KR({
   subsets: [], // preload에 사용할 subsets입니다.
@@ -40,6 +45,7 @@ export default function RootLayout({
       <RecoilRootWrapper>
       <MantineProvider>
       <CustomCursor />
+      <Mainheader />
       {children}
       </MantineProvider>
 				</RecoilRootWrapper>

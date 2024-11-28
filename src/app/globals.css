@@ -24,15 +24,15 @@
 
 
   .pirate-logo {
-    width: 110px; /* 기본 크기 */
-    height: 110px;
+    width: 60px; /* 기본 크기 */
+    height: 60px;
 }
 
 /* 화면 크기가 1024px 이하일 때 */
 @media (max-width: 1024px) {
     .pirate-logo {
-        width: 50px; /* 작은 화면 크기 */
-        height: 50px;
+        width: 25px; /* 작은 화면 크기 */
+        height: 25px;
     }
 }
 
