@@ -7,7 +7,7 @@ import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
 import SlideupChildren from "@/components/main/SlideupChildren";
  
 
-export default function Slide_1() {
+export default function Slide_2() {
     return (
         <div className='lg:flex w-full h-[45vh] lg:h-[60vh] place-items-center '>
                 <div className='lg:w-1/3 w-full '>
@@ -28,7 +28,7 @@ export default function Slide_1() {
                 </div>
 
                 <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-5 overflow-hidden">
-                <SlideupText text={"Welcome to my personal website!"}></SlideupText>
+                <SlideupText text={"Exploring all things web and CS now"}></SlideupText>
                 </p>
 
                 <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-3 overflow-hidden">

@@ -25,8 +25,8 @@ const notoSansKr= Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "rediMaid",
-  description: "redicaled rockbottom",
+  title: "kob3krnl.0.1-rt24.11",
+  description: "Kobemom's warehouse",
 };
 
 export const viewport: Viewport = {
