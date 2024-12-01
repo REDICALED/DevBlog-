@@ -11,7 +11,7 @@ import SlideupChildren from "@/components/main/SlideupChildren";
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
-    const text = "®Kobe-Kernel";  // 애니메이션할 텍스트
+    const text = "®KobeKrnl";  // 애니메이션할 텍스트
     const isLargeScreen = window.innerWidth >= 1024;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
@@ -122,7 +122,6 @@ const handleScroll = () => {
                       </motion.span>
                     ))}
                 </motion.div>
-                
                 {
                   !openingstate && 
                   

@@ -27,8 +27,12 @@ export default function Slide_1() {
                 <SlideupText text={"ByeongChan Kim"}></SlideupText>
                 </div>
 
-                <p className=" font-medium lg:text-[64px] text-[18px] h-auto mt-1 lg:mt-10 overflow-hidden">
-                <SlideupText text={"Savoring all things Web"}></SlideupText>
+                <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-5 overflow-hidden">
+                <SlideupText text={"Welcome to my personal website!"}></SlideupText>
+                </p>
+
+                <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-3 overflow-hidden">
+                <SlideupText text={"Take your time and enjoy!"}></SlideupText>
                 </p>
 
                 <div className='flex'>

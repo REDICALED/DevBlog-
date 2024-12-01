@@ -11,6 +11,7 @@ import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
 
 import Slide_1 from "@/components/herocards/Slide_1";
+import Slide_2 from "@/components/herocards/Slide_2";
 
 import Bc_sit from '@/assets/bc_sit.jpg'
 import budda from '@/assets/budda.png'
@@ -44,13 +45,8 @@ export function HeroHeader() {
           </div>,
 
           <div key={"carousel_2"} className=' overflow-hidden '>
-            {paletteIndex === 1 && (
-              <img
-              key={0}
-              src={budda.src}
-              alt="Image"
-              className="object-contain rounded-md w-[10vw] animate__slide-in-top"
-            />
+            { !openingstate &&  paletteIndex === 1 && (
+              <Slide_2/>
             )}
           </div>,
 
