@@ -53,7 +53,7 @@ const handleScroll = () => {
   }
   else{
     containerControls.start({
-      height:  isLargeScreen ? '75px' : '50px',
+      height:  isLargeScreen ? '75px' : '45px',
       transition: { duration: 0.5 }
   });
   }
