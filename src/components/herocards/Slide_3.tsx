@@ -16,7 +16,7 @@ import SlideupChildren from "@/components/main/SlideupChildren";
 
 export default function Slide_4() {
     return (
-        <div className=' relative lg:flex w-full h-[600px] lg:h-[600px] place-items-center items-start '>
+        <div className=' relative lg:flex w-full h-[500px] lg:h-[600px] place-items-center items-start '>
 
                 <div className=" lg:px-[10%] lg:pt-[0] font-semibold lg:w-full lg:text-[7.5vh] text-[3vh] leading-nonemy-2 ">
                 
@@ -49,7 +49,7 @@ export default function Slide_4() {
                     </div>
                 </div>
 
-                <div className=' w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-10 right-0 '>
+                <div className=' w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-2 right-0 '>
                     <div className=''>
                       <img  
                         key={0}
@@ -60,7 +60,7 @@ export default function Slide_4() {
                     </div>
                 </div>
 
-                <div className=' lg:text-[20px] text-[14px] w-full lg:w-[10%] text-center font-extrabold lg:absolute lg:top-1/2 flex '>
+                <div className=' font-extrabold text-center text-[12px] lg:text-[24px] w-full lg:w-[10%] absolute bottom-0 lg:pb-[200px] pb-[40px] flex justify-start left-0  '>
                     <div className=' animate__bounce-in-bottom '>
                       <img  
                         key={0}

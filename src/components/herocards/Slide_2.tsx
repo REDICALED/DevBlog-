@@ -9,7 +9,7 @@ import SlideupChildren from "@/components/main/SlideupChildren";
 
 export default function Slide_2() {
     return (
-        <div className='lg:flex w-full h-[600px] lg:h-[600px] place-items-center items-start '>
+        <div className='lg:flex w-full h-[500px] lg:h-[600px] place-items-center items-start '>
           
                 <div className='lg:w-1/3 w-full lg:mr-10 '>
                     <div className='grid place-items-center'>
