@@ -67,8 +67,8 @@ const CustomCursor: React.FC = () => {
           fill: 'var(--text-color)',
         }}
       >
-        <circle cx="12" cy="12" r="10" />
-      </svg>
+      <circle cx="12" cy="12" r="10" stroke="var(--bg-color)" strokeWidth="1.5" fill="var(--text-color)" />
+    </svg>
     </div>
   );
 };

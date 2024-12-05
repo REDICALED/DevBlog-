@@ -20,7 +20,7 @@
         "description": "Returns the hello world",
         "responses": {
           "200": {
-            "description": "Hello World!"
+            "description": " World!"
           }
         }
       }
