@@ -127,7 +127,7 @@ const handleScroll = () => {
                   !openingstate && 
                   
                 <span 
-                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500  mr-[90px]  lg:mr-[120px] hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
+                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500  mr-[50px]  lg:mr-[120px] hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
                   <SlideupChildren>
                 <Greyscale
                     className="transition-[fill] duration-200 lg:h-[60px] h-[35px] p-2" 
@@ -148,7 +148,7 @@ const handleScroll = () => {
                   <Pirate_logo />
                 </span>
 
-                { !openingstate && <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[50px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                { !openingstate && <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[90px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <SlideupChildren>
                     <Backtotop onClick={()=>{
                         window.scrollTo({top: 0, behavior: 'smooth'});

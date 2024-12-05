@@ -74,12 +74,12 @@ const handleClickNext = () => {
 
   return (
     <>
-    { !openingstate && <div className="w-full h-[600px] lg:h-[600px] relative flex">
+    { !openingstate && <div className="w-full h-[500px] lg:h-[600px] relative flex">
   <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
-  <div className="w-full h-[600px] lg:h-[600px] " ref={emblaRef}> {/* 부모 높이 고정 */}
+  <div className="w-full h-[500px] lg:h-[600px] " ref={emblaRef}> {/* 부모 높이 고정 */}
     <div className="flex flex-wrap ">
       {slides.map((slide, index) => (
         <div className="w-full h-full relative ml-1" key={index}>

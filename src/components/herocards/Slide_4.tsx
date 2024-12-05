@@ -13,7 +13,7 @@ import SlideupChildren from "@/components/main/SlideupChildren";
 
 export default function Slide_4() {
     return (
-        <div className=' relative lg:flex w-full h-[600px] lg:h-[600px] place-items-center items-start '>
+        <div className=' relative lg:flex w-full h-[500px] lg:h-[600px] place-items-center items-start '>
 
                 <div className=" lg:ml-4 font-semibold lg:w-full lg:text-[7.5vh] text-[3vh] leading-nonemy-2 ">
                 
@@ -31,7 +31,7 @@ export default function Slide_4() {
 
                 </div>
 
-                <div className='w-full lg:absolute bottom-0 left-0 pt-10 lg:pt-0 '>
+                <div className='w-full lg:absolute bottom-0 left-0 pt-2 lg:pt-0 '>
                     <div className=''>
                       <img
                         key={0}
@@ -43,7 +43,7 @@ export default function Slide_4() {
                 </div>
 
 
-                <div className='w-full lg:absolute bottom-0 right-0 flex justify-end pt-10 lg:pt-0 '>
+                <div className='w-full lg:absolute bottom-0 right-0 flex justify-end pt-1 lg:pt-0 '>
                     <div className=''>
                       <img  
                         key={0}

@@ -9,7 +9,7 @@ import SlideupChildren from "@/components/main/SlideupChildren";
 
 export default function Slide_1() {
     return (
-        <div className='lg:flex w-full h-[600px] lg:h-[600px] place-items-center items-start '>
+        <div className='lg:flex w-full h-[500px] lg:h-[600px] place-items-center items-start '>
           
                 <div className='lg:w-1/3 w-full '>
                     <div className='grid place-items-center'>
@@ -17,7 +17,7 @@ export default function Slide_1() {
                         key={0}
                         src={Bc_sit.src}
                         alt="Image"
-                        className=" grid place-items-center object-contain h-[25vh] lg:h-[600px] rounded-md animate__slide-in-top  "
+                        className=" grid place-items-center object-contain h-[25vh] lg:h-[500px] rounded-md animate__slide-in-top  "
                       />
                     </div>
                 </div>
