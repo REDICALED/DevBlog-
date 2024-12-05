@@ -12,6 +12,9 @@ import SlideupText from "@/components/main/SlideupText";
 
 import Slide_1 from "@/components/herocards/Slide_1";
 import Slide_2 from "@/components/herocards/Slide_2";
+import Slide_3 from "@/components/herocards/Slide_3";
+import Slide_4 from "@/components/herocards/Slide_4";
+
 
 import Bc_sit from '@/assets/bc_sit.jpg'
 import budda from '@/assets/budda.png'
@@ -34,8 +37,10 @@ export function HeroHeader() {
 
   return (
     <div>
-      <BlinkerBar direction={true}/>
-      <div className=' h-[60vh] lg:h-[60vh] w-full flex overflow-hidden '>
+      { !openingstate &&   (
+          <BlinkerBar direction={true}/>
+    )}
+      <div className=' h-[600px] lg:h-[600px] w-full flex overflow-hidden '>
       <Hero_Carousel 
         slides={[
           <div key={"carousel_1"}>
@@ -50,36 +55,16 @@ export function HeroHeader() {
             )}
           </div>,
 
-          <div key={"carousel_3"}className=' overflow-hidden '>
-            {paletteIndex === 2 && (
-              <img
-              key={0}
-              src={budda.src}
-              alt="Image"
-              className="object-contain rounded-md w-[30vw] animate__slide-in-top"
-            />
-            )}
-          </div>,
-          <div key={"carousel_4"}className=' overflow-hidden '>
-          {paletteIndex === 3 && (
-            <img
-            key={0}
-            src={budda.src}
-            alt="Image"
-            className="object-contain rounded-md w-[30vw] animate__slide-in-top"
-          />
+          <div key={"carousel_3"} className=' overflow-hidden '>
+          { !openingstate &&  paletteIndex === 2 && (
+            <Slide_3/>
           )}
-        </div>,
-        <div key={"carousel_5"}className=' overflow-hidden '>
-        {paletteIndex === 4 && (
-          <img
-          key={0}
-          src={budda.src}
-          alt="Image"
-          className="object-contain rounded-md w-[30vw] animate__slide-in-top"
-        />
-        )}
-      </div>
+          </div>,
+          <div key={"carousel_4"} className=' overflow-hidden '>
+          { !openingstate &&  paletteIndex === 3 && (
+            <Slide_4/>
+          )}
+        </div>
         ]}
         options={{
           align: "start",
@@ -89,8 +74,9 @@ export function HeroHeader() {
         }}
       />
     </div>
-    <BlinkerBar direction={false}/>
-    </div>
+    { !openingstate &&   (
+          <BlinkerBar direction={false}/>
+    )}    </div>
     
   );
 }

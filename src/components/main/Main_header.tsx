@@ -7,6 +7,7 @@ import { OpeningState } from "@/Atoms/OpeningAtom";
 import { useEffect, useState } from 'react';
 import Greyscale from "@/assets/dark.svg";
 import SlideupChildren from "@/components/main/SlideupChildren";
+import Backtotop from "@/assets/back-to-top.svg";
 
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
@@ -68,7 +69,7 @@ const handleScroll = () => {
 
                 
                 <motion.div
-                    className={`overflow-hidden ${openingstate ? '' : 'animate-slide-left-parent'} `}
+                    className={`overflow-hidden  ml-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
                     style={{ display: 'flex' }}
                     initial="hidden"
                     animate="visible"
@@ -115,7 +116,7 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                          <span className={` inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
+                          <span className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
                             {letter}
                           </span>
                         </motion.span>
@@ -126,10 +127,10 @@ const handleScroll = () => {
                   !openingstate && 
                   
                 <span 
-                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500 mr-2 lg:mr-10 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
+                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500  mr-[90px]  lg:mr-[120px] hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
                   <SlideupChildren>
                 <Greyscale
-                    className=" place-items-center lg:size-[60px] size-[35px] overflow-hidden p-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" 
+                    className="transition-[fill] duration-200 lg:h-[60px] h-[35px] p-2" 
 
                  onClick={()=>{
                   requestAnimationFrame(() => {
@@ -142,9 +143,18 @@ const handleScroll = () => {
                 </span>
                   
                   }
-                <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-5 mr-2 duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
-                    <Pirate_logo />
+
+                <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-[40px] mr-[10px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                  <Pirate_logo />
                 </span>
+
+                { !openingstate && <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[50px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                  <SlideupChildren>
+                    <Backtotop onClick={()=>{
+                        window.scrollTo({top: 0, behavior: 'smooth'});
+                    }} alt="logo" className=" transition-[fill] duration-200 lg:h-[60px] h-[35px] p-2"/>
+                </SlideupChildren>
+                </span>}
             </motion.span>
             {openingstate ? <></> : (
         <div
