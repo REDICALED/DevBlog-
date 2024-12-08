@@ -2,17 +2,27 @@
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Link from 'next/link';
+import {Search_input} from '@/components/mantine/Search_input';
+import {ToggleList} from '@/components/main/ToggleList';
 
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
 
     return (
-        <div>
+        <div className="px-5 lg:px-10">
+            <div className="flex">
+            <div className=" pr-10">
+            <Search_input/>
+            </div>
+            <div>
+            <ToggleList/>
+            </div>
+            </div>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{ 360: 1, 640: 2, 1024: 3 }}
                 className="">
-                <Masonry className="px-5 lg:px-10">
+                <Masonry >
                     {props.supaArray.map((value: any, index: number) => (
                         <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-1">
                             { (value.titleimage && value.titleimage.length) > 0 && (

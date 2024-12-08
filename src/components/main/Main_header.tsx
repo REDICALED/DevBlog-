@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import Greyscale from "@/assets/dark.svg";
 import SlideupChildren from "@/components/main/SlideupChildren";
 import Backtotop from "@/assets/back-to-top.svg";
+import Link from "next/link";
 
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
@@ -63,7 +64,7 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={`w-[100vw] transition-[background-color] duration-500 lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
+                className={`w-[100vw] transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
 
@@ -116,9 +117,9 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                          <span className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
-                            {letter}
-                          </span>
+                           <span className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
+                            {!openingstate ? <Link href='/'>{letter}</Link> : <span>{letter}</span>}
+                          </span> 
                         </motion.span>
                       </motion.span>
                     ))}
@@ -126,11 +127,11 @@ const handleScroll = () => {
                 {
                   !openingstate && 
                   
-                <span 
+                <button 
                 className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500  mr-[50px]  lg:mr-[120px] hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
                   <SlideupChildren>
                 <Greyscale
-                    className="transition-[fill] duration-200 lg:h-[60px] h-[35px] p-2" 
+                    className="transition-[background-color] duration-[0.45s] lg:h-[60px] h-[35px] p-2" 
 
                  onClick={()=>{
                   requestAnimationFrame(() => {
@@ -140,7 +141,7 @@ const handleScroll = () => {
                 }}>
                 </Greyscale>
                   </SlideupChildren>
-                </span>
+                </button>
                   
                   }
 
@@ -148,13 +149,13 @@ const handleScroll = () => {
                   <Pirate_logo />
                 </span>
 
-                { !openingstate && <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[90px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                { !openingstate && <button className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[90px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <SlideupChildren>
                     <Backtotop onClick={()=>{
                         window.scrollTo({top: 0, behavior: 'smooth'});
-                    }} alt="logo" className=" transition-[fill] duration-200 lg:h-[60px] h-[35px] p-2"/>
+                    }} alt="logo" className=" transition-[background-color] duration-[0.45s]  lg:h-[60px] h-[35px] p-2"/>
                 </SlideupChildren>
-                </span>}
+                </button>}
             </motion.span>
             {openingstate ? <></> : (
         <div

@@ -11,13 +11,16 @@
     background-color: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.5s ease, color 0.5s ease;
-    cursor: none;
+    cursor: none !important;
   }
 
-  button, a {
-    cursor: none;  /* 커스텀 커서만 활성화 */
+  button, a, input, textarea, select {
+    cursor: none !important;  /* 커스텀 커서만 활성화 */
   }
-  
+  input.mantine-Input-input,
+  input.mantine-TextInput-input {
+    cursor: none !important;
+}
   svg {
     transition: fill 0.5s ease; /* fill 색상에 대한 transition 속도를 더 빠르게 설정 */
   }
