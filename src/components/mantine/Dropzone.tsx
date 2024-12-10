@@ -2,11 +2,28 @@ import { Group, rem } from '@mantine/core';
   import { useState } from 'react';
   import { Text, Image, SimpleGrid } from '@mantine/core';
   import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, FileWithPath } from '@mantine/dropzone';
-  
+  import Resizer from "react-image-file-resizer";
+
   interface CustomDropzoneProps extends Partial<DropzoneProps> {
     setFile: React.Dispatch<React.SetStateAction<string | null>>;
   }
   
+  const resizeFile = (file: File): Promise<File>  =>
+    new Promise((res) => {
+      Resizer.imageFileResizer(
+        file, // target file
+        600, // maxWidth
+        600, // maxHeight
+        "JPEG", // compressFormat : Can be either JPEG, PNG or WEBP.
+        100, // quality : 0 and 100. Used for the JPEG compression
+        0, // rotation
+        (uri) => res(uri as File), // responseUriFunc
+        "file" // outputType : Can be either base64, blob or file.(Default type is base64)	
+      );
+    // console.log("resizeFile");
+    }
+  );
+
   export function Dropzon({ setFile, ...props }: CustomDropzoneProps) {
     const [files, setFiles] = useState<FileWithPath[]>([]);
     const fileToBase64 = (file: File): Promise<string> => {
@@ -19,7 +36,7 @@ import { Group, rem } from '@mantine/core';
     };
 
     const handleDrop = async (file: FileWithPath) => {
-      const base64 = await fileToBase64(file);
+      const base64 = await fileToBase64(await resizeFile(file));
       setFile(base64);  // Base64 문자열을 상위 컴포넌트에 전달
     };
 
