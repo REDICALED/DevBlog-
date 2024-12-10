@@ -9,6 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CalComponent from '@/components/Tiptap/Calendar';
 import { TagsInput } from '@mantine/core';
 import {Dropzon} from '@/components/mantine/Dropzone';
+import styles from '../../app/post/[id]/styles.module.css';
 
 const primaryKey = uuidv4();
 // console.log(primaryKey);
@@ -51,29 +52,57 @@ export default function Tiptap() {
 
   return (
     <>
-      <div className="grid grid-cols-2 my-4">
+      <div className="grid my-4 mx-2 ">
         <div>
         
-        <div className=' m-2 '>
+        <div className=' m-2 flex '>
           <CalComponent CalDate={CalDate} setCalDate={setCalDate} />
+          <div className=''>
+            post list
+          </div>
         </div>
+
+        <div className='flex'>
 
         <div className=' m-2 '>
             <input type="text" placeholder='제목' ref={titletextRef} className='border-2 border-black' />
+            <div className=''>
+            <TagsInput
+              label="태그 입력"
+              placeholder="Enter tag"
+              value={Tags}
+              onChange={setTags}
+            />
+        </div>
         </div>
 
-        <div className=''>
-        <TagsInput
-          label="태그 입력"
-          placeholder="Enter tag"
-          value={Tags}
-          onChange={setTags}
-        />
-        </div>
-        <div className=' m-2 border-black border-2 p-10'>
+        <div className=' ml-10 m-2 border-black border-2 p-10'>
         <Dropzon setFile={setAcceptedFile}/>
+        </div>
+
+        <div>
+        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors' onClick={() => {
+            if (editor) setPreview(editor.getHTML());
+          }}>
+            Preview
+        </button>
+        <div>
+          <input type="text" ref={maintextRef} className='border-2 border-black m-1' />
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={addPost}>
+            Add Post
+          </button>
+        </div>
+          
+        </div>
+
 
         </div>
+
+        
+
+        <div className='flex w-[100vw]'>
+        
+        <div className='h-[70vh] '>
           <EditorProvider 
             slotBefore={<MenuBar />} 
             extensions={extensions} 
@@ -81,21 +110,12 @@ export default function Tiptap() {
             onCreate={handleEditorCreate} // editor 객체를 받을 수 있는 콜백
             immediatelyRender={false}
           />
-          <input type="text" ref={maintextRef} className='border-2 border-black m-1' />
-
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors' onClick={() => {
-            if (editor) setPreview(editor.getHTML());
-          }}>
-            Preview
-          </button>
-
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={addPost}>
-            Add Post
-          </button>
+        </div>
+        <div className=' border-2 border-black bg-white overflow-scroll w-[50vw]'>
+          {Preview &&  <div className={styles.wrapper} dangerouslySetInnerHTML={{ __html: Preview }} />}
+        </div>
         </div>
 
-        <div className=' border-2 border-black bg-white'>
-          {Preview && <div dangerouslySetInnerHTML={{ __html: Preview }} />}
         </div>
       </div>
     </>

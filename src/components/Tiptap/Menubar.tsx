@@ -37,10 +37,10 @@ const MenuBar = (props: any) => {
         new Promise((res) => {
           Resizer.imageFileResizer(
             file, // target file
-            2500, // maxWidth
-            2500, // maxHeight
+            1200, // maxWidth
+            1200, // maxHeight
             "JPEG", // compressFormat : Can be either JPEG, PNG or WEBP.
-            100, // quality : 0 and 100. Used for the JPEG compression
+            70, // quality : 0 and 100. Used for the JPEG compression
             0, // rotation
             (uri) => res(uri as File), // responseUriFunc
             "file" // outputType : Can be either base64, blob or file.(Default type is base64)	
@@ -61,7 +61,6 @@ const MenuBar = (props: any) => {
           reader.onload = () => {
             const imageData = reader.result as string; // Base64로 변환된 데이터
             editor.commands.setImage({ src: imageData }); // Base64 이미지 삽입
-            editor.commands.insertContent(`<div>${file.name}</div>`); // 파일 이름 삽입
           };
       
           reader.readAsDataURL(file); // 파일을 Base64로 변환

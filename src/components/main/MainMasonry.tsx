@@ -11,12 +11,12 @@ export default function Notes(props: any) {
 
     return (
         <div className="px-5 lg:px-10">
-            <div className="flex">
+            <div className="lg:flex">
             <div className=" pr-10">
             <Search_input/>
             </div>
             <div>
-            <ToggleList/>
+                <ToggleList/>
             </div>
             </div>
             <ResponsiveMasonry
@@ -29,7 +29,7 @@ export default function Notes(props: any) {
                                 <img
                                     alt={value.title}
                                     src={value.titleimage}
-                                    className=" p-1 pt-3 absolute inset-0 h-2/3 w-full object-contain opacity-90 transition-all group-hover:opacity-50"
+                                    className=" p-1 pt-3 absolute inset-0 h-2/3 w-full object-cover opacity-90 transition-all group-hover:opacity-70"
                                 />
                             )}
                             <div className=" relative flex h-full transform items-end border-2 border-[var(--text-color)] transition-transform">
