@@ -41,7 +41,7 @@ const config: Config = {
         '2xl': '1536px',
       },
       fontFamily: { // 폰트패밀리
-        notoSansKr: ["var(--notoSansKr)"], // 다음과 같이 배열 안에 string으로 작성합니다.
+        custom: ['CustomFont', 'sans-serif'],
       },
     },
   },
