@@ -1,4 +1,3 @@
-import { Group, rem } from '@mantine/core';
   import { useState } from 'react';
   import { Text, Image, SimpleGrid } from '@mantine/core';
   import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, FileWithPath } from '@mantine/dropzone';

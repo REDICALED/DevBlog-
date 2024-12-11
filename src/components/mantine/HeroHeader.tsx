@@ -1,29 +1,11 @@
 'use client';
-
-import Image from 'next/image';
-import { IconCaretRightFilled, IconCaretLeftFilled } from '@tabler/icons-react';
-import classes from './HeroBullets.module.css';
-import dynamic from 'next/dynamic';
-import { SVGProps } from 'react';
-import Kobe_run from '@/assets/kobe_run.png'
 import {Hero_Carousel} from "@/components/mantine/Hero_Carousel";
-import SlideupTextLoop from "@/components/main/SlideupTextLoop";
-import SlideupText from "@/components/main/SlideupText";
 
 import Slide_1 from "@/components/herocards/Slide_1";
 import Slide_2 from "@/components/herocards/Slide_2";
 import Slide_3 from "@/components/herocards/Slide_3";
 import Slide_4 from "@/components/herocards/Slide_4";
 
-
-import Bc_sit from '@/assets/bc_sit.jpg'
-import budda from '@/assets/budda.png'
-import kobe_run from '@/assets/kobe_run.png'
-import soba from '@/assets/soba.png'
-import table from '@/assets/table.png'
-import trash from '@/assets/trash.png'
-import zebra from '@/assets/zebra.png'
-import { motion,AnimatePresence } from 'framer-motion';
 import { colorIndexState } from '@/Atoms/ColorAtom';
 import { useRecoilState } from 'recoil';
 import { OpeningState } from '@/Atoms/OpeningAtom';
@@ -31,7 +13,7 @@ import BlinkerBar from '../main/BlinkerBar';
 
 
 
-export function HeroHeader() {
+export default function HeroHeader() {
   const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 

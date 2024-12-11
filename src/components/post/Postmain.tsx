@@ -1,9 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
-import dynamic from 'next/dynamic';
 import '../../app/post/[id]/styles.module.css';
-
+import PostHtmlContent from '@/components/post/PostHtmlContent'
 // 클라이언트에서만 렌더링할 컴포넌트를 동적으로 임포트
-const ClientOnlyContent = dynamic(() => import('./DynamicComponent'), { ssr: false });
 
 export default async function Notes(props: any) {
   const supabase = createClient();
@@ -17,7 +15,7 @@ export default async function Notes(props: any) {
       <div className=''> {supaArray.title}</div>
 
       {/* 클라이언트에서만 렌더링할 콘텐츠 */}
-      <ClientOnlyContent content={supaArray.content} />
+      <PostHtmlContent content={supaArray.content} />
     </div>
   );
 }

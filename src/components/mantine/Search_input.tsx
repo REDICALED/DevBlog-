@@ -1,8 +1,4 @@
-import { TextInput,rem } from '@mantine/core';
-import {IconSearch} from '@tabler/icons-react';
-
 export function Search_input() {
-    const icon = <IconSearch style={{ width: rem(16), height: rem(16) }} />;
 
   return (
     <div>

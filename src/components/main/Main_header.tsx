@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import Pirate_logo from "@/components/main/Pirate_logo";
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Greyscale from "@/assets/dark.svg";
 import SlideupChildren from "@/components/main/SlideupChildren";
 import Backtotop from "@/assets/back-to-top.svg";
