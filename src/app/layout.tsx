@@ -8,7 +8,6 @@ import dynamic from "next/dynamic";
 const Mainheader = dynamic(() => import('@/components/main/Main_header')
 , {
   ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
-  loading: () => <div>Loading...</div>  // 로딩 스피너나 다른 UI를 제공
   });
 
 export const metadata: Metadata = {
