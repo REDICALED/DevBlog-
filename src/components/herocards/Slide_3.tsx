@@ -8,10 +8,7 @@ import spiffo from '@/assets/spiffo.png'
 
 import ootsuki from '@/assets/ootsuki.webp'
 
-import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
-import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
-import SlideupChildren from "@/components/main/SlideupChildren";
  
 
 export default function Slide_4() {

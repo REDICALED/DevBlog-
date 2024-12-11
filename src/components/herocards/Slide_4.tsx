@@ -3,12 +3,8 @@
 import zebra from '@/assets/zebra.png'
 import table from '@/assets/table.png'
 
-import trash from '@/assets/trash.png'
 
-import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
-import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
-import SlideupChildren from "@/components/main/SlideupChildren";
  
 
 export default function Slide_4() {

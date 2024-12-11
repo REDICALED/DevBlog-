@@ -1,10 +1,8 @@
 "use client";
 
-import React, { ReactNode, useCallback, useEffect, useState } from "react";
+import React, { ReactNode, useCallback } from "react";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { IconCaretLeftFilled, IconCaretRightFilled } from "@tabler/icons-react";
-import Pirate_circle from "@/assets/pirate_circle.svg";
-import { motion } from 'framer-motion';
 import { colorIndexState } from "@/Atoms/ColorAtom";
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";

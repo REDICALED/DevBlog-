@@ -1,10 +1,7 @@
 'use client';
 
 import Bc_coded from '@/assets/coded.jpg'
-import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
-import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
-import SlideupChildren from "@/components/main/SlideupChildren";
  
 
 export default function Slide_2() {
