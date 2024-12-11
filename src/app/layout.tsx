@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import '@mantine/core/styles.css';
 import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import { Montserrat, Noto_Sans_KR } from "next/font/google";
-import { MantineProvider } from '@mantine/core';
 import CustomCursor from "@/components/CustomCursor";
 import dynamic from "next/dynamic";
 
@@ -47,11 +45,9 @@ export default function RootLayout({
     <html>
       <body className={`${montserrat.className} ${notoSansKr.variable}`}>
       <RecoilRootWrapper>
-      <MantineProvider>
       <CustomCursor />
       <Mainheader />
       {children}
-      </MantineProvider>
 				</RecoilRootWrapper>
       </body>
     </html>
