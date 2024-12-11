@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const nextBundleAnalyzer = require('@next/bundle-analyzer');
+
 const nextConfig = {
     webpack: (config) => {
       config.module.rules.push({
@@ -12,5 +15,7 @@ const nextConfig = {
     },
   };
   
-  export default nextConfig;
+  module.exports = nextBundleAnalyzer({
+    enabled: process.env.ANALYZE === 'true'
+  })(nextConfig)
   
