@@ -10,6 +10,7 @@ import CalComponent from '@/components/Tiptap/Calendar';
 import { TagsInput } from '@mantine/core';
 import {Dropzon} from '@/components/mantine/Dropzone';
 import styles from '../../app/post/[id]/styles.module.css';
+import '@mantine/core/styles.css';
 
 const primaryKey = uuidv4();
 // console.log(primaryKey);

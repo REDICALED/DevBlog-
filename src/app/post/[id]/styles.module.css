@@ -1,7 +1,7 @@
 .wrapper h1 {
     font-size: 4rem;
   }
-  
+
 .wrapper h2 {
     font-size: 3rem;
   }
@@ -10,13 +10,14 @@
     font-size: 2rem;
   }
 
-.wrapper img {
-    
-    height: auto;
+  .wrapper img {
+    max-height: 40vh;
+    max-width: 80vw; /* 기본 크기: 화면 크기에 따라 100%로 설정 */
     justify-content: center;
     margin: 0 auto;
-    
+    object-fit: contain;
   }
+  
 
 .wrapper blockquote {
   background-color: var(--text-color);
