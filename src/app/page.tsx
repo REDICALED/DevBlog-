@@ -1,10 +1,5 @@
 import dynamic from 'next/dynamic'
-
-const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader')
-    ,{
-    loading: () => <p>Loading...</p>,
-    ssr: false
-  })
+import HeroHeader from '@/components/mantine/HeroHeader'
 
   const MainPostlist = dynamic(() => import('@/components/main/MainPostlist')
     ,{

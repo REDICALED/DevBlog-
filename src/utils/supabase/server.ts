@@ -1,10 +1,17 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 
+let cachedClient: ReturnType<typeof createServerClient> | null = null;
+
 export function createClient() {
+  if (cachedClient) {
+    return cachedClient;
+  }
+
   const cookieStore = cookies();
 
-  return createServerClient(
+  // 첫 호출 시 클라이언트 생성 후 캐시에 저장
+  cachedClient = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
@@ -16,21 +23,19 @@ export function createClient() {
           try {
             cookieStore.set({ name, value, ...options });
           } catch (error) {
-            // The `set` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
+            // 오류 처리
           }
         },
         remove(name: string, options: CookieOptions) {
           try {
             cookieStore.set({ name, value: '', ...options });
           } catch (error) {
-            // The `delete` method was called from a Server Component.
-            // This can be ignored if you have middleware refreshing
-            // user sessions.
+            // 오류 처리
           }
         },
       },
     },
   );
+
+  return cachedClient;
 }

@@ -4,6 +4,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
 import Image from '@tiptap/extension-image'
+import HardBreak from '@tiptap/extension-hard-break'
 
 
 const extensions = [
@@ -24,6 +25,12 @@ const extensions = [
       alignments: ['left', 'center', 'right', 'justify'],
       defaultAlignment: 'left',
     }),
+    HardBreak.extend({
+      addKeyboardShortcuts () {
+        return {
+          Enter: () => this.editor.commands.setHardBreak(),
+          "Shift-Enter": () => this.editor.commands.splitBlock(), 
+        }}}),
   ]
 
   export default extensions;
