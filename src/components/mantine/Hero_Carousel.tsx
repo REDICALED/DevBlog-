@@ -73,7 +73,7 @@ const handleClickNext = () => {
   return (
     <>
     { !openingstate && <div className="w-full h-[500px] lg:h-[600px] relative flex">
-  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
+  <button className=" m-1  transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
@@ -87,7 +87,7 @@ const handleClickNext = () => {
     </div>
   </div>
 
-  <button className=" transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
+  <button className=" m-1 transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
     <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
 </div>}
