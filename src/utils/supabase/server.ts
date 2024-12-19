@@ -5,8 +5,10 @@ let cachedClient: ReturnType<typeof createServerClient> | null = null;
 
 export function createClient() {
   if (cachedClient) {
+    console.log("aaaaa return cached");
     return cachedClient;
   }
+  console.log("bbbbbbb return new client");
 
   const cookieStore = cookies();
 
