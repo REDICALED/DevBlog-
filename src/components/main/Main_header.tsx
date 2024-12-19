@@ -46,7 +46,7 @@ export default function Main_header() {
   }, []);
 
 const handleScroll = () => {
-  if(window.scrollY < 50){
+  if(window.scrollY < 15){
     containerControls.start({
       height:  isLargeScreen ? '150px' : '60px',
       transition: { duration: 0.5 }

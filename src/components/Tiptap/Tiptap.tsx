@@ -41,7 +41,7 @@ export default function Tiptap() {
       const { data, error } = await supabase
         .from('posts') // 테이블 이름
         .insert([
-          { uuid: primaryKey, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, user_id: maintextRef.current?.value ?? 'testUser', tags: Tags },
+          { uuid: primaryKey, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, password: maintextRef.current?.value ?? '0', tags: Tags },
         ]);
   
     if (error) {
