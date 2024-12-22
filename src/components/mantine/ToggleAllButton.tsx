@@ -1,22 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import { CategoryState } from "@/Atoms/CategoryAtom"
+import { CategoryAllState } from "@/Atoms/CategoryAllAtom"
+
 import { useRecoilState } from "recoil";
 
-export function ToggleButton( props: {tag: string} ) {
+export function ToggleAllButton() {
+  const [isToggled, setIsToggled] = useState(true);
   const [category, setCategory] = useRecoilState(CategoryState);
-  const [isToggled, setIsToggled] = useState( category === props.tag );
+  const [categoryall, setCategoryAll] = useRecoilState(CategoryAllState);
 
   const handleToggle = () => {
-    if (props.tag !== category) {
-      setCategory(props.tag);
-      setIsToggled(!isToggled);
+    if (isToggled) {
+      setIsToggled(false);
+      setCategoryAll(0);
+    } else {
+      setCategoryAll(2);
+      setIsToggled(true);
     }
   };
 
-  useEffect(() => {
-    setIsToggled(category === props.tag);
-  }, [category]);
+    useEffect(()=> {
+      console.log(category)
+      console.log(category.length)
 
+      if (category.length === 4) {
+        setIsToggled(true);
+      setCategoryAll(0);
+      }
+      else if (category.length === 0) {
+        setIsToggled(false);
+        setCategoryAll(2);
+      }
+      else{
+        setIsToggled(false);
+        setCategoryAll(1);
+      }
+    },[category])
 
   return (
     <div className=' flex '>
@@ -48,7 +67,7 @@ export function ToggleButton( props: {tag: string} ) {
       />
     </button>
           <span className=' ml-1 grid place-items-center'>
-        {props.tag}
+        {"All"}
     </span>
     </div>
   );

@@ -10,6 +10,12 @@ const Mainheader = dynamic(() => import('@/components/main/Main_header')
   ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
   });
 
+  const CheckingModal = dynamic(() => import('@/components/modal/CheckingModal')
+  , {
+    ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
+    });
+  
+
 export const metadata: Metadata = {
   title: "kob3krnl.0.1-rt24.11",
   description: "Kobemom's warehouse",
@@ -31,6 +37,7 @@ export default function RootLayout({
         <RecoilRootWrapper>
       <CustomCursor />
       <Mainheader />
+      <CheckingModal />
       {children}
 				</RecoilRootWrapper>
       </body>

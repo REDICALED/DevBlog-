@@ -21,16 +21,16 @@ export default function Slide_4() {
                 <SlideupText text={"daily life, hobbies and Kobe"}></SlideupText>
                 </div>
 
-                <p className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
                 <SlideupText text={"Hobbies: Cooking, gaming (Tetris - 90APM, challenge is always welcome)"}></SlideupText>
-                </p>
+                </div>
 
-                <p className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
                 <SlideupText text={"I love hip-hop, EDM, cartoons, and my little brother Kobe."}></SlideupText>
-                </p>
-                <p className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                </div>
+                <div className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
                 <SlideupText text={"I recently traveled to Japan and want to visit more great places later"}></SlideupText>
-                </p>
+                </div>
 
 
                 </div>

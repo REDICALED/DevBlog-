@@ -1,13 +1,12 @@
-import { createClient } from '@/utils/supabase/server';
-import dynamic from'next/dynamic';
+'use client';
 
-const MainMasonry = dynamic(() =>import('@/components/main/MainMasonry'), {
-    ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정
-  });
+import supabaseClient from '@/utils/supabase/CreateClient';
+import MainMasonry from '@/components/main/MainMasonry';
+
+
 
 export default async function Notes() {
-  const supabase = createClient();
-  const { data: notes } = await supabase.from('posts').select().order('date', { ascending: false });
+  const { data: notes } = await supabaseClient.from('posts').select().order('date', { ascending: false });
   const supaArray = JSON.parse(JSON.stringify(notes));
 
   return <div>
