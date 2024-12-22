@@ -28,13 +28,13 @@ export default function Slide_1() {
                 <SlideupText text={"ByeongChan Kim"}></SlideupText>
                 </div>
 
-                <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-5 overflow-hidden">
                 <SlideupText text={"Welcome to my personal website!"}></SlideupText>
-                </p>
+                </div>
 
-                <p className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-3 overflow-hidden">
+                <div className=" font-medium lg:text-[34px] text-[17px] h-auto mt-1 lg:mt-3 overflow-hidden">
                 <SlideupText text={"Take your time and enjoy!"}></SlideupText>
-                </p>
+                </div>
 
                 <div className='flex'>
 

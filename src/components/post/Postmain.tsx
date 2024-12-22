@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import '../../app/post/[id]/styles.module.css';
 import PostHtmlContent from '@/components/post/PostHtmlContent';
 import { useRecoilState } from "recoil";
-import { createClient } from '@supabase/supabase-js';
 import PostSuggestNext from './PostSuggestNext';
 import PostSuggestPrev from './PostSuggestPrev';
 

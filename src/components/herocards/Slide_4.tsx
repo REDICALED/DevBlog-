@@ -17,13 +17,13 @@ export default function Slide_4() {
                 <SlideupText text={"Web + Art vision"}></SlideupText>
                 </div>
 
-                <p className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
                 <SlideupText text={"Someday, I want to implement fine art within the web. "}></SlideupText>
-                </p>
+                </div>
 
-                <p className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[28px] text-[14px] h-auto mt-3 lg:mt-5 overflow-hidden">
                 <SlideupText text={"Recently, I've been developing a Buddhist art website using AI and web technics"}></SlideupText>
-                </p>
+                </div>
 
                 </div>
 

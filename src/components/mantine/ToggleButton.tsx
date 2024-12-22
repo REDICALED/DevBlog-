@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { CategoryState } from "@/Atoms/CategoryAtom"
+import { useRecoilState } from "recoil";
 
 export function ToggleButton( props: {tag: string} ) {
-  const [isToggled, setIsToggled] = useState(false);
+  const [category, setCategory] = useRecoilState(CategoryState);
+  const [isToggled, setIsToggled] = useState( category === props.tag );
 
   const handleToggle = () => {
-    setIsToggled(!isToggled);
+    if (props.tag !== category) {
+      setCategory(props.tag);
+      setIsToggled(!isToggled);
+    }
   };
+
+  useEffect(() => {
+    setIsToggled(category === props.tag);
+  }, [category]);
+
 
   return (
     <div className=' flex '>
