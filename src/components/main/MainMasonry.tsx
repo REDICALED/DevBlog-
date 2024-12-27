@@ -11,15 +11,8 @@ import { SupaArrayState } from "@/Atoms/OpeningAtom";
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
-    const [SupaArray, SetSupaArray] = useRecoilState(SupaArrayState);
     const [loaded, setloaded] = useState<boolean>(false);
     useEffect(() => {
-        const fetchData =  () => {
-            SetSupaArray([1]);
-            SetSupaArray(props.supaArray);
-            console.log(SupaArray);
-        };
-        fetchData();
         setloaded(true);
         console.log(props.supaArray)
 
