@@ -1,6 +1,4 @@
 import { ToggleButton } from "../mantine/ToggleButton";
-import { ToggleAllButton } from "../mantine/ToggleAllButton";
-
 
 export const ToggleList = () => {
     return (

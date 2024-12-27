@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react';
 import { CategoryState } from "@/Atoms/CategoryAtom"
 import { useRecoilState } from "recoil";

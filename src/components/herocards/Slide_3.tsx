@@ -35,13 +35,13 @@ export default function Slide_4() {
 
                 </div>
 
-                <div className='w-full absolute bottom-0 lg:-bottom-[120px] left-0 '>
+                <div className='w-full absolute bottom-0 left-0 '>
                     <div className=''>
                       <img
                         key={0}
                         src={budda.src}
                         alt="Image"
-                        className="object-contain w-full lg:w-2/3 rounded-md animate__slide-in-bottom  "
+                        className="object-contain w-full lg:w-1/2 rounded-md place-self-center animate__slide-in-bottom  "
                       />
                     </div>
                 </div>
@@ -52,18 +52,18 @@ export default function Slide_4() {
                         key={0}
                         src={ootsuki.src}
                         alt="Image"
-                        className="object-contain h-[80px] lg:h-auto rounded-md animate__slide-in-top  "
+                        className="object-contain h-[60px] lg:h-auto rounded-md animate__slide-in-top  "
                       />
                     </div>
                 </div>
 
-                <div className=' font-extrabold text-center text-[12px] lg:text-[24px] w-full lg:w-[10%] absolute bottom-0 lg:pb-[200px] pb-[40px] flex justify-start left-0  '>
+                <div className=' font-extrabold text-center text-[12px] lg:text-[24px] w-full lg:w-[10%] absolute bottom-0 lg:pb-[200px] pb-[50px] flex justify-start left-0  '>
                     <div className=' animate__bounce-in-bottom '>
                       <img  
                         key={0}
                         src={kobe_run.src}
                         alt="Image"
-                        className="object-contain h-[60px] lg:h-auto rounded-md  "
+                        className="object-contain h-[50px] lg:h-auto rounded-md  "
                       />
                       (Kobe)
                     </div>
@@ -75,7 +75,7 @@ export default function Slide_4() {
                         key={0}
                         src={spiffo.src}
                         alt="Image"
-                        className="object-contain h-[60px] lg:h-auto rounded-md animate__bounce-in-top   "
+                        className="object-contain h-[50px] lg:h-auto rounded-md animate__bounce-in-top   "
                       />
                     </div>
                 </div>

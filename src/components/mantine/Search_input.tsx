@@ -2,7 +2,7 @@ export function Search_input() {
 
   return (
     <div>
-        <input type="text" placeholder="Search" className=" focus:outline-none 
+        <input type="text" placeholder="Search " className=" focus:outline-none 
     focus:border-[3px]
     transition-[background-color]
     duration-[0.45s]
