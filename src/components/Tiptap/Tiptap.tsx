@@ -22,12 +22,12 @@ export default function Tiptap( {SupaArray}: any) {
   const [acceptedFile, setAcceptedFile] = useState<string | null>(null);
   const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
   const [CalDate, setCalDate] = useState<Date|null>(null);
-  const [Posts, setPosts] = useState<any>(null);
+  const [Posts, setPosts] = useState<boolean>(false);
   const [category, setCategory] = useState('cs');
 
   useEffect(() => {
     const fetchPosts = async () => {
-      setPosts(SupaArray);
+      setPosts(true);
     };
     fetchPosts();
   }, []);
@@ -66,7 +66,7 @@ export default function Tiptap( {SupaArray}: any) {
     setCategory(props.category);
 }
 
-  if (Posts === null) {
+  if (Posts === false) {
     return <div>loading...</div>;
   }
 
@@ -78,7 +78,7 @@ export default function Tiptap( {SupaArray}: any) {
         <div className=' m-2 flex  '>
           <CalComponent CalDate={CalDate} setCalDate={setCalDate} />
           <div className=' overflow-y-scroll max-h-[25vh] h-1/2 w-1/2'>
-            {Posts.map((value: any, index: number) => (
+            {SupaArray.map((value: any, index: number) => (
               <div className='border-2 border-black m-2 p-2 ' key={index}>
                 <div className='flex'>
                   <h3 className=' mr-5 font-bold text-lg'>{"title:  " + value.title}</h3>

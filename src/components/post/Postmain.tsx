@@ -11,10 +11,8 @@ export default function Notes(props: any) {
   const [loaded, setloaded] = useState<boolean>(false);
   const [ PrevPost, setPrevPost] = useState<any>(null);
   const [ NextPost, setNextPost] = useState<any>(null);
-  const [supaArray, setsupaArray] = useState<any>(null);
 
   useEffect(() => {
-      setsupaArray(props.SupaArray);
       const formattedDate = new Date(props.SupaArray.date).toISOString().split('T')[0];
       setformattedDate(formattedDate);
       setloaded(true);
@@ -29,18 +27,18 @@ export default function Notes(props: any) {
 
     <div className=' lg:mx-auto w-[100vw] lg:w-[80vw]'>
       <div className=' grid'>
-      <div className=' font-semibold text-7xl mb-2 opacity-70'> {supaArray.title}</div>
+      <div className=' font-semibold text-7xl mb-2 opacity-70'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
       <div className=' ml-1 mr-2 font-semibold text-md'> {formattedDate}</div>
       {
         
-        supaArray.tags && supaArray.tags.map((tag: string, index: number) => (
+        props.SupaArray.tags && props.SupaArray.tags.map((tag: string, index: number) => (
           <div key={index} className=' ml-1 font-semibold text-md '> {"#"+tag}</div>
         ))
       }</div>
       <div style={{ borderColor: 'var(--text-color)'}} className={ " mb-10 lg:w-[80vw] h-5 border-b-4"}></div>
       <div className=' mx-10 '>
-      <PostHtmlContent content={supaArray.content} />
+      <PostHtmlContent content={props.SupaArray.content} />
       </div>
       </div>
     </div>
