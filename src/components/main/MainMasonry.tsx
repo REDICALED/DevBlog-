@@ -1,14 +1,33 @@
-'use client';
+'use client'
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Link from 'next/link';
 import {Search_input} from '@/components/mantine/Search_input';
 import {ToggleList} from '@/components/main/ToggleList';
+import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { SupaArrayState } from "@/Atoms/OpeningAtom";
 
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
+    const [SupaArray, SetSupaArray] = useRecoilState(SupaArrayState);
+    const [loaded, setloaded] = useState<boolean>(false);
+    useEffect(() => {
+        const fetchData =  () => {
+            SetSupaArray([1]);
+            SetSupaArray(props.supaArray);
+            console.log(SupaArray);
+        };
+        fetchData();
+        setloaded(true);
+        console.log(props.supaArray)
 
+    },[]);
+
+    if (!loaded) {
+        return <div>loading...</div>;
+    }
     return (
         <div className="px-5 lg:px-10">
             <div className="lg:flex">

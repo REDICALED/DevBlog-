@@ -37,7 +37,7 @@
     "embla-carousel-react": "^7.1.0",
     "html-to-jsx-transform": "^1.1.0",
     "jsdom": "^25.0.1",
-    "next": "14.2.4",
+    "next": "^14.2.21",
     "next-swagger-doc": "^0.4.0",
     "react": "^18",
     "react-anchor-link-smooth-scroll": "^1.0.12",
@@ -46,12 +46,13 @@
     "react-image-file-resizer": "^0.4.8",
     "react-responsive-masonry": "^2.3.0",
     "recoil": "^0.7.7",
+    "recoil-persist": "^5.1.0",
     "sass": "^1.77.8",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-react": "^5.17.14",
     "tailwindcss-animistacss": "^1.0.7",
     "uuid": "^10.0.0",
-    "zustand": "^5.0.0"
+    "zustand": "^5.0.2"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.1.0",

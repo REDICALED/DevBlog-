@@ -10,29 +10,24 @@ import { TagsInput } from '@mantine/core';
 import {Dropzon} from '@/components/mantine/Dropzone';
 import styles from '../../app/post/[id]/styles.module.css';
 import '@mantine/core/styles.css';
-import supabaseClient from '@/utils/supabase/CreateClient';
-import GetPostsByCategory from '@/utils/supabase/GetPostsByCategory';
+import { createClient } from '@supabase/supabase-js' // supabase client -> add post용 csr 동적 클라이언트
 import { CheckModalState } from "@/Atoms/CheckModalAtom";
 import { useRecoilState } from 'recoil'
-import { UuidState } from '@/Atoms/UuidAtom'
 // console.log(primaryKey);
-export default function Tiptap() {
+export default function Tiptap( {SupaArray}: any) {
   const [editor, setEditor] = useState<any>(null);
   const [Preview, setPreview] = useState("");
   const [Tags, setTags] = useState<string[]>([]);
   const titletextRef = useRef<HTMLInputElement>(null);
   const [acceptedFile, setAcceptedFile] = useState<string | null>(null);
   const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
-  const [uuidstate, setUuidState] = useRecoilState(UuidState);
   const [CalDate, setCalDate] = useState<Date|null>(null);
   const [Posts, setPosts] = useState<any>(null);
   const [category, setCategory] = useState('cs');
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const notes = await GetPostsByCategory({category: 'All'});
-      const supaArray = JSON.parse(JSON.stringify(notes));
-      setPosts(supaArray);
+      setPosts(SupaArray);
     };
     fetchPosts();
   }, []);
@@ -43,13 +38,14 @@ export default function Tiptap() {
   async function addPost() {
       const formattedDate = CalDate?.toISOString().slice(0, 19).replace('T', ' ');
       //date생성
-
+      const uuid = uuidv4();
       //uuid 생성
-
+      const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
+        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,);
       const { data, error } = await supabaseClient
         .from('posts') // 테이블 이름
         .insert([
-          { uuid: uuidstate, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
+          { uuid: uuid, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
         ]);
   
     if (error) {

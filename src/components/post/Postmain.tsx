@@ -3,59 +3,21 @@
 import { useEffect, useState } from 'react';
 import '../../app/post/[id]/styles.module.css';
 import PostHtmlContent from '@/components/post/PostHtmlContent';
-import { useRecoilState } from "recoil";
 import PostSuggestNext from './PostSuggestNext';
 import PostSuggestPrev from './PostSuggestPrev';
 
-import supabaseClient from '@/utils/supabase/CreateClient';
-
 export default function Notes(props: any) {
-  const [supaArray, setSupaArray] = useState<any>(null);
   const [formattedDate, setformattedDate] = useState<any>(null);
   const [loaded, setloaded] = useState<boolean>(false);
   const [ PrevPost, setPrevPost] = useState<any>(null);
   const [ NextPost, setNextPost] = useState<any>(null);
-
+  const [supaArray, setsupaArray] = useState<any>(null);
 
   useEffect(() => {
-    
-      console.log('fetchNotes 시작');
-      console.log('supabaseclient:', supabaseClient);
-      const fetchNotes = async () => {
-        const { data, error } = await supabaseClient.from('posts').select().eq('uuid', props.id).single();
-        if (error) {
-          console.error(error);
-        } else {
-          const supaArray = JSON.parse(JSON.stringify(data));
-          setSupaArray(supaArray);
-          const formattedDate = new Date(supaArray.date).toISOString().split('T')[0];
-          setformattedDate(formattedDate);
-
-          const { data: prevPost, error: prevError } = await supabaseClient
-          .from('posts')
-          .select()
-          .lt('date', supaArray.date) // 현재 게시물의 date 보다 작은 값
-          .order('date', { ascending: false }) // 최신 순으로 정렬
-          .limit(1);
-          if(prevPost){
-            setPrevPost(JSON.parse(JSON.stringify(prevPost))[0]);
-          }
-
-          const { data: nextPost, error: nextError } = await supabaseClient
-          .from('posts')
-          .select()
-          .gt('date', supaArray.date) // 현재 게시물의 date 보다 큰 값
-          .order('date', { ascending: true }) // 오래된 순으로 정렬
-          .limit(1);
-          if(nextPost){
-            console.log('nextPost:', nextPost);
-          setNextPost(JSON.parse(JSON.stringify(nextPost))[0]);
-          }
-          setloaded(true);
-        }setSupaArray
-      };
-      fetchNotes();
-    
+      setsupaArray(props.SupaArray);
+      const formattedDate = new Date(props.SupaArray.date).toISOString().split('T')[0];
+      setformattedDate(formattedDate);
+      setloaded(true);
   }, []);
 
   if (!loaded) {
@@ -85,10 +47,10 @@ export default function Notes(props: any) {
 
     <div className='flex w-full h-auto lg:h-[150px] mt-16 '>
       <div className='w-[30vw] mx-[10vw] '>
-      { PrevPost && <PostSuggestPrev data={PrevPost} />}
+      { props.PrevSupaArray && <PostSuggestPrev data={props.PrevSupaArray} />}
       </div>
       <div className='w-[30vw] mx-[10vw] '>
-      { NextPost && <PostSuggestNext data={NextPost} />}
+      { props.NextSupaArray && <PostSuggestNext data={props.NextSupaArray} />}
       </div>
     </div>
 

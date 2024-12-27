@@ -1,15 +1,8 @@
-'use client';
-
-import supabaseClient from '@/utils/supabase/CreateClient';
 import MainMasonry from '@/components/main/MainMasonry';
 
-
-
-export default async function Notes() {
-  const { data: notes } = await supabaseClient.from('posts').select().order('date', { ascending: false });
-  const supaArray = JSON.parse(JSON.stringify(notes));
+export default async function Notes(props: any) {
 
   return <div>
-    <MainMasonry supaArray={supaArray}/>
+    <MainMasonry supaArray={props.supaArray}/>
   </div>;
 }

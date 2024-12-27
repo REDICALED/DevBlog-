@@ -4,7 +4,6 @@ import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import CustomCursor from "@/components/CustomCursor";
 import dynamic from "next/dynamic";
 
-
 const Mainheader = dynamic(() => import('@/components/main/Main_header')
 , {
   ssr: false, // 클라이언트 사이드에서만 렌더링하도록 설정

@@ -1,15 +1,13 @@
-import dynamic from 'next/dynamic'
+//main 페이지 page 컴포넌트
+
 import HeroHeader from '@/components/mantine/HeroHeader'
-
-  const MainPostlist = dynamic(() => import('@/components/main/MainPostlist')
-    ,{
-    loading: () => <p>Loading...</p>,
-    ssr: false
-  })
+import {createClient} from '@/utils/supabase/server'
+import MainPostlist from '@/components/main/MainPostlist'
     
-export default function Home() {
-
-    
+export default async function Home() {
+    const supabaseClient = createClient();
+    const { data: notes } = await supabaseClient.from('posts').select().order('date', { ascending: false });
+    const supaArray = await JSON.parse(JSON.stringify(notes));
     return (
         <div className=' '>
             <div className='row-span-1 place-items-center grid w-[100vw]'>
@@ -20,7 +18,7 @@ export default function Home() {
             </div>
             <div className='row-span-1 w-full'>
                 <div className='h-screen'>
-                    <MainPostlist/>
+                    <MainPostlist supaArray={supaArray}/>
                 </div>
             </div>
         </div>
