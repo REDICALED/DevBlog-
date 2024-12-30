@@ -64,13 +64,13 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={`w-[100vw] transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
+                className={`w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
 
                 
                 <motion.div
-                    className={`overflow-hidden  ml-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
+                    className={`overflow-hidden  pl-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
                     style={{ display: 'flex' }}
                     initial="hidden"
                     animate="visible"
@@ -159,7 +159,7 @@ const handleScroll = () => {
             </motion.span>
             {openingstate ? <></> : (
         <div
-          className={` h-[60px] lg:h-[150px] mt-8 `}
+          className={`h-[60px] lg:h-[150px] mt-8 `}
         ></div>
     )}
 

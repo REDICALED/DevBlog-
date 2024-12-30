@@ -35,7 +35,7 @@ export default function Notes(props: any) {
         ))
       }</div>
       <div style={{ borderColor: 'var(--text-color)'}} className={ " mb-10 w-full h-5 border-b-4"}></div>
-      <div className=' px-10 '>
+      <div className='px-7 '>
       <PostHtmlContent content={props.SupaArray.content} />
       </div>
       </div>
