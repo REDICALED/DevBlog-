@@ -31,7 +31,7 @@ export default async function Post({params}: Props) {
         }
     }
     return (
-        <div className=' h-screen '>
+        <div className=''>
           <Postmain id={params.id} SupaArray={SupaArray} PrevSupaArray={PrevSupaArray} NextSupaArray={NextSupaArray} />
         </div>
     );
