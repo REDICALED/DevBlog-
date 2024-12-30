@@ -41,7 +41,7 @@ export default function Notes(props: any) {
       </div>
     </div>
 
-    <div className='flex w-full h-auto lg:h-[150px] mt-16 '>
+    <div className='flex w-full h-auto lg:h-[150px] mt-16 mb-10 '>
       <div className='w-[30vw] mx-[10vw] '>
       { props.PrevSupaArray && <PostSuggestPrev data={props.PrevSupaArray} />}
       </div>
