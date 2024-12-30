@@ -7,7 +7,7 @@ import MainPostlist from '@/components/main/MainPostlist'
 export default async function Home() {
     const supabaseClient = createClient();
     const { data: notes } = await supabaseClient.from('posts').select().order('date', { ascending: false });
-    const supaArray = await JSON.parse(JSON.stringify(notes));
+    const SupaArray = await JSON.parse(JSON.stringify(notes));
     return (
         <div className=' '>
             <div className='row-span-1 place-items-center grid w-[100vw]'>
@@ -18,7 +18,7 @@ export default async function Home() {
             </div>
             <div className='row-span-1 w-full'>
                 <div className='h-screen'>
-                    <MainPostlist supaArray={supaArray}/>
+                    <MainPostlist SupaArray={SupaArray}/>
                 </div>
             </div>
         </div>

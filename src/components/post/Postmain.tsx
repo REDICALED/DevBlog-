@@ -9,8 +9,6 @@ import PostSuggestPrev from './PostSuggestPrev';
 export default function Notes(props: any) {
   const [formattedDate, setformattedDate] = useState<any>(null);
   const [loaded, setloaded] = useState<boolean>(false);
-  const [ PrevPost, setPrevPost] = useState<any>(null);
-  const [ NextPost, setNextPost] = useState<any>(null);
 
   useEffect(() => {
       const formattedDate = new Date(props.SupaArray.date).toISOString().split('T')[0];
@@ -25,7 +23,7 @@ export default function Notes(props: any) {
   return (
     <>
 
-    <div className=' lg:mx-auto w-[100vw] lg:w-[80vw]'>
+    <div className=' lg:mx-auto w-full lg:w-[80vw]'>
       <div className=' grid'>
       <div className=' font-semibold text-7xl mb-2 opacity-70'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
@@ -36,8 +34,8 @@ export default function Notes(props: any) {
           <div key={index} className=' ml-1 font-semibold text-md '> {"#"+tag}</div>
         ))
       }</div>
-      <div style={{ borderColor: 'var(--text-color)'}} className={ " mb-10 lg:w-[80vw] h-5 border-b-4"}></div>
-      <div className=' mx-10 '>
+      <div style={{ borderColor: 'var(--text-color)'}} className={ " mb-10 w-full h-5 border-b-4"}></div>
+      <div className=' px-10 '>
       <PostHtmlContent content={props.SupaArray.content} />
       </div>
       </div>
