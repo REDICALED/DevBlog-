@@ -10,6 +10,7 @@ import Italic from '@/assets/icons/Italic.png'
 import Quote from '@/assets/icons/Quote.png'
 import AddPhoto from '@/assets/icons/AddPhoto.png'
 import AddSlider from '@/assets/icons/AddSlider.png'
+import AddCode from '@/assets/icons/code.png'
 import AddVideo from '@/assets/icons/AddVideo.png'
 import Clear from '@/assets/icons/Clear.png'
 import AlignCenter from '@/assets/icons/AlignCenter.png'
@@ -238,6 +239,14 @@ const MenuBar = (props: any) => {
         <Image alt="" src={AddVideo} className="w-5 h-5"/>
   
       </button>
+
+      <button
+            type="button"
+            onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+            className="relative cursor-pointer border border-black p-[10px] hover:bg-gray-200 "
+            >
+        <Image alt="" src={AddCode} className="w-5 h-5"/>
+        </button>
   
       </div>
     )

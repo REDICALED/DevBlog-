@@ -1,4 +1,6 @@
-import MainMasonry from '@/components/main/MainMasonry';
+import dynamic from "next/dynamic";
+
+const MainMasonry = dynamic(() => import('@/components/main/MainMasonry'), { ssr: false });
 
 export default async function Notes(props: any) {
 

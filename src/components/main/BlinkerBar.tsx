@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 export default function BlinkerBar(props: any) {
     return (
-        <motion.span
+        <motion.div
                           animate="blink"
                           initial={{ opacity: 1 }}
                           variants={{
@@ -21,6 +21,6 @@ export default function BlinkerBar(props: any) {
                           }}
                         >
                         <div style={{ borderColor: 'var(--text-color)'}} className={ props.direction ? " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-t-4" : " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-b-4"}></div>
-            </motion.span>
+            </motion.div>
     )
 }

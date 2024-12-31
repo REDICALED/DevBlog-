@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html className="scroll-smooth">
       <body className=" font-custom ">
         <RecoilRootWrapper>
       <CustomCursor />

@@ -5,8 +5,6 @@ import Link from 'next/link';
 import {Search_input} from '@/components/mantine/Search_input';
 import {ToggleList} from '@/components/main/ToggleList';
 import { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
-import { SupaArrayState } from "@/Atoms/OpeningAtom";
 
 export default function Notes(props: any) {
     const maxContentLength = 40;
