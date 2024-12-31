@@ -66,9 +66,9 @@ export function ToggleAllButton() {
         `}
       />
     </button>
-          <div className=' ml-1 grid place-items-center'>
+          <span className=' ml-1 grid place-items-center'>
         {"All"}
-    </div>
+    </span>
     </div>
   );
 }

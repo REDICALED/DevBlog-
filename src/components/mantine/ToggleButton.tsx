@@ -49,9 +49,9 @@ export function ToggleButton( props: {tag: string} ) {
         `}
       />
     </button>
-          <div className=' ml-1 grid place-items-center'>
+          <span className=' ml-1 grid place-items-center'>
         {props.tag}
-    </div>
+    </span>
     </div>
   );
 }
