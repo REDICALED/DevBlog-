@@ -1,0 +1,98 @@
+.wrapper h1 {
+    font-size: 2rem;
+  }
+
+.wrapper h2 {
+    font-size: 1.5rem;
+  }
+
+.wrapper h3 {
+    font-size: 1.5rem;
+    scroll-margin-top: 50px;
+  }
+
+.wrapper p {
+    font-size: 1.1rem;
+  }
+
+  .wrapper img {
+    max-height: 40vh;
+    max-width: 80vw; /* 기본 크기: 화면 크기에 따라 100%로 설정 */
+    justify-content: center;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+  
+
+.wrapper blockquote {
+  background-color: var(--text-color);
+  color: var(--bg-color);
+}
+/* Basic editor styles */
+
+.wrapper pre {
+  background: #0D0D0D;
+  color: #FFF;
+  font-family: 'JetBrainsMono', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.wrapper pre code {
+  color: inherit;
+  padding: 0;
+  background: none;
+  font-size: 0.8rem;
+}
+
+.wrapper pre code .hljs-comment,
+.wrapper pre code .hljs-quote {
+  color: #616161 !important;
+}
+
+.wrapper pre code .hljs-variable,
+.wrapper pre code .hljs-template-variable,
+.wrapper pre code .hljs-attribute,
+.wrapper pre code .hljs-tag,
+.wrapper pre code .hljs-name,
+.wrapper pre code .hljs-regexp,
+.wrapper pre code .hljs-link,
+.wrapper pre code .hljs-name,
+.wrapper pre code .hljs-selector-id,
+.wrapper pre code .hljs-selector-class {
+  color: #F98181 !important;
+}
+
+.wrapper pre code .hljs-number,
+.wrapper pre code .hljs-meta,
+.wrapper pre code .hljs-built_in,
+.wrapper pre code .hljs-builtin-name,
+.wrapper pre code .hljs-literal,
+.wrapper pre code .hljs-type,
+.wrapper pre code .hljs-params {
+  color: #FBBC88 !important;
+}
+
+.wrapper pre code .hljs-string,
+.wrapper pre code .hljs-symbol,
+.wrapper pre code .hljs-bullet {
+  color: #B9F18D !important;
+}
+
+.wrapper pre code .hljs-title,
+.wrapper pre code .hljs-section {
+  color: #FAF594 !important;
+}
+
+.wrapper pre code .hljs-keyword,
+.wrapper pre code .hljs-selector-tag {
+  color: #70CFF8 !important;
+}
+
+.wrapper pre code .hljs-emphasis {
+  font-style: italic !important;
+}
+
+.wrapper pre code .hljs-strong {
+  font-weight: 700 !important;
+}

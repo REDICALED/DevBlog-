@@ -22,6 +22,7 @@
     "@supabase/supabase-js": "^2.45.1",
     "@svgr/webpack": "^8.1.0",
     "@tabler/icons-react": "^3.21.0",
+    "@tiptap/extension-code-block-lowlight": "^2.11.0",
     "@tiptap/extension-color": "^2.6.4",
     "@tiptap/extension-hard-break": "^2.10.3",
     "@tiptap/extension-image": "^2.6.4",
@@ -37,6 +38,7 @@
     "embla-carousel-react": "^7.1.0",
     "html-to-jsx-transform": "^1.1.0",
     "jsdom": "^25.0.1",
+    "lowlight": "^3.3.0",
     "next": "^14.2.21",
     "next-swagger-doc": "^0.4.0",
     "react": "^18",
@@ -49,7 +51,6 @@
     "recoil-persist": "^5.1.0",
     "sass": "^1.77.8",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-react": "^5.17.14",
     "tailwindcss-animistacss": "^1.0.7",
     "uuid": "^10.0.0",
     "zustand": "^5.0.2"

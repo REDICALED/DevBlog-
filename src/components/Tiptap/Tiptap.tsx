@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import CalComponent from '@/components/Tiptap/Calendar';
 import { TagsInput } from '@mantine/core';
 import {Dropzon} from '@/components/mantine/Dropzone';
-import styles from '../../app/post/[id]/styles.module.css';
+import styles from '../../app/post/[id]/styles.module.scss';
 import '@mantine/core/styles.css';
 import { createClient } from '@supabase/supabase-js' // supabase client -> add post용 csr 동적 클라이언트
 import { CheckModalState } from "@/Atoms/CheckModalAtom";
@@ -138,12 +138,15 @@ export default function Tiptap( {SupaArray}: any) {
         </div>
 
         <div>
-        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors' onClick={() => {
-          if (editor && typeof editor.getHTML === 'function') {
-            setPreview(editor.getHTML());
-          }          }}>
-            Preview
-        </button>
+        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors' 
+  onClick={() => {
+    if (editor) {
+      setPreview(editor.view.dom.innerHTML);
+      console.log(editor.view.dom.innerHTML);
+    }
+  }}>
+  Preview
+</button>
         <div>
           <input type="text" className='border-2 border-black m-1' />
           <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={addPost}>
