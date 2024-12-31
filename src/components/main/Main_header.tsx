@@ -63,13 +63,13 @@ const handleScroll = () => {
 
     return (
         <>
-            <motion.div
+            <motion.span
                 className={`w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
 
                 
-                <motion.div
+                <motion.span
                     className={`overflow-hidden  pl-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
                     style={{ display: 'flex' }}
                     initial="hidden"
@@ -85,7 +85,7 @@ const handleScroll = () => {
                     onAnimationComplete={onAnimationComplete}  // 애니메이션 완료 후 컨테이너 축소
                 >
                     {letters.map((letter, index) => (
-                        <motion.div
+                        <motion.span
                         key={index}
                         variants={{
                           hidden: {
@@ -102,7 +102,7 @@ const handleScroll = () => {
                           },
                         }}
                       >
-                        <motion.div
+                        <motion.span
                           animate={blinkControls}
                           initial={{ opacity: 1 }}
                           variants={{
@@ -117,13 +117,13 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                           <div className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
-                            {!openingstate ? <Link href='/'>{letter}</Link> : <div>{letter}</div>}
-                          </div> 
-                        </motion.div>
-                      </motion.div>
+                           <span className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
+                            {!openingstate ? <Link href='/'>{letter}</Link> : <span>{letter}</span>}
+                          </span> 
+                        </motion.span>
+                      </motion.span>
                     ))}
-                </motion.div>
+                </motion.span>
                 {
                   !openingstate && 
                   
@@ -145,9 +145,9 @@ const handleScroll = () => {
                   
                   }
 
-                <div className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-[40px] mr-[10px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-[40px] mr-[10px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <Pirate_logo />
-                </div>
+                </span>
 
                 { !openingstate && <button className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[90px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <SlideupChildren>
@@ -156,7 +156,7 @@ const handleScroll = () => {
                     }} alt="logo" className=" transition-[background-color] duration-[0.45s]  lg:h-[60px] h-[35px] p-2"/>
                 </SlideupChildren>
                 </button>}
-            </motion.div>
+            </motion.span>
             {openingstate ? <></> : (
         <div
           className={`h-[60px] lg:h-[150px] mt-8 `}
