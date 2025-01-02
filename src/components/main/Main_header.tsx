@@ -8,10 +8,13 @@ import { useEffect } from 'react';
 import Greyscale from "@/assets/dark.svg";
 import SlideupChildren from "@/components/main/SlideupChildren";
 import Backtotop from "@/assets/back-to-top.svg";
+import DarkMode from "@/assets/darkmode.svg";
 import Link from "next/link";
+import { DarkmodeSwitchState } from "@/Atoms/DarkmodeSwitchAtom";
 
 export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
+    const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
 
     const text = "®KobeKrnl";  // 애니메이션할 텍스트
     const isLargeScreen = window.innerWidth >= 1024;
@@ -128,28 +131,57 @@ const handleScroll = () => {
                   !openingstate && 
                   
                 <button 
-                className=" animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500  mr-[50px]  lg:mr-[120px] hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
+                className=" lg:mr-[190px] mr-[90px] animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
+                  <SlideupChildren>
+                <DarkMode
+                    className="transition-[background-color] duration-[0.45s] lg:h-[60px] h-[35px] p-2" 
+
+                 onClick={()=>{
+                    const currentBgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg-color');
+                    const currentTextColor = getComputedStyle(document.documentElement).getPropertyValue('--text-color');
+                  
+                    // 색상 교환
+                    document.documentElement.style.setProperty('--bg-color', currentTextColor);
+                    document.documentElement.style.setProperty('--text-color', currentBgColor);
+                    setDarkmodeSwitch(!DarkmodeSwitch);
+                }}>
+                </DarkMode>
+                  </SlideupChildren>
+                </button>
+                  }
+
+{
+                  !openingstate && 
+                  
+                <button 
+                className=" lg:mr-[120px] mr-[50px]  animate-slide-right-parent place-items-center lg:size-[60px] size-[35px] overflow-hidden duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] border-[var(--text-color)] hover:bg-[var(--text-color)] inline-flex" >
                   <SlideupChildren>
                 <Greyscale
                     className="transition-[background-color] duration-[0.45s] lg:h-[60px] h-[35px] p-2" 
 
                  onClick={()=>{
-                  requestAnimationFrame(() => {
-                    document.documentElement.style.setProperty('--bg-color', `#f9f9f9`);
-                    document.documentElement.style.setProperty('--text-color', `#000000`);
-                });  
+                  if (!DarkmodeSwitch){
+                      document.documentElement.style.setProperty('--bg-color', `#000000`);
+                      document.documentElement.style.setProperty('--text-color', `#f9f9f9`);
+
+                  }
+                  else{
+                      document.documentElement.style.setProperty('--bg-color', `#f9f9f9`);
+                      document.documentElement.style.setProperty('--text-color', `#000000`);
+
+                  }
+                  
                 }}>
                 </Greyscale>
                   </SlideupChildren>
                 </button>
-                  
                   }
 
-                <span className=" animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden lg:mr-[40px] mr-[10px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                <span className=" lg:mr-[40px] mr-[10px] animate-slide-right-parent place-items-center justify-center lg:h-[65px] h-[35px] overflow-hidden duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <Pirate_logo />
                 </span>
 
-                { !openingstate && <button className=" animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden lg:mr-[190px] mr-[90px] duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
+                { !openingstate && <button className=" lg:mr-[260px] mr-[130px]  animate-slide-right-parent place-items-center justify-center lg:h-[60px] h-[35px] overflow-hidden duration-500 hover:transition-all hover:duration-200 rounded-md text-[var(--text-color)] hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex">
                   <SlideupChildren>
                     <Backtotop onClick={()=>{
                         window.scrollTo({top: 0, behavior: 'smooth'});

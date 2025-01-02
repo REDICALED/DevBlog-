@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";
 import SlideupChildren from "@/components/main/SlideupChildren";
+import { DarkmodeSwitchState } from "@/Atoms/DarkmodeSwitchAtom";
+import { useEffect, useState } from "react";
 
 export function updateTheme(bgColor: string, textColor: string) {
-  requestAnimationFrame(() => {
       document.documentElement.style.setProperty('--bg-color', bgColor);
       document.documentElement.style.setProperty('--text-color', textColor);
-  });
 }
 
   // const palettes = [
@@ -23,7 +23,8 @@ export function updateTheme(bgColor: string, textColor: string) {
 export default function Pirate_logo() {
   
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
-
+    const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
+    const [DocColor, SetDocColor] = useState<string[]>(['','']);
 
     const handleClick = () => {
       let TextColor = '';
@@ -39,10 +40,17 @@ export default function Pirate_logo() {
           const difference = 255 - randomValue;
           BgColor += difference.toString(16).padStart(2, '0');  // hexColor2 생성
         }
-          updateTheme(`#${BgColor}`, `#${TextColor}`);
-
+        SetDocColor([BgColor,TextColor]);
       };
 
+      useEffect(()=>{
+        if (!DarkmodeSwitch) {
+          updateTheme(`#${DocColor[1]}`, `#${DocColor[0]}`);
+        }
+        else {
+          updateTheme(`#${DocColor[0]}`, `#${DocColor[1]}`);
+        }
+      },[DocColor]);
     
     return (
         <>

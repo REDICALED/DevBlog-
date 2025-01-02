@@ -4,50 +4,34 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Link from 'next/link';
 import {Search_input} from '@/components/mantine/Search_input';
 import {ToggleList} from '@/components/main/ToggleList';
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { format } from "path";
-
+import TagInput from "./MainTagInput";
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
     const [loaded, setloaded] = useState<boolean>(false);
-    const [ClientSupaArray, setClientSupaArray] = useState<any>(null);
     const [CategoryState, setCategoryState] = useState<string>("All");
 
     useEffect(() => {
-
-        props.supaArray.forEach((value: any, index: number) => {
-        if (value.tags.includes("공지")) {
-            // 해당 값을 배열에서 제거
-            let [removedValue] = props.supaArray.splice(index, 1);
-            // 맨 앞에 추가
-            props.supaArray.unshift(removedValue);
-        }
-        setClientSupaArray(props.supaArray);
         setloaded(true);
+        },[])
 
-        }
-    );
-    },[]);
-
-    useEffect(() => {
-    if (CategoryState === "All") {
-        setClientSupaArray(props.supaArray);
-    } else {
-        setClientSupaArray(props.supaArray.filter((value: any) => value.category.includes(CategoryState)));
-    }
-    console.log("CategoryState", CategoryState);   
-    
-    },[CategoryState]);
+        const filteredArray = useMemo(() => 
+            props.supaArray.filter((value: any) => 
+              CategoryState === "All" || value.category.includes(CategoryState)
+            ), 
+            [CategoryState]
+          );
 
     if (!loaded) {
         return <div>loading...</div>;
     }
     return (
         <div className="px-5 lg:px-10">
-            <div className="lg:flex">
+            <div className="lg:flex pb-16 pt-2">
             <div className=" pr-10">
-            <Search_input/>
+            <TagInput/>
             </div>
             <div>
                 <ToggleList setCategoryState={setCategoryState} CategoryState={CategoryState} />
@@ -57,7 +41,7 @@ export default function Notes(props: any) {
                 columnsCountBreakPoints={{ 360: 1, 640: 2, 1024: 3 }}
                 className="">
                 <Masonry >
-                    {ClientSupaArray.map((value: any, index: number) => (
+                    {filteredArray.map((value: any, index: number) => (
                         <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-1">
                             { (value.titleimage && value.titleimage.length) > 0 && (
                                 <img
