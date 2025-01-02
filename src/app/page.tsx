@@ -9,7 +9,7 @@ export default async function Home() {
     const supabaseClient = createClient();
     const batchSize = 5;  // 한 번에 가져올 데이터 개수
     let offset = 0;
-    let allData = [];
+    let allData: any[] = [];
 
     // 배치 방식으로 데이터 가져오기
     while (true) {
