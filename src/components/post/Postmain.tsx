@@ -25,7 +25,7 @@ export default function Notes(props: any) {
   return (
     <>
 
-    <div className=' lg:mx-auto w-full lg:w-[80vw]'>
+    <div className=' lg:mx-auto w-full lg:w-[80vw] h-screen'>
       <div className=' grid'>
       <div className=' ml-3 font-semibold text-7xl mb-2 opacity-70'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
@@ -50,17 +50,21 @@ export default function Notes(props: any) {
       <div className='px-7 '>
       <PostHtmlContent content={props.SupaArray.content} setLinkId={setLinkId} />
       </div>
-      </div>
-    </div>
 
-    <div className='flex w-full h-auto lg:h-[150px] lg:my-32 my-10 place-items-center '>
-      <div className='w-[30vw] mx-[10vw] '>
+      <div className='flex w-full h-auto lg:h-[150px] lg:my-32 my-10 place-items-center place-content-between '>
+      <div className='w-[30vw] '>
       { props.PrevSupaArray && <PostSuggestPrev data={props.PrevSupaArray} />}
       </div>
-      <div className='w-[30vw] mx-[10vw] '>
+      <div className='w-[30vw] '>
       { props.NextSupaArray && <PostSuggestNext data={props.NextSupaArray} />}
       </div>
     </div>
+      </div>
+
+
+    </div>
+
+
 
 
     </>

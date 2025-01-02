@@ -1,19 +1,19 @@
 "use client";
 
-import React, { ReactNode, useCallback } from "react";
+import React, { ReactNode, useCallback, useEffect } from "react";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 import { IconCaretLeftFilled, IconCaretRightFilled } from "@tabler/icons-react";
 import { colorIndexState } from "@/Atoms/ColorAtom";
 import { useRecoilState } from "recoil";
 import { OpeningState } from "@/Atoms/OpeningAtom";
+import { DarkmodeSwitchState } from "@/Atoms/DarkmodeSwitchAtom";
+
 
 
 export function updateTheme(bgColor: string, textColor: string) {
 
-  requestAnimationFrame(() => {
       document.documentElement.style.setProperty('--bg-color', bgColor);
       document.documentElement.style.setProperty('--text-color', textColor);
-  });
 }
 
   const palettes = [
@@ -32,6 +32,8 @@ type PropType = {
 
 export const Hero_Carousel = (props: PropType) => {
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
+  const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
+
   const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
   const { options, slides } = props; 
   const [emblaRef, embla] = useEmblaCarousel(options); 
@@ -45,17 +47,9 @@ export const Hero_Carousel = (props: PropType) => {
     if (embla) embla.scrollNext()
   }, [embla])
 
-
-  const LgimageStyle = {
-    fill: 'var(--text-color)'
-
-}
-
 const handleClickNext = () => {
   setPaletteIndex((prevIndex) => {
     const newIndex = (prevIndex + 1) % palettes.length;
-    const { bg, text } = palettes[newIndex];
-    updateTheme(bg, text);
     return newIndex;
   });
   };
@@ -63,17 +57,24 @@ const handleClickNext = () => {
   const handleClickPrev = () => {
     setPaletteIndex((prevIndex) => {
       const newIndex = prevIndex === 0 ? palettes.length - 1 : (prevIndex - 1) % palettes.length;
-      const { bg, text } = palettes[newIndex];
-      updateTheme(bg, text);
       return newIndex;
     });
-
   };
 
+  useEffect(() => {
+    const { bg, text } = palettes[paletteIndex];
+    if (DarkmodeSwitch) {
+      updateTheme(bg, text);
+    }
+    else {
+      updateTheme(text, bg);
+    }
+  }, [paletteIndex]);
   return (
     <>
     { !openingstate && <div className="w-full h-[500px] lg:h-[600px] relative flex">
-  <button className=" m-1  transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" onClick={scrollPrev}>
+  <button className=" m-1  transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev ml-2 place-items-center flex-shrink-0" 
+  onClick={() => {scrollPrev();}}>
     <IconCaretLeftFilled className='lg:size-[120px] size-[65px]' />
   </button>
 
@@ -87,7 +88,8 @@ const handleClickNext = () => {
     </div>
   </div>
 
-  <button className=" m-1 transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" onClick={scrollNext}>
+  <button className=" m-1 transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] inline-flex embla__prev mr-2 embla__next place-items-center flex-shrink-0" 
+  onClick={() => {scrollNext();}}>
     <IconCaretRightFilled className='lg:size-[120px] size-[65px]' />
   </button>
 </div>}

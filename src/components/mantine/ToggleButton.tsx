@@ -1,8 +1,6 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import { CategoryState } from "@/Atoms/CategoryAtom"
-import { useRecoilState } from "recoil";
 
 export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: string, setCategoryState:React.Dispatch<React.SetStateAction<any>>, CategoryState:string} ) {
   const [isToggled, setIsToggled] = useState( CategoryState === tag );
