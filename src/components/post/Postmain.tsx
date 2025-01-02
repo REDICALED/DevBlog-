@@ -42,7 +42,7 @@ export default function Notes(props: any) {
       {linkid.map((value: any, index: number) => (  
         <>
         <a
-         href={"#"+value} key={index} className=' opacity-65 scroll-smooth block py-1 lg:text-xl text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
+         href={"#"+value} key={index} className=' opacity-65 hover:opacity-100 scroll-smooth block py-1 lg:text-xl text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
         </>
       ))}
       </div>
@@ -53,7 +53,7 @@ export default function Notes(props: any) {
       </div>
     </div>
 
-    <div className='flex w-full h-auto lg:h-[150px] mt-16 mb-10 '>
+    <div className='flex w-full h-auto lg:h-[150px] lg:my-32 my-10 place-items-center '>
       <div className='w-[30vw] mx-[10vw] '>
       { props.PrevSupaArray && <PostSuggestPrev data={props.PrevSupaArray} />}
       </div>

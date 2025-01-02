@@ -4,20 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { CategoryState } from "@/Atoms/CategoryAtom"
 import { useRecoilState } from "recoil";
 
-export function ToggleButton( props: {tag: string} ) {
-  const [category, setCategory] = useRecoilState(CategoryState);
-  const [isToggled, setIsToggled] = useState( category === props.tag );
+export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: string, setCategoryState:React.Dispatch<React.SetStateAction<any>>, CategoryState:string} ) {
+  const [isToggled, setIsToggled] = useState( CategoryState === tag );
 
   const handleToggle = () => {
-    if (props.tag !== category) {
-      setCategory(props.tag);
+    if (tag !== CategoryState) {
+      setCategoryState(tag);
       setIsToggled(!isToggled);
     }
   };
 
   useEffect(() => {
-    setIsToggled(category === props.tag);
-  }, [category]);
+    setIsToggled(CategoryState === tag);
+  }, [CategoryState]);
 
 
   return (
@@ -50,7 +49,7 @@ export function ToggleButton( props: {tag: string} ) {
       />
     </button>
           <span className=' ml-1 grid place-items-center'>
-        {props.tag}
+        {tag}
     </span>
     </div>
   );

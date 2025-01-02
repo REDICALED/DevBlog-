@@ -114,7 +114,7 @@ export default function Tiptap( {SupaArray}: any) {
               placeholder="Enter tag"
               value={Tags}
               onChange={setTags}
-              className='my-2'
+              className='my-2 rounded-xl'
             />
             카테고리
             <select id="category"

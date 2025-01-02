@@ -10,7 +10,7 @@ export const PostSuggest = (props:any) => {
         }
     }, []);
     return (
-      <div >
+      <div className="">
       <Link href={`/post/${props.data.uuid}`} className={` ${props.data ? `block` : `hidden`} flex flex-col items-center border-2 border-[var(--text-color)] transition-opacity rounded-lg shadow md:flex-row  hover:opacity-75`}>
           <img className="lg:object-contain object-cover rounded-t-lg h-24 w-full lg:h-48 lg:w-48 md:rounded-none md:rounded-s-lg" src={props.data.titleimage} alt=""/>
           <div className="flex flex-col justify-between p-4 leading-normal">

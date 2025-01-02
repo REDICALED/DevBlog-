@@ -10,30 +10,21 @@ export function createClient() {
   }
   console.log("return new client");
 
-  const cookieStore = cookies();
-
   // 첫 호출 시 클라이언트 생성 후 캐시에 저장
   cachedClient = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
+      // 쿠키 관련 옵션도 제거
       cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value;
+        get() {
+          return ""; // 빈 값으로 설정
         },
-        set(name: string, value: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value, ...options });
-          } catch (error) {
-            // 오류 처리
-          }
+        set() {
+          // 쿠키 설정 안함
         },
-        remove(name: string, options: CookieOptions) {
-          try {
-            cookieStore.set({ name, value: '', ...options });
-          } catch (error) {
-            // 오류 처리
-          }
+        remove() {
+          // 쿠키 삭제 안함
         },
       },
     },
