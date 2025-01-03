@@ -27,22 +27,23 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
         rounded-full 
         relative 
         transition-all 
-        duration-300 
-        ${isToggled ? 'bg-[var(--text-color)]' : 'bg-gray-400'}        
+        duration-300
+        border-2
+        border-[var(--text-color)]
+        ${isToggled ? 'bg-[var(--text-color)]' : 'bg-[var(--bg-color)]'}        
       `}
     >
       <div 
         className={`
           absolute 
-          top-[2px] 
+          top-[0.5px] 
           w-[26px] 
           h-[26px] 
-          bg-[var(--bg-color)]
           rounded-full 
           shadow-md 
           transition-all 
           duration-300
-          ${isToggled ? 'translate-x-[30px]' : 'translate-x-[2px]'}
+          ${isToggled ? 'translate-x-[30px] bg-[var(--bg-color)]' : 'translate-x-[1px] bg-[var(--text-color)]'}
         `}
       />
     </button>
