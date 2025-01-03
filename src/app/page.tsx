@@ -34,7 +34,15 @@ export default async function Home() {
     });
     const otherPosts = allData.filter((value: any) => !value.tags.includes('공지'));
     const finalArray = [...SupaArray, ...otherPosts];  // 공지 먼저, 나머지 뒤에 추가
+    const BeforeTagArray = await finalArray.map((value: any) => value.tags).flat(); // tags 배열을 평탄화하여 모든 태그들 모음
 
+    // 태그 개수 계산
+    const tagArray = await BeforeTagArray.reduce((acc: Record<string, number>, tag: string) => {
+      // 태그가 이미 존재하면 개수 증가, 아니면 1로 설정
+      acc[tag] = (acc[tag] || 0) + 1;
+      return acc;
+    }, {});
+    console.log(tagArray);
     return (
         <div className=' '>
             <div className='row-span-1 place-items-center grid w-[100vw]'>
@@ -45,7 +53,7 @@ export default async function Home() {
             </div>
             <div className='row-span-1 w-full'>
                 <div className='h-screen'>
-                    <MainPostlist SupaArray={finalArray}/>
+                    <MainPostlist SupaArray={finalArray} tagArray={tagArray}/>
                 </div>
             </div>
         </div>

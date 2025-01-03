@@ -10,33 +10,41 @@ import TagInput from "./MainTagInput";
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
-    const [loaded, setloaded] = useState<boolean>(false);
-    const [CategoryState, setCategoryState] = useState<string>("All");
+    const [Loaded, setLoaded] = useState<boolean>(false);
+    // const [CategoryState, setCategoryState] = useState<string>("All");
+    const [TagState, setTagState] = useState<string>("All");
 
     useEffect(() => {
-        setloaded(true);
+        setLoaded(true);
         },[])
 
         const filteredArray = useMemo(() => 
             props.supaArray.filter((value: any) => 
-              CategoryState === "All" || value.category.includes(CategoryState)
+                TagState === "All" || value.tags.includes(TagState)
             ), 
-            [CategoryState]
+            [TagState]
           );
 
-    if (!loaded) {
+    if (!Loaded) {
         return <div>loading...</div>;
     }
     return (
         <div className="px-5 lg:px-10">
-            <div className="lg:flex pb-16 pt-2">
-            <div className=" pr-10">
-            <TagInput/>
+        <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
+            <div className="">
+            
+            <div className=" mx-10 font-bold text-2xl">
+                Tags -
+                <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
             </div>
-            <div>
+            
+            {/* <div className=" mx-10 font-bold text-2xl">
+                Category -
                 <ToggleList setCategoryState={setCategoryState} CategoryState={CategoryState} />
+            </div> */}
+
             </div>
-            </div>
+        <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-b-4"></div>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{ 360: 1, 640: 2, 1024: 3 }}
                 className="">
