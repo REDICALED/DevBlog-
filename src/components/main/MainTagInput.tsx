@@ -7,12 +7,13 @@ const TagInput = (props: TagInputProps) => {
 
   return (
     <div
-    className="">
-          <div className='flex'
+    className="lg:max-h-[400px] max-h-[150px]">
+          <div className='flex flex-wrap'
           >
             <div  
               onClick={() => props.setTagState('All')}
-              className=" 
+              className="
+              flex-shrink-0
               transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
                border-[var(--text-color)] border-2 rounded-md mr-2 p-1">
                 <span className="text-lg lg:text-xl mx-2">All</span>
@@ -23,6 +24,7 @@ const TagInput = (props: TagInputProps) => {
               <div key={key} 
               onClick={() => props.setTagState(key)}
               className=" 
+              flex-shrink-0
               transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
                border-[var(--text-color)] border-2 rounded-md mr-2 p-1">
                 <span className="text-lg lg:text-xl ml-1">{`${key} (${value})`}</span>
