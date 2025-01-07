@@ -7,12 +7,15 @@ import {ToggleList} from '@/components/main/ToggleList';
 import { useEffect, useMemo, useState } from "react";
 import { format } from "path";
 import TagInput from "./MainTagInput";
+import Arrow_down from "@/assets/arrow_down.svg";
+
 export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
     const [Loaded, setLoaded] = useState<boolean>(false);
     // const [CategoryState, setCategoryState] = useState<string>("All");
     const [TagState, setTagState] = useState<string>("All");
+    const [TagOpen, setTagOpen] = useState<boolean>(false);
 
     useEffect(() => {
         setLoaded(true);
@@ -30,20 +33,10 @@ export default function Notes(props: any) {
     }
     return (
         <div className="px-5 lg:px-10">
-        <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
-            <div className="">
-            
-            <div className=" mx-10 font-bold text-2xl">
-                <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
+            <div>
+                <TagInput tagArray={props.tagArray} setTagState={setTagState} setTagOpen={setTagOpen}/>
             </div>
             
-            {/* <div className=" mx-10 font-bold text-2xl">
-                Category -
-                <ToggleList setCategoryState={setCategoryState} CategoryState={CategoryState} />
-            </div> */}
-
-            </div>
-        <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-b-4"></div>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{ 360: 1, 640: 2, 1024: 3 }}
                 className="">

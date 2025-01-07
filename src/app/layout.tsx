@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="scroll-smooth">
-      <body className=" font-custom ">
+      <body className=" font-custom main_scrollbar ">
         <RecoilRootWrapper>
       <CustomCursor />
       <Mainheader />
