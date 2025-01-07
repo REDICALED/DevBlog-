@@ -34,7 +34,6 @@ export default function Notes(props: any) {
             <div className="">
             
             <div className=" mx-10 font-bold text-2xl">
-                Tags -
                 <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
             </div>
             
