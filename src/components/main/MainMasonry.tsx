@@ -8,6 +8,8 @@ import { useEffect, useMemo, useState } from "react";
 import { format } from "path";
 import TagInput from "./MainTagInput";
 import Arrow_down from "@/assets/arrow_down.svg";
+import { OpeningState } from '@/Atoms/OpeningAtom';
+import { useRecoilState } from "recoil";
 
 export default function Notes(props: any) {
     const maxContentLength = 40;
@@ -16,6 +18,7 @@ export default function Notes(props: any) {
     // const [CategoryState, setCategoryState] = useState<string>("All");
     const [TagState, setTagState] = useState<string>("All");
     const [TagOpen, setTagOpen] = useState<boolean>(false);
+    const [openingstate, setOpeningState] = useRecoilState(OpeningState);
 
     useEffect(() => {
         setLoaded(true);
@@ -33,13 +36,34 @@ export default function Notes(props: any) {
     }
     return (
         <div className="px-5 lg:px-10">
-            <div>
-                <TagInput tagArray={props.tagArray} setTagState={setTagState} setTagOpen={setTagOpen}/>
-            </div>
+            {!openingstate && <div
+            className={`${TagOpen ? '': 'transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] '}
+            `}
+            onClick={() => setTagOpen(true)}
+            >
+                <div style={{ borderColor: 'var(--text-color)'}} className=" rounded-tr-lg rounded-tl-lg  animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
+                
+                    {
+                        !TagOpen &&
+                        <div className=" animate__bounce-in-top text-3xl font-semibold grid place-items-center ">
+                            Show Tags <Arrow_down className="w-5 h-5 inline"/>
+                        </div>
+                    }
+
+                    {
+                        TagOpen &&
+                        <div className=" animate__slide-in-right overflow-hidden ">
+                            <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
+                        </div>
+                        
+                    }
+            
+                <div style={{ borderColor: 'var(--text-color)'}} className=" rounded-br-lg rounded-bl-lg animate__bounce-in-top h-5 border-l-4 border-r-4 border-b-4"></div>
+            </div>}
             
             <ResponsiveMasonry
                 columnsCountBreakPoints={{ 360: 1, 640: 2, 1024: 3 }}
-                className="">
+                className=" my-10">
                 <Masonry >
                     {filteredArray.map((value: any, index: number) => (
                         <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-1">
@@ -47,10 +71,10 @@ export default function Notes(props: any) {
                                 <img
                                     alt={value.title}
                                     src={value.titleimage}
-                                    className=" p-1 pt-3 absolute inset-0 h-2/3 w-full object-cover opacity-90 transition-all group-hover:opacity-70"
+                                    className=" rounded-lg absolute inset-0 h-2/3 lg:h-3/4 w-full object-cover opacity-90 transition-all group-hover:opacity-70"
                                 />
                             )}
-                            <div className=" rounded-sm relative flex h-full transform items-end border-2 border-[var(--text-color)] transition-transform">
+                            <div className=" rounded-lg relative flex h-full transform items-end border-[4px] border-[var(--text-color)] transition-transform">
                                 <div className="pb-1 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0">
                                     <h3 className="p-1 mt-1 text-sm font-bold sm:text-2xl overflow-hidden whitespace-nowrap text-ellipsis">
                                         <p className="p-1 mt-0 break-words">

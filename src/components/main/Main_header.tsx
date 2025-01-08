@@ -29,13 +29,18 @@ export default function Main_header() {
         requestAnimationFrame(() => {
             // 깜빡이기 시작
             blinkControls.start("blink").then(() => {
-                containerControls.start({
-                    height: isLargeScreen ? '150px' : '60px', //이걸 string state로 관리
-                    transition: { duration: 1 }
-                }).then(() => {
-                    setOpeningState(false);
-                });
-            });
+              if (!openingstate) {
+                  return; // 이후 애니메이션 실행 중단
+              }
+          
+              // openingstate가 true인 경우에만 애니메이션 실행
+              containerControls.start({
+                  height: isLargeScreen ? '150px' : '60px', // 애니메이션으로 전환
+                  transition: { duration: 1 },
+              }).then(() => {
+                  setOpeningState(false); // 애니메이션 종료 후 상태 변경
+              });
+          });
         });
     };
 
@@ -67,7 +72,8 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={`w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 z-50 `}`}
+                className={`w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center z-50 
+                   ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 ${isLargeScreen ? 'h-[150px]' : '[60px]'} `} `}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
 

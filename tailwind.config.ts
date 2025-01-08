@@ -47,7 +47,9 @@ const config: Config = {
   },
   plugins: [
     tailwindCSSAnimista({
-      classes: ['animate__slide-in-top', 'animate__slide-in-bottom', 'animate__flicker-3','animate__slide-in-left','animate__slide-in-right','animate__bounce-in-top','animate__bounce-in-bottom', 'animate__roll-in-left'], // 사용할 애니메이션 클래스 명시
+      classes: ['animate__slide-in-top', 'animate__slide-in-bottom', 'animate__flicker-3',
+        'animate__slide-in-left','animate__slide-in-right','animate__bounce-in-top','animate__bounce-in-bottom', 
+        'animate__roll-in-left', 'animate__swing-in-top-bck'], // 사용할 애니메이션 클래스 명시
       settings: {
         'animate__slide-in-top': {
           duration: 850,   // 애니메이션 지속 시간
@@ -109,6 +111,14 @@ const config: Config = {
           timingFunction: 'linear', // 애니메이션 타이밍 함수
           direction: 'normal', // 애니메이션 방향
           fillMode: 'both', // 애니메이션 상태
+        },
+
+        'animate__swing-in-top-bck': {
+          duration: 1.8,   // 애니메이션 지속 시간
+          delay: 100,      // 애니메이션 지연 시간
+          iterationCounts: 1, // 애니메이션 반복 횟수
+          isInfinite: false,  // 반복 무한 여부
+          timingFunction: 'linear',
         },
       },
       variants: ['responsive', 'hover'],  // 다양한 variant 추가 가능

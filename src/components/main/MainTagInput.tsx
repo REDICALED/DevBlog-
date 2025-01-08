@@ -1,17 +1,14 @@
 interface TagInputProps {
   tagArray: { [key: string]: number };
   setTagState: React.Dispatch<React.SetStateAction<string>>;
-  setTagOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const TagInput = (props: TagInputProps) => {
 
   return (
     <>
-    <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
     
-    
-    <div
+    {<div
     className="lg:max-h-[400px] max-h-[150px] overflow-y-scroll scrollbar lg:mx-10 mx-4 font-bold text-2xl">
           <div className='flex flex-wrap '
           >
@@ -36,10 +33,8 @@ const TagInput = (props: TagInputProps) => {
               </div>
             ))}
           </div>  
-    </div>
+    </div>}
     
-    
-    <div style={{ borderColor: 'var(--text-color)'}} className=" animate__bounce-in-top h-5 border-l-4 border-r-4 border-b-4"></div>
     </>
   );
 };
