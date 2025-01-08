@@ -25,37 +25,40 @@ export default function Notes(props: any) {
   return (
     <>
 
-    <div className=' lg:mx-auto w-full lg:w-[80vw] h-screen'>
-      <div className=' grid'>
-      <div className=' ml-3 font-semibold text-7xl mb-2 opacity-70'> {props.SupaArray.title}</div>
+    <div className=' lg:mx-auto w-full lg:w-[80vw] h-full'>
+      <div className=''>
+      <div className=' ml-3 font-semibold text-7xl mb-2'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
       <div className=' ml-4 mr-2 font-semibold text-md'> {formattedDate}</div>
+      
       {
-        
         props.SupaArray.tags && props.SupaArray.tags.map((tag: string, index: number) => (
           <div key={index} className=' ml-1 font-semibold text-md '> {"#"+tag}</div>
         ))
-      }</div>
-      <div style={{ borderColor: 'var(--text-color)'}} className={ " mb-10 w-full h-5 border-b-4"}></div>
+      }
+      
+      </div>
 
-      <div className=' my-10 px-8 border-l-2 border-[var(--text-color)] '>
+      <div className=' fixed right-0 mx-1 max-w-[10vw] lg:block hidden   '>
+      
       {linkid.map((value: any, index: number) => (  
         <>
         <a
-         href={"#"+value} key={index} className=' opacity-65 hover:opacity-100 scroll-smooth block py-1 lg:text-xl text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
+         href={"#"+value} key={index} className='font-semibold opacity-65 hover:opacity-100 scroll-smooth block py-1 lg:text-base text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
         </>
       ))}
+
       </div>
-      {/* # 태그 */}
-      <div className='px-7 '>
+
+      <div className='px-7 mt-10'>
       <PostHtmlContent content={props.SupaArray.content} setLinkId={setLinkId} />
       </div>
 
       <div className='flex w-full h-auto lg:h-[150px] lg:my-32 my-10 place-items-center place-content-between '>
-      <div className='w-[30vw] '>
+      <div className='w-[30vw] ml-10 lg:ml-0 '>
       { props.PrevSupaArray && <PostSuggestPrev data={props.PrevSupaArray} />}
       </div>
-      <div className='w-[30vw] '>
+      <div className='w-[30vw] mr-10 lg:mr-0 '>
       { props.NextSupaArray && <PostSuggestNext data={props.NextSupaArray} />}
       </div>
     </div>

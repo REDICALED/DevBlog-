@@ -41,7 +41,7 @@ export default function Slide_4() {
                         key={0}
                         src={budda.src}
                         alt="Image"
-                        className="object-contain w-full lg:w-1/2 rounded-md place-self-center animate__slide-in-bottom  "
+                        className="object-contain w-full lg:w-1/2 rounded-md place-self-center animate__slide-in-bottom lg:mb-0 mb-[10px]  "
                       />
                     </div>
                 </div>

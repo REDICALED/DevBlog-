@@ -20,7 +20,8 @@ export default function BlinkerBar(props: any) {
                             },
                           }}
                         >
-                        <div style={{ borderColor: 'var(--text-color)'}} className={ props.direction ? " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-t-4" : " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-b-4"}></div>
+                        <div style={{ borderColor: 'var(--text-color)'}} className={ props.direction ? " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-t-4 rounded-tr-lg rounded-tl-lg" : 
+                          " animate__bounce-in-top mx-10 h-5 border-l-4 border-r-4 border-b-4 rounded-br-lg rounded-bl-lg"}></div>
             </motion.span>
     )
 }

@@ -23,7 +23,7 @@ export default function HeroHeader() {
           <BlinkerBar direction={true}/>
     )}
       <div className=' h-[500px] lg:h-[600px] w-full flex overflow-hidden '>
-      <Hero_Carousel 
+      <Hero_Carousel
         slides={[
           <div key={"carousel_1"}>
             { !openingstate &&  paletteIndex === 0 && (
@@ -53,6 +53,8 @@ export default function HeroHeader() {
           loop: true,
           skipSnaps: false,
           inViewThreshold: 0.7,
+          dragFree: false,
+          draggable: window.innerWidth < 768
         }}
       />
     </div>
