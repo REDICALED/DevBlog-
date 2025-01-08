@@ -17,9 +17,7 @@ export const PostSuggest = (props:any) => {
             <h5 className="mb-2 text-sm lg:text-2xl font-bold tracking-tight  ">다음 게시물</h5>
             <p className="mb-3 text-sm lg:text-2xl font-semibold ">{props.data ? props.data.title : "no data"}</p>
             <div className="flex flex-wrap">
-              {props.data.tags.map((tag:string, index:number) => (
-                <p key={index} className="mb-3 text-xs lg:text-xl mr-1 font-normal ">{ `#${tag}` }</p>
-              ))}
+                <p className="mb-3 text-xs lg:text-xl mr-1 font-normal ">{ `#${props.data.tags[0]}` }</p>
               </div>
         </div>
     </Link>

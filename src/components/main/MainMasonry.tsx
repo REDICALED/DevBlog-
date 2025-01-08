@@ -44,15 +44,14 @@ export default function Notes(props: any) {
                 <div style={{ borderColor: 'var(--text-color)'}} className=" rounded-tr-lg rounded-tl-lg  animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
                 
                     {
-                        !TagOpen &&
-                        <div className=" animate__bounce-in-top text-3xl font-semibold grid place-items-center ">
+                        <div className={` ${TagOpen ? 'hidden' : 'block' }  animate__bounce-in-top text-3xl font-semibold grid place-items-center`}>
                             Show Tags <Arrow_down className="w-5 h-5 inline"/>
                         </div>
                     }
 
                     {
                         TagOpen &&
-                        <div className=" animate__slide-in-right overflow-hidden ">
+                        <div className={` ${TagOpen ? 'block' : 'hidden' } animate__slide-in-left  overflow-hidden`} >
                             <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
                         </div>
                         
@@ -66,7 +65,7 @@ export default function Notes(props: any) {
                 className=" my-10">
                 <Masonry >
                     {filteredArray.map((value: any, index: number) => (
-                        <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-1">
+                        <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-4">
                             { (value.titleimage && value.titleimage.length) > 0 && (
                                 <img
                                     alt={value.title}
@@ -76,7 +75,7 @@ export default function Notes(props: any) {
                             )}
                             <div className=" rounded-lg relative flex h-full transform items-end border-[4px] border-[var(--text-color)] transition-transform">
                                 <div className="pb-1 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0">
-                                    <h3 className="p-1 mt-1 text-sm font-bold sm:text-2xl overflow-hidden whitespace-nowrap text-ellipsis">
+                                    <h3 className="p-1 mt-1 text-sm font-bold lg:text-3xl overflow-hidden whitespace-nowrap text-ellipsis">
                                         <p className="p-1 mt-0 break-words">
                                             {
                                                 value.title.replace(/<[^>]+>/g, '').length > maxTitleLength
@@ -84,7 +83,7 @@ export default function Notes(props: any) {
                                                     : value.title.replace(/<[^>]+>/g, '')
                                             }
                                         </p>
-                                        <p className=" opacity-65 pl-1 mt-0 break-words text-xs sm:text-base">
+                                        <p className=" opacity-65 pl-1 mt-0 break-words text-xs lg:text-lg">
                                         {value.tags.map((tag:string, index:number) => (
                                                 <span key={index}>{"#"+tag+" "}</span> // 각 태그를 <span>으로 감싸서 렌더링
                                             ))}
