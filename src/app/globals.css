@@ -29,7 +29,6 @@
     color: var(--text-color);
     transition: background-color 0.5s ease, color 0.5s ease;
     cursor: none !important;
-    line-height: 250%;
   }
 
   button, a, input, textarea, select {
