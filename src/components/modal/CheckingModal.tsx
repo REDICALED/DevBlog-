@@ -1,7 +1,7 @@
 'use client'
 
 import { useRecoilState } from "recoil";
-import { CheckModalState } from "@/Atoms/CheckModalAtom";
+import { CheckModalState } from "@/Atoms/ModalsAtom";
 
 export const CheckingModal = (props:any)=> {
     const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);

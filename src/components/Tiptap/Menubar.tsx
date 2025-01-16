@@ -26,46 +26,32 @@ import Image from 'next/image'
 
 import { useEffect } from 'react'
 import { useRecoilState } from 'recoil'
+import { PostImageModal } from '../modal/PostImageModal'
 
 const MenuBar = (props: any) => {
+
     const { editor } = useCurrentEditor()
 
     if (!editor) {
       return null
     }
   
-    const resizeFile = (file: File): Promise<File>  =>
-        new Promise((res) => {
-          Resizer.imageFileResizer(
-            file, // target file
-            1200, // maxWidth
-            1200, // maxHeight
-            "JPEG", // compressFormat : Can be either JPEG, PNG or WEBP.
-            70, // quality : 0 and 100. Used for the JPEG compression
-            0, // rotation
-            (uri) => res(uri as File), // responseUriFunc
-            "file" // outputType : Can be either base64, blob or file.(Default type is base64)	
-          );
-        // console.log("resizeFile");
-        }
-      );
-
-      const handleUploadPhoto = async (files: FileList | null) => {
-        if (!files) {
-          return;
-        }
+      const handleUploadPhoto = async () => {
+        // if (!files) {
+        //   return;
+        // }
       
-        const file = await resizeFile(files[0]);
-        if (file) {
-          const reader = new FileReader();
+        // const file = await resizeFile(files[0]);
+        // if (file) {
+        //   const reader = new FileReader();
       
-          reader.onload = () => {
-            const imageData = reader.result as string; // Base64로 변환된 데이터
-            editor.commands.setImage({ src: imageData }); // Base64 이미지 삽입
-          };
+        //   reader.onload = () => {
+        //     const imageData = reader.result as string; // Base64로 변환된 데이터
+        //     editor.commands.setImage({ src: imageData }); // Base64 이미지 삽입
+        //   };
       
-          reader.readAsDataURL(file); // 파일을 Base64로 변환
-        }
+        //   reader.readAsDataURL(file); // 파일을 Base64로 변환
+        // }
       };
   
   const handleButtonClick = () => {
@@ -219,15 +205,15 @@ const MenuBar = (props: any) => {
         type="button"
         className="relative cursor-pointer border border-black p-[10px] hover:bg-gray-200 "
       >
-        <input
+        {/* <input
           type="file"
           className="absolute top-0 left-0 w-8 h-8 outline-none opacity-0 file:cursor-pointer"
           accept="image/*"
           onChange={(e) => {
             handleUploadPhoto(e.target.files);
           }}
-        />
-        <Image alt="" src={AddPhoto} className="w-5 h-5"/>
+        /> */}
+        <PostImageModal uuidstate={props.uuidstate} editor={editor}/>
   
       </button>
   
@@ -247,7 +233,6 @@ const MenuBar = (props: any) => {
             >
         <Image alt="" src={AddCode} className="w-5 h-5"/>
         </button>
-  
       </div>
     )
   }

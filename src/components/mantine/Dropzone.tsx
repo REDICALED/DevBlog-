@@ -1,42 +1,35 @@
 import { useState } from 'react';
 import { Text, Image, SimpleGrid } from '@mantine/core';
 import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, FileWithPath } from '@mantine/dropzone';
-import Resizer from "react-image-file-resizer";
+import {resizeFile} from '@/utils/ResizeFile';
 
 interface CustomDropzoneProps extends Partial<DropzoneProps> {
   setFile: React.Dispatch<React.SetStateAction<string | null>>;
+  uuidstate: string;
 }
 
-const resizeFile = (file: File): Promise<File>  =>
-  new Promise((res) => {
-    Resizer.imageFileResizer(
-      file, // target file
-      600, // maxWidth
-      600, // maxHeight
-      "JPEG", // compressFormat : Can be either JPEG, PNG or WEBP.
-      100, // quality : 0 and 100. Used for the JPEG compression
-      0, // rotation
-      (uri) => res(uri as File), // responseUriFunc
-      "file" // outputType : Can be either base64, blob or file.(Default type is base64)	
-    );
-  // console.log("resizeFile");
-  }
-);
-
-export function Dropzon({ setFile, ...props }: CustomDropzoneProps) {
+export function Dropzon({ setFile, uuidstate }: CustomDropzoneProps) {
   const [files, setFiles] = useState<FileWithPath[]>([]);
-  const fileToBase64 = (file: File): Promise<string> => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-  };
+
 
   const handleDrop = async (file: FileWithPath) => {
-    const base64 = await fileToBase64(await resizeFile(file));
-    setFile(base64);  // Base64 문자열을 상위 컴포넌트에 전달
+    const resizedfile = await resizeFile(file);
+    const formData = new FormData();
+    const pathstring:string = `${uuidstate}/titleimage`;
+    formData.append('path', pathstring);
+    formData.append('file', resizedfile);
+    if (file) {
+      const response = await fetch('/api/upload-image', {
+        method: 'POST',
+        body: formData,
+      });
+      const result = await response.json();
+      if (result.data) {
+        setFile(`${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/images/${result.data.path}`);
+      } else {
+        console.error(result.error);
+      }
+    }
   };
 
   const previews = files.map((file, index) => {

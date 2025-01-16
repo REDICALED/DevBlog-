@@ -15,49 +15,19 @@ const Postmain = dynamic(() => import('@/components/post/Postmain'), {
 
 export default async function Post({params}: Props) {
     const supabaseClient = createClient();
-    const batchSize = 5;  // 한 번에 가져올 데이터 개수
-    let offset = 0;
-    let allData: any[] = [];
+    const { data: notes, error } = await supabaseClient
+        .from('posts')
+        .select()
+        .order('date', { ascending: false })
+        .eq('uuid', params.id);
 
-    // 배치 방식으로 데이터 가져오기
-    while (true) {
-        const { data: notes, error } = await supabaseClient
-            .from('posts')
-            .select()
-            .order('date', { ascending: false })
-            .range(offset, offset + batchSize - 1); // 5개씩 가져옴
-
-        if (error || !notes.length) break;  // 데이터가 더 이상 없으면 종료
-
-        allData = [...allData, ...notes];  // 가져온 데이터를 모두 합침
-        offset += batchSize;  // 다음 배치로 이동
-    }
-
+    const SupaArray = await JSON.parse(JSON.stringify(notes));
     // 공지를 맨 앞으로 이동
-    const supaArray = allData.filter((value: any) => {
-        if (value.tags.includes('공지')) {
-            return true;
-        }
-        return false;
-    });
-    const otherPosts = allData.filter((value: any) => !value.tags.includes('공지'));
-    const finalArray = [...supaArray, ...otherPosts];
-    var SupaArray;
     var PrevSupaArray;
     var NextSupaArray;
-    for (let i = 0; i < finalArray.length; i++) {
-        if (finalArray[i].uuid === params.id) {
-            SupaArray = finalArray[i];
-            if (i > 0) {
-              NextSupaArray = finalArray[i-1];
-            }
-            if (i < finalArray.length-1) {
-              PrevSupaArray = finalArray[i+1];}
-        }
-    }
     return (
         <div className=''>
-          <Postmain id={params.id} SupaArray={SupaArray} PrevSupaArray={PrevSupaArray} NextSupaArray={NextSupaArray} />
+          <Postmain id={params.id} SupaArray={SupaArray[0]} PrevSupaArray={PrevSupaArray} NextSupaArray={NextSupaArray} />
         </div>
     );
 }
