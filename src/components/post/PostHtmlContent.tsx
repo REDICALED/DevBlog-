@@ -20,6 +20,7 @@ export default function PostHtmlContent({ content, setLinkId }: { content: strin
     // h3 태그의 id를 한 번만 추가하도록 setLinkId 호출
     const ids = content.match(/<h3>(.*?)<\/h3>/g)?.map((match) => match.replace(/<h3>(.*?)<\/h3>/, "$1").toLowerCase().replace(/\s+/g, '-')) || [];
     setLinkId(ids);
+    console.log(ids);
   }, [content, setLinkId]);
 
   return (

@@ -11,20 +11,24 @@ import {Dropzon} from '@/components/mantine/Dropzone';
 import styles from '../../app/post/[id]/styles.module.scss';
 import '@mantine/core/styles.css';
 import { createClient } from '@supabase/supabase-js' // supabase client -> add post용 csr 동적 클라이언트
-import { CheckModalState } from "@/Atoms/CheckModalAtom";
+import { CheckModalState } from "@/Atoms/ModalsAtom";
 import { useRecoilState } from 'recoil'
+import { Search_input } from '../mantine/Search_input'
+
 // console.log(primaryKey);
-export default function Tiptap( {SupaArray}: any) {
+export default function Tiptap( ) {
   const [editor, setEditor] = useState<any>(null);
   const [Preview, setPreview] = useState("");
   const [Tags, setTags] = useState<string[]>([]);
   const titletextRef = useRef<HTMLInputElement>(null);
-  const [acceptedFile, setAcceptedFile] = useState<string | null>(null);
+  const [titleimagestate, setTitleImageState] = useState<string | null>(null);
   const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
   const [CalDate, setCalDate] = useState<Date|null>(null);
   const [Posts, setPosts] = useState<boolean>(false);
   const [category, setCategory] = useState('cs');
-
+  const [uuidstate, setUuidstate] = useState<string>(uuidv4());
+  const [SupaArray, setSupaArray] = useState<any>(null);
+  
   useEffect(() => {
     const fetchPosts = async () => {
       setPosts(true);
@@ -38,16 +42,15 @@ export default function Tiptap( {SupaArray}: any) {
   async function addPost() {
       const formattedDate = CalDate?.toISOString().slice(0, 19).replace('T', ' ');
       //date생성
-      const uuid = uuidv4();
-      //uuid 생성
       const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
         process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,);
       const { data, error } = await supabaseClient
         .from('posts') // 테이블 이름
         .insert([
-          { uuid: uuid, titleimage: acceptedFile, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
+          { uuid: uuidstate, titleimage: titleimagestate, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
         ]);
   
+        setUuidstate(uuidv4());
     if (error) {
       console.error('Error inserting data:', error);
     } else {
@@ -55,10 +58,30 @@ export default function Tiptap( {SupaArray}: any) {
     }
   }
 
+  // const handlePaste = async (e:any) => {
+  //   const clipboardItems = e.clipboardData.items;
+  
+  //   for (const item of clipboardItems) {
+  //     if (item.type.includes("image")) {
+  //       const file = item.getAsFile();
+  //       if (file) {
+  //         const resizedFile = await resizeFile(file);
+  //         const imageUrl = await fetch('/api/upload-image', {
+  //           method: 'POST',
+  //           headers: { 'Content-Type': 'application/json' },
+  //           body: JSON.stringify({ path:uuidstate, file:file }),
+  //         });
+  //         editor.commands.setImage({ src: imageUrl });
+  //       }
+  //     }
+  //   }
+  // };
+  
+
   async function loadpost(props:any) {
     editor.commands.setContent(props.content);
     setPreview(props.content);
-    setAcceptedFile(props.titleimage);
+    setTitleImageState(props.titleimage);
     if (titletextRef.current) {
       titletextRef.current.value = props.title;  // 글 불러오면 input 필드에 값 설정
     }
@@ -78,7 +101,8 @@ export default function Tiptap( {SupaArray}: any) {
         <div className=' m-2 flex  '>
           <CalComponent CalDate={CalDate} setCalDate={setCalDate} />
           <div className=' overflow-y-scroll max-h-[25vh] h-1/2 w-1/2'>
-            {SupaArray.map((value: any, index: number) => (
+            <Search_input setSupaArray={setSupaArray}/>
+            { SupaArray && SupaArray.map((value: any, index: number) => (
               <div className='border-2 border-black m-2 p-2 ' key={index}>
                 <div className='flex'>
                   <h3 className=' mr-5 font-bold text-lg'>{"title:  " + value.title}</h3>
@@ -99,6 +123,7 @@ export default function Tiptap( {SupaArray}: any) {
 
               </div>
             ))}
+
           </div>
         </div>
 
@@ -134,7 +159,7 @@ export default function Tiptap( {SupaArray}: any) {
 
 
         <div className=' ml-10 m-2 border-black border-2 p-10'>
-        <Dropzon setFile={setAcceptedFile}/>
+        <Dropzon uuidstate={uuidstate} setFile={setTitleImageState}/>
         </div>
 
         <div>
@@ -165,15 +190,16 @@ export default function Tiptap( {SupaArray}: any) {
         
         <div className='h-[70vh] '>
           <EditorProvider 
-            slotBefore={<MenuBar />} 
+            slotBefore={<MenuBar uuidstate={uuidstate} />} 
             extensions={extensions} 
             content={''}
             onCreate={handleEditorCreate} // editor 객체를 받을 수 있는 콜백
             immediatelyRender={false}
+            // onPaste={(e) => handlePaste(e)}
           />
         </div>
-        <div className=' border-2 border-black bg-white overflow-scroll w-[50vw]'>
-          {Preview &&  <div className={styles.wrapper} dangerouslySetInnerHTML={{ __html: Preview }} />}
+        <div className=' border-2 border-black bg-white overflow-scroll w-[55vw]'>
+          {Preview &&  <div className={`${styles.wrapper} overflow-y-scroll h-[100vh] `} dangerouslySetInnerHTML={{ __html: Preview }} />}
         </div>
         </div>
 

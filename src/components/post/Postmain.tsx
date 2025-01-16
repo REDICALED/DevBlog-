@@ -7,14 +7,12 @@ import PostSuggestNext from './PostSuggestNext';
 import PostSuggestPrev from './PostSuggestPrev';
 
 export default function Notes(props: any) {
-  const [formattedDate, setformattedDate] = useState<any>(null);
   const [linkid, setLinkId] = useState<string[]>([]);
   const [loaded, setloaded] = useState<boolean>(false);
 
   useEffect(() => {
-      const formattedDate = new Date(props.SupaArray.date).toISOString().replace('T', ' ')
-      .split('.')[0];
-      setformattedDate(formattedDate);
+    console.log(props.SupaArray)
+
       setloaded(true);
   }, []);
 
@@ -29,7 +27,7 @@ export default function Notes(props: any) {
       <div className=''>
       <div className=' ml-3 font-semibold text-7xl mb-2'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
-      <div className=' ml-4 mr-2 font-semibold text-md'> {formattedDate}</div>
+      <div className=' ml-4 mr-2 font-semibold text-md'> {new Date(props.SupaArray.date).toISOString().replace('T', ' ').split('.')[0]}</div>
       
       {
         props.SupaArray.tags && props.SupaArray.tags.map((tag: string, index: number) => (
