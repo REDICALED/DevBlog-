@@ -6,7 +6,7 @@ const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), { ss
 const MainPostlist = dynamic(() => import('@/components/main/MainPostlist'), { ssr: false });
 
 export default async function Home() {
-    const response = await fetch('http://localhost:3000/api/get-all-post', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-all-post`, {
         method: 'GET',
         cache: 'force-cache',
       });
