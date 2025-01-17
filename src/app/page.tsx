@@ -1,12 +1,14 @@
 // main 페이지 page 컴포넌트
 import dynamic from 'next/dynamic'
-import {createClient} from '@/utils/supabase/server'
+import { headers } from 'next/headers';
 
 const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), { ssr: false });
 const MainPostlist = dynamic(() => import('@/components/main/MainPostlist'), { ssr: false });
 
 export default async function Home() {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/get-all-post`, {
+    const host = headers().get("host");
+    const protocal = process?.env.NODE_ENV==="development"?"http":"https"
+    const response = await fetch(`${protocal}://${host}/api/get-all-post`, {
         method: 'GET',
         cache: 'force-cache',
       });
