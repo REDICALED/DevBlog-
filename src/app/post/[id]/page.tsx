@@ -6,12 +6,24 @@ type Props = {
     }
   }
 
-
 import {createClient} from '@/utils/supabase/server'
 import dynamic from 'next/dynamic'
 const Postmain = dynamic(() => import('@/components/post/Postmain'), {
     ssr: false
   })
+
+  export async function generateStaticParams() {
+    const supabaseClient = createClient();
+    const { data: posts } = await supabaseClient
+      .from('posts')
+      .select('uuid');
+      
+    return posts?.map((post: any) => ({
+      id: post.uuid,
+    }));
+  }
+
+
 
 export default async function Post({params}: Props) {
     const supabaseClient = createClient();
