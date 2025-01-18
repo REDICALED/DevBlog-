@@ -1,19 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import '../../app/post/[id]/styles.module.scss';
 import PostHtmlContent from '@/components/post/PostHtmlContent';
 import PostSuggestNext from './PostSuggestNext';
 import PostSuggestPrev from './PostSuggestPrev';
+import PostH3Id from './PostH3Id';
+import styles from '../../app/post/[id]/styles.module.scss';
 
 export default function Notes(props: any) {
   const [linkid, setLinkId] = useState<string[]>([]);
+  const [FilteredArray, setFilteredArray] = useState<string>();
   const [loaded, setloaded] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(props.SupaArray)
-
-      setloaded(true);
+      if (getComputedStyle(document.documentElement).getPropertyValue('--bg-color') === '#') {
+        document.documentElement.style.setProperty('--bg-color', '#f9f9f9');
+      }
+      if (getComputedStyle(document.documentElement).getPropertyValue('--text-color') === '#') {
+        document.documentElement.style.setProperty('--text-color', '#000000');
+      }
+    const outputArray = PostH3Id({ content: props.SupaArray.content, setLinkId: setLinkId });
+    setFilteredArray(outputArray);
+    console.log(outputArray)
+    setloaded(true);
   }, []);
 
   if (!loaded) {
@@ -25,7 +34,7 @@ export default function Notes(props: any) {
 
     <div className=' lg:mx-auto w-full lg:w-[80vw] h-full'>
       <div className=''>
-      <div className=' ml-3 font-semibold text-7xl mb-2'> {props.SupaArray.title}</div>
+      <div className=' ml-3 font-semibold text-5xl lg:text-7xl mb-2'> {props.SupaArray.title}</div>
       <div className='flex mt-2 mb-2 opacity-50'>
       <div className=' ml-4 mr-2 font-semibold text-md'> {new Date(props.SupaArray.date).toISOString().replace('T', ' ').split('.')[0]}</div>
       
@@ -37,19 +46,19 @@ export default function Notes(props: any) {
       
       </div>
 
-      <div className=' fixed right-0 mx-1 max-w-[10vw] lg:block hidden   '>
+      <div className=' fixed right-0 mx-1 px-5 max-w-[10vw] lg:block hidden   '>
       
       {linkid.map((value: any, index: number) => (  
         <>
         <a
-         href={"#"+value} key={index} className='font-semibold opacity-65 hover:opacity-100 scroll-smooth block py-1 lg:text-base text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
+         href={"#"+value} key={index} className='font-semibold opacity-65 hover:opacity-100 scroll-smooth block py-2 lg:text-base text-sm '> {value.replace(/-/g, ' ').replace(/<br\s*\/?>/g, '')}</a>
         </>
       ))}
 
       </div>
 
       <div className='px-7 mt-10'>
-      <PostHtmlContent content={props.SupaArray.content} setLinkId={setLinkId} />
+        <div className={styles.wrapper} dangerouslySetInnerHTML={{ __html: FilteredArray || '' }} />
       </div>
 
       <div className='flex w-full h-auto lg:h-[150px] lg:my-32 my-10 place-items-center place-content-between '>

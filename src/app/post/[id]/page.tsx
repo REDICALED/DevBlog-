@@ -6,6 +6,7 @@ type Props = {
     }
   }
 
+import './globals.css'
 import {createClient} from '@/utils/supabase/server'
 import dynamic from 'next/dynamic'
 const Postmain = dynamic(() => import('@/components/post/Postmain'), {

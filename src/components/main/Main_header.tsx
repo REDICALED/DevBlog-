@@ -72,8 +72,8 @@ const handleScroll = () => {
     return (
         <>
             <motion.span
-                className={`w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center z-50 
-                   ${openingstate ? 'h-screen ' : ` bg-[var(--bg-color)] fixed top-0 ${isLargeScreen ? 'h-[150px]' : '[60px]'} `} `}
+                className={` bg-[var(--bg-color)] w-full transition-[background-color] duration-[0.45s] lg:border-b-[4.0px] border-b-[3.0px] mb-0 border-[var(--text-color)] flex flex-row justify-center items-center z-50 
+                   ${openingstate ? 'h-screen ' : ` fixed top-0 ${isLargeScreen ? 'h-[150px]' : '[60px]'} `} `}
                 animate={containerControls}  // 컨테이너 애니메이션 제어
             >
 
