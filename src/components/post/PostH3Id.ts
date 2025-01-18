@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import styles from '../../app/post/[id]/styles.module.scss';
-
 export default function PostH3Id({ content, setLinkId }: { content: string, setLinkId: any }) {
   // h3 태그에 id 추가하는 함수
   const addIdToHeadings = (html: string) => {
