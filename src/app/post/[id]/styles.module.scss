@@ -1,6 +1,6 @@
 
 .wrapper {
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .wrapper h1 {
@@ -15,18 +15,27 @@
 
 //링크 헤더
 .wrapper h3 {
-    font-size: 1.5rem;
+  font-size: 2rem;
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+  }
     scroll-margin-top: 50px;
     font-weight: 700;
   }
 
 .wrapper p {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
   }
 
   .wrapper img {
-    max-height: 40vh;
-    max-width: 80vw; /* 기본 크기: 화면 크기에 따라 100%로 설정 */
+    width: 600px;
+
+    @media (max-width: 768px) {
+      width: 310px;
+    }
     justify-content: center;
     margin: 0 auto;
     object-fit: contain;

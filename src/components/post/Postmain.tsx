@@ -35,15 +35,17 @@ export default function Notes(props: any) {
     <div className=' lg:mx-auto w-full lg:w-[80vw] h-full'>
       <div className=''>
       <div className=' ml-3 font-semibold text-5xl lg:text-7xl mb-2'> {props.SupaArray.title}</div>
-      <div className='flex mt-2 mb-2 opacity-50'>
-      <div className=' ml-4 mr-2 font-semibold text-md'> {new Date(props.SupaArray.date).toISOString().replace('T', ' ').split('.')[0]}</div>
-      
+      <div className='mt-2 mb-2 opacity-50'>
+      <div className=' ml-4 mr-2 font-semibold lg:text-base text-sm '> {new Date(props.SupaArray.date).toISOString().replace('T', ' ').split('.')[0]}</div>
+      <div className='ml-4 mr-2 mt-2 flex flex-wrap'>
       {
         props.SupaArray.tags && props.SupaArray.tags.map((tag: string, index: number) => (
-          <div key={index} className=' ml-1 font-semibold text-md '> {"#"+tag}</div>
+          <div key={index} className=' ml-[1px] font-semibold text-sm lg:text-base '> {"#"+tag}</div>
         ))
       }
       
+      </div>
+
       </div>
 
       <div className=' fixed right-0 mx-1 px-5 max-w-[10vw] lg:block hidden   '>
@@ -57,7 +59,7 @@ export default function Notes(props: any) {
 
       </div>
 
-      <div className='px-7 mt-10'>
+      <div className='px-5 mt-10'>
         <div className={styles.wrapper} dangerouslySetInnerHTML={{ __html: FilteredArray || '' }} />
       </div>
 

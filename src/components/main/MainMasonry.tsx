@@ -15,7 +15,7 @@ export default function Notes(props: any) {
     const maxContentLength = 40;
     const maxTitleLength = 20;
     const [Loaded, setLoaded] = useState<boolean>(false);
-    // const [CategoryState, setCategoryState] = useState<string>("All");
+    const [CategoryState, setCategoryState] = useState<string>("All");
     const [TagState, setTagState] = useState<string>("All");
     const [TagOpen, setTagOpen] = useState<boolean>(false);
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
@@ -36,6 +36,13 @@ export default function Notes(props: any) {
     }
     return (
         <div className="px-5 lg:px-10">
+
+            <div className="grid place-items-center">
+                
+                <ToggleList CategoryState={CategoryState} setCategoryState={setCategoryState}/>
+
+            </div>
+
             {!openingstate && <div
             className={`${TagOpen ? '': 'transition-none hover:transition-all hover:duration-200 rounded-md hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] '}
             `}
@@ -43,6 +50,7 @@ export default function Notes(props: any) {
             >
                 <div style={{ borderColor: 'var(--text-color)'}} className=" rounded-tr-lg rounded-tl-lg  animate__bounce-in-top h-5 border-l-4 border-r-4 border-t-4" ></div>
                 
+
                     {
                         <div className={` ${TagOpen ? 'hidden' : 'block' }  animate__bounce-in-top text-3xl font-semibold grid place-items-center`}>
                             Show Tags <Arrow_down className="w-5 h-5 inline"/>

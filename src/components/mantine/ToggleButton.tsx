@@ -18,13 +18,15 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
 
 
   return (
-    <div className=' flex '>
+    <div className=' flex font-bold text-sm lg:text-xl w-auto '>
         <button 
       onClick={handleToggle} 
       className={`
-        w-[60px] 
-        h-[30px] 
-        rounded-full 
+        lg:w-[60px] 
+        lg:h-[30px]
+        w-[45px]
+        h-[22.5px]
+        rounded-md
         relative 
         transition-all 
         duration-300
@@ -36,18 +38,21 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
       <div 
         className={`
           absolute 
-          top-[0.5px] 
-          w-[26px] 
-          h-[26px] 
-          rounded-full 
+          lg:top-[0.5px] 
+          top-[0px]
+          w-[19.5px] 
+          h-[19.5px]
+          lg:w-[26px] 
+          lg:h-[26px]
+          rounded-md 
           shadow-md 
           transition-all 
           duration-300
-          ${isToggled ? 'translate-x-[30px] bg-[var(--bg-color)]' : 'translate-x-[1px] bg-[var(--text-color)]'}
+          ${isToggled ? 'lg:translate-x-[30px] translate-x-[22.5px] bg-[var(--bg-color)]' : ' translate-x-[0.5px] lg:translate-x-[1px] bg-[var(--text-color)]'}
         `}
       />
     </button>
-          <span className=' ml-1 grid place-items-center'>
+          <span className=' lg:ml-1 ml-[2px] grid place-items-center'>
         {tag}
     </span>
     </div>

@@ -29,7 +29,7 @@ export default async function Home() {
             <div className='row-span-1 place-items-center grid w-[100vw]'>
             </div>
             
-            <div className=' mb-10'>
+            <div className=''>
                 <HeroHeader/>
             </div>
             <div className='row-span-1 w-full'>
