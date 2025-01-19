@@ -17,7 +17,7 @@ export default function Slide_1() {
                         key={0}
                         src={Bc_sit.src}
                         alt="Image"
-                        className=" grid place-items-center object-cover  h-[calc((100vh-164px)/2)] lg:h-[calc((100vh-254px))] rounded-md animate__slide-in-top  "
+                        className=" grid place-items-center object-cover lg:py-10 h-[calc((100vh-164px)/2)] lg:h-[calc((100vh-254px))] rounded-md animate__slide-in-top  "
                       />
                     </div>
                 </div>

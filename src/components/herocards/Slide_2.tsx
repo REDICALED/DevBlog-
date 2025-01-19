@@ -35,7 +35,7 @@ export default function Slide_2() {
                         key={0}
                         src={Bc_coded.src}
                         alt="Image"
-                        className=" grid place-items-center object-cover h-[calc(2*(100vh-164px)/5)] lg:h-[calc((100vh-254px))] rounded-md animate__slide-in-right   "
+                        className=" lg:py-10 grid place-items-center object-cover h-[calc(2*(100vh-164px)/5)] lg:h-[calc((100vh-254px))] rounded-md animate__slide-in-right   "
                       />
                     </div>
                 </div>
