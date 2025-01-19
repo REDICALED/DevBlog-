@@ -1,6 +1,6 @@
 
 .wrapper {
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .wrapper h1 {
@@ -15,18 +15,16 @@
 
 //링크 헤더
 .wrapper h3 {
-  font-size: 2rem;
-  @media (max-width: 768px) {
-    font-size: 1.75rem;
-  }
+    font-size: 1.5rem;
     scroll-margin-top: 50px;
     font-weight: 700;
   }
 
 .wrapper p {
-    font-size: 1.25rem;
+    font-size: 16p;
     @media (max-width: 768px) {
-      font-size: 1rem;
+      font-size: 12px;
+
     }
   }
 

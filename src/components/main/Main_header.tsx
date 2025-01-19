@@ -172,8 +172,8 @@ const handleScroll = () => {
 
                   }
                   else{
-                      document.documentElement.style.setProperty('--bg-color', `#f9f9f9`);
-                      document.documentElement.style.setProperty('--text-color', `#000000`);
+                      document.documentElement.style.setProperty('--bg-color', `#000000`);
+                      document.documentElement.style.setProperty('--text-color', `#f9f9f9`);
 
                   }
                   

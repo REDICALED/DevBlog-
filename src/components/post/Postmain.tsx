@@ -17,7 +17,7 @@ export default function Notes(props: any) {
         document.documentElement.style.setProperty('--bg-color', '#f9f9f9');
       }
       if (getComputedStyle(document.documentElement).getPropertyValue('--text-color') === '#') {
-        document.documentElement.style.setProperty('--text-color', '#000000');
+        document.documentElement.style.setProperty('--text-color', '#f9f9f9');
       }
     const outputArray = PostH3Id({ content: props.SupaArray.content, setLinkId: setLinkId });
     setFilteredArray(outputArray);
