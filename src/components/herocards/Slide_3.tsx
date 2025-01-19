@@ -22,7 +22,7 @@ export default function Slide_4() {
                 </div>
 
                 <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
-                <SlideupText text={"Hobbies: Cooking, gaming (Tetris - 90APM, challenge is always welcome)"}></SlideupText>
+                <SlideupText text={"Hobbies: Cooking, gaming (Tetris especially)"}></SlideupText>
                 </div>
 
                 <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
