@@ -79,7 +79,7 @@ const handleScroll = () => {
 
                 
                 <motion.span
-                    className={`overflow-hidden  pl-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
+                    className={`overflow-hidden pl-2 lg:ml-10  ${openingstate ? '' : 'animate-slide-left-parent'} `}
                     style={{ display: 'flex' }}
                     initial="hidden"
                     animate="visible"
@@ -126,7 +126,7 @@ const handleScroll = () => {
                             },
                           }}
                         >
-                           <span className={`inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
+                           <span className={` grid  inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
                             {!openingstate ? <Link href='/'>{letter}</Link> : <span>{letter}</span>}
                           </span> 
                         </motion.span>
