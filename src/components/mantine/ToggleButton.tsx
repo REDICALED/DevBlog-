@@ -40,13 +40,13 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
           grid place-items-center
           w-[19.5px] 
           h-[19.5px]
-          lg:w-[39px] 
-          lg:h-[39px]
+          lg:w-[37px] 
+          lg:h-[37px]
           rounded-md 
           shadow-md 
           transition-transform 
           duration-300
-          ${isToggled ? 'lg:translate-x-[45px] lg:w-[39px] lg:h-[39px] translate-x-[22.5px] bg-[var(--bg-color)]' : 
+          ${isToggled ? 'lg:translate-x-[45px] lg:w-[37px] lg:h-[37px] translate-x-[22.5px] bg-[var(--bg-color)]' : 
           ' translate-x-[0.5px] lg:translate-x-[1px] border-[3px] bg-[var(--bg-color)] border-[var(--text-color)]'}
         `}
       />

@@ -16,8 +16,23 @@ const Mainheader = dynamic(() => import('@/components/main/Main_header')
   
 
 export const metadata: Metadata = {
-  title: "kob3krnl.0.1-rt24.11",
-  description: "Kobemom's warehouse",
+  title: "Project-受戒",
+  description: "Bckim's warehouse",
+  openGraph: {
+    title: 'Project-受戒',
+    description: "Bckim's warehouse",
+    images: [
+      {
+        url: '/thumbnail.png', // Must be an absolute URL
+        width: 800,
+        height: 600,
+      },
+
+    ],
+
+    locale: 'utf-8',
+    type: 'website',
+  },
 };
 
 export const viewport: Viewport = {
