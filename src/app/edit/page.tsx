@@ -9,7 +9,7 @@ import { Modal, Button } from '@mantine/core';
 import '@mantine/dropzone/styles.css';
 import { useEffect, useState } from 'react';
 
-export default function edit() {
+export default function Edit() {
     const [opened, { open, close }] = useDisclosure(true);
     const [validate, SetValidate] = useState(false);
     const [password, SetPassword] = useState('');
