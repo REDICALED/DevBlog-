@@ -25,14 +25,16 @@ export default function Pirate_logo() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
     const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
     const [DocColor, SetDocColor] = useState<string[]>(['','']);
+    const [clickcount, SetClickCount] = useState<boolean>(false);
 
     const handleClick = () => {
       let TextColor = '';
         let BgColor = '';
+        SetClickCount(true);
   
       // 0부터 64 사이의 랜덤 숫자 3개를 생성하여 16진수로 변환하고, 동시에 hexColor와 hexColor2를 계산
         for (let i = 0; i < 3; i++) {
-          const randomValue = Math.floor(Math.random() * 95);  // 0~64 사이의 랜덤 숫자
+          const randomValue = Math.floor(Math.random() * 100);  // 0~ 사이의 랜덤 숫자
           const hexValue = randomValue.toString(16).padStart(2, '0'); // 16진수로 변환
           TextColor += hexValue;  // hexColor 생성
   
@@ -57,12 +59,23 @@ export default function Pirate_logo() {
         { !openingstate && 
         <SlideupChildren  >
           <button onClick={()=>{handleClick();}} className=" grid place-items-center p-1">
-            <motion.div
-            animate={{ rotateX: 20, rotateY: 3 }} // 360도 회전
-            transition={{ repeat: Infinity, type: "spring", bounce: 0.85, repeatDelay: 4.5, duration:1}} // 무한 반복, x초에 한 번 회전
+            {
+              !clickcount &&
+              <motion.div
+            animate={{ rotateX: 20, rotateY: 10 }} // 360도 회전
+            transition={{ repeat: Infinity, type: "spring", bounce: 5.85, repeatDelay: 0.5, duration:2}} // 무한 반복, x초에 한 번 회전
             >
                 <Pirate_circle alt="5억년 버튼" className="pirate-logo " width={100} height={100}/>
-            </motion.div>
+            </motion.div>}
+
+            {
+              clickcount &&
+              <motion.div
+            animate={{ rotateX: 20, rotateY: 5 }} // 360도 회전
+            transition={{ repeat: Infinity, type: "spring", bounce: 0.85, repeatDelay: 2.5, duration:2}} // 무한 반복, x초에 한 번 회전
+            >
+                <Pirate_circle alt="5억년 버튼" className="pirate-logo " width={100} height={100}/>
+            </motion.div>}
         </button>
         </SlideupChildren>
         }

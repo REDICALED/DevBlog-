@@ -10,27 +10,36 @@ import TagInput from "./MainTagInput";
 import Arrow_down from "@/assets/arrow_down.svg";
 import { OpeningState } from '@/Atoms/OpeningAtom';
 import { useRecoilState } from "recoil";
+import { SuggestPostState} from '@/Atoms/SuggestPostAtom';
 
 export default function Notes(props: any) {
-    const maxContentLength = 40;
-    const maxTitleLength = 20;
+    const maxContentLength = window.innerWidth > 768 ? 70 : 40;
+    const maxTitleLength = window.innerWidth > 768 ? 40 : 20;
     const [Loaded, setLoaded] = useState<boolean>(false);
     const [CategoryState, setCategoryState] = useState<string>("All");
     const [TagState, setTagState] = useState<string>("All");
     const [TagOpen, setTagOpen] = useState<boolean>(false);
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
+    const [SuggestPost, setSuggestPost] = useRecoilState(SuggestPostState);
 
     useEffect(() => {
-        setLoaded(true);
-        },[])
+    setSuggestPost(props.SuggestArray);
+    setLoaded(true);
+    },[])
 
-        const filteredArray = useMemo(() => 
-            props.supaArray.filter((value: any) => 
-                TagState === "All" || value.tags.includes(TagState)
-            ), 
-            [TagState]
-          );
-
+    useEffect(() => {
+        setTagState("All");
+    },[CategoryState])
+    const filteredArray = useMemo(() => 
+        props.supaArray.filter((value: any) => 
+            ( CategoryState === "All" && TagState === "All") || 
+            ( CategoryState === "All" && value.tags.includes(TagState)) || 
+            ( value.category == CategoryState && TagState === "All") || 
+            ( value.category == CategoryState && value.tags.includes(TagState))
+        ),
+        [TagState, CategoryState]
+        );
+    
     if (!Loaded) {
         return <div>loading...</div>;
     }
@@ -60,7 +69,7 @@ export default function Notes(props: any) {
                     {
                         TagOpen &&
                         <div className={` ${TagOpen ? 'block' : 'hidden' } animate__slide-in-left  overflow-hidden`} >
-                            <TagInput tagArray={props.tagArray} setTagState={setTagState}/>
+                            <TagInput tagArray={props.tagArray} puretagArray={props.puretagArray} CategoryState={CategoryState} setTagState={setTagState}/>
                         </div>
                         
                     }

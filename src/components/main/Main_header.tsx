@@ -16,8 +16,8 @@ export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
     const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
 
-    const text = "®KobeKrnl";  // 애니메이션할 텍스트
-    const isLargeScreen = window.innerWidth >= 1024;
+    const text = "Project-受戒";  // 애니메이션할 텍스트
+    const isLargeScreen = window.innerWidth >= 768;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
 
@@ -54,7 +54,7 @@ export default function Main_header() {
   }, []);
 
 const handleScroll = () => {
-  if(window.scrollY < 15){
+  if(window.scrollY < 1){
     containerControls.start({
       height:  isLargeScreen ? '150px' : '60px',
       transition: { duration: 0.5 }
@@ -167,8 +167,8 @@ const handleScroll = () => {
 
                  onClick={()=>{
                   if (!DarkmodeSwitch){
-                      document.documentElement.style.setProperty('--bg-color', `#000000`);
-                      document.documentElement.style.setProperty('--text-color', `#f9f9f9`);
+                      document.documentElement.style.setProperty('--bg-color', `#f9f9f9`);
+                      document.documentElement.style.setProperty('--text-color', `#000000`);
 
                   }
                   else{
@@ -194,6 +194,7 @@ const handleScroll = () => {
                     }} alt="logo" className=" transition-[background-color] duration-[0.45s]  lg:h-[60px] h-[35px] p-2"/>
                 </SlideupChildren>
                 </button>}
+                
             </motion.span>
             {openingstate ? <></> : (
         <div

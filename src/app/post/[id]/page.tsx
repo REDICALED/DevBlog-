@@ -36,11 +36,9 @@ export default async function Post({params}: Props) {
 
     const SupaArray = await JSON.parse(JSON.stringify(notes));
     // 공지를 맨 앞으로 이동
-    var PrevSupaArray;
-    var NextSupaArray;
     return (
         <div className=''>
-          <Postmain id={params.id} SupaArray={SupaArray[0]} PrevSupaArray={PrevSupaArray} NextSupaArray={NextSupaArray} />
+          <Postmain id={params.id} SupaArray={SupaArray[0]} />
         </div>
     );
 }

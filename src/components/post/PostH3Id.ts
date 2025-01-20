@@ -3,7 +3,6 @@ export default function PostH3Id({ content, setLinkId }: { content: string, setL
   const addIdToHeadings = (html: string) => {
     return html.replace(/<h3.*?>(.*?)<\/h3>/g, (match, p1) => {
       const id = p1.toLowerCase().replace(/\s+/g, '-'); // 공백을 -로 바꾸어 id로 사용
-      console.log(id);
       return `<h3 id="${id}">${p1}</h3>`;
     });
   };

@@ -5,6 +5,6 @@ const MainMasonry = dynamic(() => import('@/components/main/MainMasonry'), { ssr
 export default async function Notes(props: any) {
 
   return <div>
-    <MainMasonry supaArray={props.SupaArray} tagArray={props.tagArray}/>
+    <MainMasonry SuggestArray={props.SuggestArray} supaArray={props.SupaArray} tagArray={props.tagArray} puretagArray={props.puretagArray}/>
   </div>;
 }
