@@ -26,10 +26,10 @@ export default function Slide_4() {
                 </div>
 
                 <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
-                <SlideupText text={"I love hip-hop, EDM, cartoons, and my little brother Kobe."}></SlideupText>
+                <SlideupText text={"I love hip-hop, EDM, 윤종신, cartoons, and my brother Kobe."}></SlideupText>
                 </div>
                 <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
-                <SlideupText text={"I recently traveled to Japan and want to visit more great places later"}></SlideupText>
+                <SlideupText text={"I’ve been to Japan and want to explore more places"}></SlideupText>
                 </div>
 
 
@@ -46,7 +46,7 @@ export default function Slide_4() {
                     </div>
                 </div>
 
-                <div className=' w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-10 right-0 '>
+                <div className=' overflow-hidden w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-10 right-0 '>
                     <div className=''>
                       <img  
                         key={0}

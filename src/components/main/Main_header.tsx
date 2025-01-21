@@ -16,7 +16,7 @@ export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
     const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
 
-    const text = "Project-受戒";  // 애니메이션할 텍스트
+    const text = "Project-五蘊";  // 애니메이션할 텍스트
     const isLargeScreen = window.innerWidth >= 768;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
@@ -52,6 +52,13 @@ export default function Main_header() {
       window.removeEventListener('scroll', handleScroll); //clean up
     };
   }, []);
+
+  useEffect(() => {
+  if(!openingstate){
+    window.scrollTo({top: 1, behavior: 'smooth'});
+
+  }
+}, []);
 
 const handleScroll = () => {
   if(window.scrollY < 1){
