@@ -27,7 +27,7 @@ export default function Slide_4() {
 
                 </div>
 
-                <div className='w-full lg:absolute bottom-0 left-0 pt-2 lg:pt-0 '>
+                <div className=' overflow-hidden w-full lg:absolute bottom-0 left-0 pt-2 lg:pt-0 '>
                     <div className=''>
                       <img
                         key={0}
@@ -39,13 +39,13 @@ export default function Slide_4() {
                 </div>
 
 
-                <div className='w-full lg:absolute fixed bottom-0 right-0 flex justify-end pt-1 lg:pt-0 '>
+                <div className=' overflow-hidden w-full lg:absolute fixed bottom-0 right-0 flex justify-end pt-1 lg:pt-0 '>
                     <div className=''>
                       <img  
                         key={0}
                         src={table.src}
                         alt="Image"
-                        className="object-contain w-4/5 mx-auto lg:h-[calc(3*(100vh-254px)/5)] rounded-md animate__slide-in-right  "
+                        className=" object-contain w-4/5 mx-auto lg:h-[calc(3*(100vh-254px)/5)] rounded-md animate__slide-in-right  "
                       />
                     </div>
                 </div>

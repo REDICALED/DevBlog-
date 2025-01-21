@@ -14,7 +14,7 @@ import { SuggestPostState} from '@/Atoms/SuggestPostAtom';
 
 export default function Notes(props: any) {
     const maxContentLength = window.innerWidth > 768 ? 70 : 40;
-    const maxTitleLength = window.innerWidth > 768 ? 40 : 20;
+    const maxTitleLength = window.innerWidth > 768 ? 40 : 30;
     const [Loaded, setLoaded] = useState<boolean>(false);
     const [CategoryState, setCategoryState] = useState<string>("All");
     const [TagState, setTagState] = useState<string>("All");

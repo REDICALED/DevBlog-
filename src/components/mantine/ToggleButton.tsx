@@ -18,7 +18,7 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
 
 
   return (
-    <div className=' flex font-bold text-sm lg:text-2xl w-auto '>
+    <div className=' flex font-bold text-sm lg:text-3xl w-auto '>
         <button 
       onClick={handleToggle} 
       className={`
@@ -28,30 +28,33 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
         h-[22.5px]
         rounded-md
         relative 
-        transition-transform 
+        transition-all 
         duration-300
-        bg-[var(--bg-color)] border-[var(--text-color)] border-[3px]      
-        ${isToggled ? 'bg-[var(--text-color)]' : 
-          'bg-[var(--bg-color)]'}
-        `}
+        bg-[var(--bg-color)]      
+        `
+      }
+      style={{
+        backgroundColor: isToggled ? 'var(--text-color)' : 'color-mix(in srgb, var(--bg-color) 70%, var(--text-color))',
+      }}
+
       >
       <div 
         className={`
           grid place-items-center
-          w-[19.5px] 
-          h-[19.5px]
-          lg:w-[37px] 
-          lg:h-[37px]
           rounded-md 
-          shadow-md 
           transition-transform 
           duration-300
-          ${isToggled ? 'lg:translate-x-[45px] lg:w-[37px] lg:h-[37px] translate-x-[22.5px] bg-[var(--bg-color)]' : 
-          ' translate-x-[0.5px] lg:translate-x-[1px] border-[3px] bg-[var(--bg-color)] border-[var(--text-color)]'}
+          
+          ${isToggled ? 'lg:translate-x-[47px] translate-x-[22.5px] lg:w-[39px] lg:h-[39px] h-[19.5px] w-[19.5px] ' : 
+          ' translate-x-[4px] lg:translate-x-[5px] lg:w-[37px] lg:h-[37px] h-[18px] w-[18px] '}
         `}
+
+        style={{
+          backgroundColor: isToggled ? 'var(--bg-color)' : 'color-mix(in srgb, var(--bg-color) 30%, var(--text-color))',
+        }}
       />
     </button>
-          <span className=' lg:ml-2 ml-[2px] grid place-items-center '>
+          <span className=' lg:ml-[6px] ml-[4px] grid place-items-center '>
         {tag}
     </span>
     </div>
