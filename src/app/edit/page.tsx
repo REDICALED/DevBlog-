@@ -39,7 +39,7 @@ export default function Edit() {
                     onChange={(e) => SetPassword(e.target.value)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter') {
-                        if(password === process.env.NEXT_PUBLIC_PASSWORD){
+                        if(password === process.env.PASSWORD){
                             SetValidate(true);
                             close();
                         }

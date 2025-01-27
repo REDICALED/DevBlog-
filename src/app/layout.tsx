@@ -16,10 +16,10 @@ const Mainheader = dynamic(() => import('@/components/main/Main_header')
   
 
 export const metadata: Metadata = {
-  title: "Project-五蘊",
+  title: "Project-自記",
   description: "Bckim's warehouse",
   openGraph: {
-    title: 'Project-五蘊',
+    title: 'Project-自記',
     description: "Bckim's warehouse",
     images: [
       {

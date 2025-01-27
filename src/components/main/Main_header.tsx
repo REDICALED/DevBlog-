@@ -16,7 +16,7 @@ export default function Main_header() {
     const [openingstate, setOpeningState] = useRecoilState(OpeningState);
     const [DarkmodeSwitch, setDarkmodeSwitch] = useRecoilState(DarkmodeSwitchState);
 
-    const text = "Project-五蘊";  // 애니메이션할 텍스트
+    const text = "Project-自記";  // 애니메이션할 텍스트
     const isLargeScreen = window.innerWidth >= 768;
     // 텍스트를 한 글자씩 나눔
     const letters = text.split('');
