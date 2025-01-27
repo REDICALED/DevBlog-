@@ -17,6 +17,20 @@ export default function Edit() {
 
     },[])
 
+    const handleSubmit = async () => {
+        const res = await fetch('/api/validate-password', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ password }),
+        });
+    
+        const data = await res.json();
+        if (data.message === 'Authenticated') {
+            SetValidate(true);
+            close();
+        }
+      };
+      
     return (
         <>
         
@@ -37,19 +51,12 @@ export default function Edit() {
                     <div>
                     <input type="text" placeholder="누구쇼" 
                     onChange={(e) => SetPassword(e.target.value)}
-                    onKeyDown={(e) => {
-                      if (e.key === 'Enter') {
-                        if(password === process.env.PASSWORD){
-                            SetValidate(true);
-                            close();
-                        }
-                    }
-                    }}
                     className=" focus:outline-none
                 focus:border-[3px]
                 transition-[background-color]
                 duration-[0.45s]
                 placeholder-[var(--text-color)] w-[300px] h-[40px] border-2 rounded-lg p-2 border-[var(--text-color)] text-[var(--text-color)] bg-[var(--bg-color)]" />
+                <button className=' border-2 m-2 border-black p-1' onClick={handleSubmit}>ㄱㄱ</button>
                 
                 </div>
                 }
