@@ -41,21 +41,43 @@ export default function Tiptap( ) {
   }
   async function addPost() {
       const formattedDate = CalDate?.toISOString().slice(0, 19).replace('T', ' ');
-      //date생성
-      const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,);
-      const { data, error } = await supabaseClient
-        .from('posts') // 테이블 이름
-        .insert([
-          { uuid: uuidstate, titleimage: titleimagestate, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
-        ]);
-  
+        try {
+          const response = await fetch('/api/add-post', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              uuid: uuidstate,
+              titleimage: titleimagestate,
+              title: titletextRef.current?.value,
+              content: Preview,
+              date: formattedDate,
+              tags: Tags,
+              category: category,
+            }),
+          });
+          const data = await response.json();
+          if (response.ok) {
+            console.log('Post added successfully:', data);
+          } else {
+            console.error('Error adding post:', data.error);
+          }
+        } catch (error) {
+          console.error('Error adding post:', error);
+        }
+
         setUuidstate(uuidv4());
-    if (error) {
-      console.error('Error inserting data:', error);
-    } else {
-      console.log('Data inserted:', data);
-    }
+
+
+              //date생성
+      // const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,);
+      // const { data, error } = await supabaseClient
+      //   .from('posts') // 테이블 이름
+      //   .insert([
+      //     { uuid: uuidstate, titleimage: titleimagestate, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
+      //   ]);
   }
 
   // const handlePaste = async (e:any) => {
