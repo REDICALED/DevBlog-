@@ -7,6 +7,7 @@ const MainPostlist = dynamic(() => import('@/components/main/MainPostlist'), { s
 
 export default async function Home() {
     const host = headers().get("host");
+    console.log(host);
     const protocal = process?.env.NODE_ENV==="development"?"http":"https"
     const response = await fetch(`${protocal}://${host}/api/get-all-post`, {
         method: 'GET',

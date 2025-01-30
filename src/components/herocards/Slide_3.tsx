@@ -46,7 +46,7 @@ export default function Slide_4() {
                     </div>
                 </div>
 
-                <div className=' overflow-hidden w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-10 right-0 '>
+                <div className=' overflow-hidden w-full lg:w-[10%] lg:absolute lg:top-0 lg:justify-end flex justify-center pt-1 lg:pt-10 right-0 '>
                     <div className=''>
                       <img  
                         key={0}
