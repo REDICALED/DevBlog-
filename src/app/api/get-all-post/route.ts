@@ -1,9 +1,10 @@
+'use server'
+
 import { NextResponse } from 'next/server';
-import { createClient } from '@/utils/supabase/server';
+import supabaseClient from '@/utils/supabase/CsrClient';
 
 export async function GET(req: Request): Promise<NextResponse> {
   try {
-    const supabaseClient = createClient();
     let allNotes: any[] = []; // 모든 게시물 저장
     let offset = 0;
     const limit = 200;
@@ -26,7 +27,6 @@ export async function GET(req: Request): Promise<NextResponse> {
       allNotes = allNotes.concat(notes); // 가져온 데이터를 모두 합침
       offset += limit; // 다음 200개를 가져오기 위해 offset 증가
     }
-
     return NextResponse.json({ notes: allNotes }, { status: 200 });
   } catch (err) {
     return NextResponse.json({ error: 'Failed to process request' }, { status: 500 });
