@@ -9,7 +9,6 @@ export default async function Home() {
     const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
     const response = await fetch(`${protocal}://${host}/api/get-all-post`, {
         method: 'GET',
-        cache: 'force-cache',
         next: { tags: ['posts'] },
       });
     const result = await response.json();
