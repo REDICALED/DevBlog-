@@ -6,9 +6,8 @@ const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), { ss
 const MainPostlist = dynamic(() => import('@/components/main/MainPostlist'), { ssr: false });
 
 export default async function Home() {
-    const host = headers().get("host");
-    console.log(host);
-    const protocal = process?.env.NODE_ENV==="development"?"http":"https"
+    const host = process.env.NEXT_PUBLIC_SITE_URL;
+    const protocal = process?.env.NODE_ENV === "development" ? "http" : "https";
     const response = await fetch(`${protocal}://${host}/api/get-all-post`, {
         method: 'GET',
         cache: 'force-cache',
