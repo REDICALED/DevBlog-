@@ -26,7 +26,8 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
         lg:h-[45px]
         w-[45px]
         h-[22.5px]
-        rounded-md
+        lg:rounded-sm
+        rounded-[1px]
         relative 
         transition-all 
         duration-300
@@ -41,7 +42,8 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
       <div 
         className={`
           grid place-items-center
-          rounded-md 
+          lg:rounded-sm
+          rounded-[1px]
           transition-transform 
           duration-300
           
