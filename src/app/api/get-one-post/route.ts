@@ -1,9 +1,8 @@
 import { NextResponse } from 'next/server';
-import {createClient} from '@/utils/supabase/server'
+import supabaseClient from '@/utils/supabase/CsrClient';
 
 export async function GET(req: Request) {
   try {
-    const supabaseClient = createClient();
     const { data: notes, error } = await supabaseClient
     .from('posts')
     .select()
