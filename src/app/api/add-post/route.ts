@@ -17,7 +17,6 @@ export async function POST(req: Request): Promise<NextResponse> {
         return NextResponse.json({ error: error.message }, { status: 500 });
       }
       revalidateTag('posts')
-      console.log('revalvlvlalvlavlav');
       return NextResponse.json({ message: 'Post added successfully', data });
     } catch (err) {
       if (err instanceof Error) {
