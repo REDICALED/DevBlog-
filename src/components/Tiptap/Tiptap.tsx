@@ -14,6 +14,7 @@ import { createClient } from '@supabase/supabase-js' // supabase client -> add p
 import { CheckModalState } from "@/Atoms/ModalsAtom";
 import { useRecoilState } from 'recoil'
 import { Search_input } from '../mantine/Search_input'
+import { revalidateTag } from 'next/cache';
 
 // console.log(primaryKey);
 export default function Tiptap( ) {
@@ -60,6 +61,8 @@ export default function Tiptap( ) {
           const data = await response.json();
           if (response.ok) {
             console.log('Post added successfully:', data);
+            revalidateTag('posts')
+            
           } else {
             console.error('Error adding post:', data.error);
           }

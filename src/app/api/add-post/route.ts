@@ -1,8 +1,9 @@
-'use server'
-
 import { NextResponse } from 'next/server';
 import supabaseClient from '@/utils/supabase/CsrClient';
 import { revalidateTag } from 'next/cache';
+
+export const runtime = 'edge';
+
 
 export async function POST(req: Request): Promise<NextResponse> {
     try {

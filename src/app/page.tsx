@@ -1,5 +1,4 @@
 // main 페이지 page 컴포넌트
-export const runtime = 'edge';
 import dynamic from 'next/dynamic'
 
 const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), { ssr: false });
