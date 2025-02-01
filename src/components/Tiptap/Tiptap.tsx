@@ -80,7 +80,7 @@ export default function Tiptap( ) {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              tags: tag,
+              tag: tag,
             }),
           });
         } catch (error) {
