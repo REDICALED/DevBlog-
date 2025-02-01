@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import supabaseClient from '@/utils/supabase/CsrClient';
 import { revalidateTag } from 'next/cache';
 
-export async function POST(req: Request): Promise<NextResponse> {
+export async function DELETE(req: Request): Promise<NextResponse> {
     try {
       const { uuid, titleimage, title, content, date, tags, category } = await req.json();
   

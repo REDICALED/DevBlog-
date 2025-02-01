@@ -60,9 +60,7 @@ export default function Tiptap( ) {
           });
           const data = await response.json();
           if (response.ok) {
-            console.log('Post added successfully:', data);
-            revalidateTag('posts')
-            
+            console.log('Post added successfully:', data);            
           } else {
             console.error('Error adding post:', data.error);
           }
@@ -73,34 +71,22 @@ export default function Tiptap( ) {
         setUuidstate(uuidv4());
 
 
-              //date생성
-      // const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      //   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,);
-      // const { data, error } = await supabaseClient
-      //   .from('posts') // 테이블 이름
-      //   .insert([
-      //     { uuid: uuidstate, titleimage: titleimagestate, title: titletextRef.current?.value, content: Preview, date: formattedDate, tags: Tags, category: category },
-      //   ]);
-  }
-
-  // const handlePaste = async (e:any) => {
-  //   const clipboardItems = e.clipboardData.items;
-  
-  //   for (const item of clipboardItems) {
-  //     if (item.type.includes("image")) {
-  //       const file = item.getAsFile();
-  //       if (file) {
-  //         const resizedFile = await resizeFile(file);
-  //         const imageUrl = await fetch('/api/upload-image', {
-  //           method: 'POST',
-  //           headers: { 'Content-Type': 'application/json' },
-  //           body: JSON.stringify({ path:uuidstate, file:file }),
-  //         });
-  //         editor.commands.setImage({ src: imageUrl });
-  //       }
-  //     }
-  //   }
-  // };
+      }
+      async function revalidate(tag: string) {
+        try {
+          const response = await fetch('/api/revalidateTag', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              tags: tag,
+            }),
+          });
+        } catch (error) {
+          console.error('Error revalidate', error);
+        }
+      }
   
 
   async function loadpost(props:any) {
@@ -141,7 +127,7 @@ export default function Tiptap( ) {
                     </button>
                     <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' 
                     onClick={() => setCheckModalState(true)}>
-                      modal test
+                      Delete
                     </button>
                     </div>
 
@@ -201,6 +187,10 @@ export default function Tiptap( ) {
           <input type="text" className='border-2 border-black m-1' />
           <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={addPost}>
             Add Post
+          </button>
+
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={() => revalidate('posts')}>
+            revalidate!
           </button>
         </div>
           
