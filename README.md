@@ -1,13 +1,22 @@
-- [x] 프론트 디자인 구성
-- [x] supabase 설치, 연동, table 구조 구성
-- [x] tiptap editor 페이지 구성
-- [x] tiptap ediotr crud api - supabase 연동
-- [x] 프론트 페이지에서 게시물 불러오기
-- [] db posts-tags 다대다 연결
-- [] tags 리스트 메인에 추가
-- [] 포스트 페이지 구현
-- [] 디자인 개선 (아예 갈아엎을 수도)
+# https://www.aggingkobe.com
 
-https://dev-blog-brown-delta.vercel.app/
+<img src="./src/assets/Readme/readme1.png" alt="Getting started" />
 
- 아 굿~ ^^
+정들돌 작가 포트폴리오 웹 사이트
+
+
+## 기술 스택
+* React + Vite + Vercel
+* Tailwind CSS
+
+* Tiptap Editor
+<img src="./src/assets/Readme/readme2.png" alt="Getting started" />
+
+## 설명
+예술 작가 포트폴리오 사이트 제작 프로젝트
+
+적은 예산으로 게시물 포스팅이 가능한 것을 목표로 둔 프로젝트입니다.
+
+tiptap editor로 나온 output html 파일을 git 레포지토리에 덮어쓰거나 생성하는 구조로, DB 역할의 파일들은 Json 파일로 저장됩니다.
+
+서버리스보다 더 저수준 단계의 구조를 구현 방향으로 설계하였습니다.
