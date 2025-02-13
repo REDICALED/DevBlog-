@@ -1,22 +1,17 @@
 # https://www.aggingkobe.com
 
-<img src="./src/assets/Readme/readme1.png" alt="Getting started" />
+<img src="./src/assets/readme/thumbnail.png" alt="thumbnail" />
 
-정들돌 작가 포트폴리오 웹 사이트
+개인 사이트
 
 
 ## 기술 스택
-* React + Vite + Vercel
-* Tailwind CSS
+* Next.JS 14, Typescript, Recoil, Vercel, Supabase, Tailwind CSS, Framer motion
 
-* Tiptap Editor
-<img src="./src/assets/Readme/readme2.png" alt="Getting started" />
 
 ## 설명
-예술 작가 포트폴리오 사이트 제작 프로젝트
+개인 사이트 제작 프로젝트
 
-적은 예산으로 게시물 포스팅이 가능한 것을 목표로 둔 프로젝트입니다.
+웹의 공간성과 다양한 나의 모습을 색을 통해 다양하게 보여주고 싶었습니다.
 
-tiptap editor로 나온 output html 파일을 git 레포지토리에 덮어쓰거나 생성하는 구조로, DB 역할의 파일들은 Json 파일로 저장됩니다.
-
-서버리스보다 더 저수준 단계의 구조를 구현 방향으로 설계하였습니다.
+개발 외에도 앞으로 재밌는 글 많이 올리겠습니다.
