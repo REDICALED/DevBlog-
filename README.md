@@ -1,13 +1,17 @@
-- [x] 프론트 디자인 구성
-- [x] supabase 설치, 연동, table 구조 구성
-- [x] tiptap editor 페이지 구성
-- [x] tiptap ediotr crud api - supabase 연동
-- [x] 프론트 페이지에서 게시물 불러오기
-- [] db posts-tags 다대다 연결
-- [] tags 리스트 메인에 추가
-- [] 포스트 페이지 구현
-- [] 디자인 개선 (아예 갈아엎을 수도)
+# https://www.aggingkobe.com
 
-https://dev-blog-brown-delta.vercel.app/
+<img src="./src/assets/readme/thumbnail.png" alt="thumbnail" />
 
- 아 굿~ ^^
+개인 사이트
+
+
+## 기술 스택
+* Next.JS 14, Typescript, Recoil, Vercel, Supabase, Tailwind CSS, Framer motion
+
+
+## 설명
+개인 사이트 제작 프로젝트
+
+웹의 공간성과 다양한 나의 모습을 색을 통해 다양하게 보여주고 싶었습니다.
+
+개발 외에도 앞으로 재밌는 글 많이 올리겠습니다.
