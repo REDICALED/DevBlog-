@@ -7,10 +7,10 @@ import HeroHeader from '@/components/mantine/HeroHeader';
 
 export default function Notes(props: any) {
 
-  useEffect(() =>{
+  // useEffect(() =>{
 
-    window.scrollTo({top: 2, behavior: 'smooth'});
-  },[])
+  //   window.scrollTo({top: 2, behavior: 'smooth'});
+  // },[])
 
 
   return (
