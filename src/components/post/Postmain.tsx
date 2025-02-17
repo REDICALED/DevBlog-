@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import PostHtmlContent from '@/components/post/PostHtmlContent';
-import PostSuggestNext from './PostSuggestNext';
 import PostSuggestPrev from './PostSuggestPrev';
 import PostH3Id from './PostH3Id';
 import styles from '../../app/post/[id]/styles.module.scss';

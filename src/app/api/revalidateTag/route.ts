@@ -5,7 +5,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request): Promise<NextResponse> {
     const { tag } = await req.json();
-      await revalidateTag(tag);
+      revalidateTag(tag);
       console.log(tag)
       return NextResponse.json({ message: 'revalidate successfully' }, { status: 200 });
 }

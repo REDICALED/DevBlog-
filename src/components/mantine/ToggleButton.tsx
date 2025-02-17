@@ -19,7 +19,7 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
 
   return (
     <div className=' flex font-bold text-sm lg:text-3xl w-auto '>
-        <button 
+        {/* <button 
       onClick={handleToggle} 
       className={`
         lg:w-[90px] 
@@ -58,7 +58,35 @@ export function ToggleButton( {tag, setCategoryState,  CategoryState}: {tag: str
     </button>
           <span className=' lg:ml-[6px] ml-[4px] grid place-items-center '>
         {tag}
-    </span>
+    </span> */}
+
+    <button
+    onClick={handleToggle}
+    style={{
+      backgroundColor: isToggled ? 'var(--text-color)' : '',
+      color: isToggled ? 'var(--bg-color)' : '',
+    }}
+    className="relative group  text-[var(--text-color)] py-2 px-6 lg:px-10 rounded-sm 
+    hover:bg-[var(--text-color)] hover:text-[var(--bg-color)] transition-all duration-300
+    ">
+  {tag}
+  <span
+    className="absolute top-0 left-0 w-3 h-3 border-t-[3px] border-l-[3px] 
+    lg:w-4 lg:h-4 lg:border-t-4 lg:border-l-4 rounded-sm  border-[var(--text-color)]"
+  ></span>
+  <span
+    className="absolute top-0 right-0 w-3 h-3 border-t-[3px] border-r-[3px] 
+    lg:w-4 lg:h-4 lg:border-t-4 lg:border-r-4 rounded-sm border-[var(--text-color)]"
+  ></span>
+  <span
+    className="absolute bottom-0 left-0 w-3 h-3 border-b-[3px] border-l-[3px] 
+    lg:w-4 lg:h-4 lg:border-b-4 lg:border-l-4 rounded-sm border-[var(--text-color)]"
+  ></span>
+  <span
+    className="absolute bottom-0 right-0 w-3 h-3 border-b-[3px] border-r-[3px] 
+    lg:w-4 lg:h-4 lg:border-b-4 lg:border-r-4 rounded-sm border-[var(--text-color)]"
+  ></span>
+</button>
     </div>
   );
 }
