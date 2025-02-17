@@ -1,16 +1,10 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useState } from 'react';
-import PostH3Id from '@/components/post/PostH3Id';
-import styles from '../../app/post/[id]/styles.module.scss';
 import HeroHeader from '@/components/mantine/HeroHeader';
 
 export default function Notes(props: any) {
 
-  // useEffect(() =>{
 
-  //   window.scrollTo({top: 2, behavior: 'smooth'});
-  // },[])
 
 
   return (
