@@ -68,13 +68,12 @@ export default async function Home() {
 
     return (
         <div className=' '>
-            <div className='row-span-1 place-items-center grid w-[100vw]'>
-            </div>
+
             
             <div className=''>
                 <HeroHeader/>
             </div>
-            <div className='row-span-1 w-full'>
+            <div className=' w-full'>
                 <div className='h-screen'>
                     <MainPostlist SuggestArray={SuggestArray} SupaArray={result.notes} puretagArray={puretagArray} tagArray={tagArrayByCategory}/>
                 </div>

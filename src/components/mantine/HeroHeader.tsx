@@ -10,12 +10,30 @@ import { colorIndexState } from '@/Atoms/ColorAtom';
 import { useRecoilState } from 'recoil';
 import { OpeningState } from '@/Atoms/OpeningAtom';
 import BlinkerBar from '../main/BlinkerBar';
+import { useEffect, useRef, useState } from "react";
 
 
 
 export default function HeroHeader() {
   const [paletteIndex, setPaletteIndex] = useRecoilState(colorIndexState);
   const [openingstate, setOpeningState] = useRecoilState(OpeningState);
+  const blinkRef = useRef(false);
+  const isLargeScreen = window.innerWidth >= 768;
+  const handleScroll = () => {
+    if (window.scrollY > 50 && window.scrollY < 100 && blinkRef.current  === false) {
+      const vh = isLargeScreen ? window.innerHeight - 106 : window.innerHeight - 40;
+      window.scrollTo({top:  vh, behavior: 'smooth'});
+      blinkRef.current = true;
+    }
+    
+  }
+    
+useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); //clean up
+    };
+  }, []);
 
   return (
     <div>
@@ -29,7 +47,7 @@ export default function HeroHeader() {
             { !openingstate &&  paletteIndex === 0 && (
               <Slide_1/>
             )}
-          </div>,
+          </div>, 
 
           <div key={"carousel_2"} className=' overflow-hidden '>
             { !openingstate &&  paletteIndex === 1 && (
