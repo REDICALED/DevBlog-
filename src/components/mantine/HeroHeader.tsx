@@ -40,7 +40,7 @@ useEffect(() => {
       { !openingstate &&   (
           <BlinkerBar direction={true}/>
     )}
-      <div className=' h-[calc(100vh-164px)] lg:h-[calc(100vh-254px)] w-full flex overflow-hidden '>
+      <div className='  h-[calc(100vh-164px)] lg:h-[calc(100vh-254px)] w-full flex overflow-hidden '>
       <Hero_Carousel
         slides={[
           <div key={"carousel_1"}>

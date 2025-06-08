@@ -15,20 +15,20 @@ export default function Slide_4() {
     return (
         <div className=' relative lg:flex w-full h-[calc(100vh-147px)] lg:h-[calc(100vh-237px)] place-items-center items-start '>
 
-                <div className=" lg:px-[10%] lg:pt-[0] font-semibold lg:w-full lg:text-[7.5vh] text-[3vh] leading-nonemy-2 ">
+                <div className=" lg:px-[10%] lg:pt-[0] font-semibold lg:w-full lg:text-[7.5vh] text-[3vh] leading-[1.2] ">
                 
-                <div className=" lg:text-[85px] text-[24px] h-auto overflow-hidden my-2 font-bold">
+                <div className=" lg:text-[8vh] text-[24px] h-auto overflow-hidden my-2 font-bold">
                 <SlideupText text={"daily life, hobbies and Kobe"}></SlideupText>
                 </div>
 
-                <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[4vh] text-[16px] h-auto mt-3 lg:mt-3 overflow-hidden">
                 <SlideupText text={"Hobbies: Cooking, gaming (Tetris especially)"}></SlideupText>
                 </div>
 
-                <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[4vh] text-[16px] h-auto mt-3 lg:mt-2 overflow-hidden">
                 <SlideupText text={"I love hip-hop, EDM, 윤종신, cartoons, and my brother Kobe."}></SlideupText>
                 </div>
-                <div className=" font-medium lg:text-[36px] text-[16px] h-auto mt-3 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[4vh] text-[16px] h-auto mt-3 lg:mt-2 overflow-hidden">
                 <SlideupText text={"I’ve been to Japan and want to explore more places"}></SlideupText>
                 </div>
 
@@ -57,7 +57,7 @@ export default function Slide_4() {
                     </div>
                 </div>
 
-                <div className=' font-extrabold text-center text-[12px] lg:text-[24px] w-full lg:w-[10%] absolute bottom-0 lg:pb-[200px] pb-[15vh] flex justify-start left-0  '>
+                <div className=' font-extrabold text-center text-[2vh] lg:text-[24px] w-full lg:w-[10%] absolute bottom-0 lg:pb-[200px] pb-[15vh] flex justify-start left-0  '>
                     <div className=' animate__bounce-in-bottom '>
                       <img  
                         key={0}

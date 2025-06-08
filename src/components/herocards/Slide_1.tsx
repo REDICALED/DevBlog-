@@ -22,17 +22,17 @@ export default function Slide_1() {
                     </div>
                 </div>
 
-                <div className=" grid place-items-center font-semibold lg:w-2/3 leading-nonemy-2 lg:mt-0  ">
+                <div className=" grid place-items-center font-semibold lg:w-2/3 leading-[1] lg:mt-0  ">
                 
-                <div className=" lg:text-[120px] text-[28px] h-auto overflow-hidden my-2 font-bold">
+                <div className=" lg:text-[10vh] text-[3xl] leading-[1.2]  h-auto p-2 overflow-hidden my-2 font-bold">
                 <SlideupText text={"ByeongChan Kim"}></SlideupText>
                 </div>
 
-                <div className=" font-medium lg:text-[51px] text-[17px] h-auto mt-1 lg:mt-5 overflow-hidden">
+                <div className=" font-medium lg:text-[5vh] text-[17px] h-auto mt-1 p-2 lg:mt-1 overflow-hidden">
                 <SlideupText text={"Welcome to my website!"}></SlideupText>
                 </div>
 
-                <div className=" font-medium lg:text-[51px] text-[17px] h-auto mt-1 lg:mt-3 overflow-hidden">
+                <div className=" font-medium lg:text-[5vh]  text-[17px] h-auto mt-1 p-2 lg:mt-1 overflow-hidden">
                 <SlideupText text={"Take your time and enjoy!"}></SlideupText>
                 </div>
 
@@ -41,9 +41,9 @@ export default function Slide_1() {
                   <a href={'https://www.github.com/REDICALED'} target='_blank' >
                   <div className=" rounded-md lg:mr-10 
                   transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
-                  h-auto px-2 inline-flex place-items-center font-medium lg:text-[72px] text-[18px] mt-3 lg:mt-10 overflow-hidden">
+                  h-auto px-2 inline-flex place-items-center font-medium lg:text-[8vh] text-[18px] mt-3 lg:mt-10 overflow-hidden">
                     <SlideupChildren delay={0.65}>
-                      <IconBrandGithubFilled className="lg:size-[80px] size-[18px]" />
+                      <IconBrandGithubFilled className="lg:size-[8vh] size-[18px]" />
                     </SlideupChildren>
                     <SlideupText text={"Github"} />
                   </div>
@@ -52,16 +52,16 @@ export default function Slide_1() {
                   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=redicaled@gmail.com" target="_blank" rel="noopener noreferrer" >
                   <div className=" rounded-md lg:mr-10 
                   transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
-                  h-auto px-2 inline-flex place-items-center font-medium lg:text-[72px] text-[18px] mt-3 lg:mt-10 overflow-hidden">
+                  h-auto px-2 inline-flex place-items-center font-medium lg:text-[8vh] text-[18px] mt-3 lg:mt-10 overflow-hidden">
                     <SlideupChildren delay={0.65}>
-                      <IconMailFilled className="lg:size-[80px] size-[18px]" />
+                      <IconMailFilled className="lg:size-[8vh] size-[18px]" />
                     </SlideupChildren>
                     <SlideupText text={"Mail"} />
                   </div>
                   </a>
                 </div>
 
-                <div className='overflow-hidden font-medium lg:text-[48px] text-[16px] h-auto my-3 lg:mt-10 p-2'>
+                <div className='overflow-hidden font-medium lg:text-[5vh] text-[16px] h-auto my-3 lg:mt-10 p-2'>
                 <SlideupTextLoop 
                 delay={0.45}
                 text={["Annyeong Haseyo 👋", "Programmer 🖥️" , "@Kobe_the_Wag 🐕" ,"Web - Art 🌐", " Diary, Travel Log, Thoughts, etc ... 🌍" ]}
