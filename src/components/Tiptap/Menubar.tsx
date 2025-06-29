@@ -213,7 +213,7 @@ const MenuBar = (props: any) => {
             handleUploadPhoto(e.target.files);
           }}
         /> */}
-        <PostImageModal uuidstate={props.uuidstate} editor={editor}/>
+        <PostImageModal uuidstate={props.uuidstate} calDate={props.calDate} editor={editor}/>
   
       </button>
   
