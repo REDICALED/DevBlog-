@@ -111,8 +111,10 @@ export default function Tiptap( ) {
         
         <div className=' m-2 flex  '>
           <CalComponent CalDate={CalDate} setCalDate={setCalDate} />
+          {/* 달력 */}
           <div className=' overflow-y-scroll max-h-[25vh] h-1/2 w-1/2'>
             <Search_input setSupaArray={setSupaArray}/>
+            {/* 찾기버튼 */}
             { SupaArray && SupaArray.map((value: any, index: number) => (
               <div className='border-2 border-black m-2 p-2 ' key={index}>
                 <div className='flex'>
@@ -122,10 +124,10 @@ export default function Tiptap( ) {
                 
                 <div className="flex items-center">
                     <p>{value.date.split('T')[0]}</p>
-                    <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={() => loadpost(value)}>
+                    <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={() => loadpost(value)}>
                       Load
                     </button>
-                    <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' 
+                    <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' 
                     onClick={() => setCheckModalState(true)}>
                       Delete
                     </button>
@@ -143,7 +145,7 @@ export default function Tiptap( ) {
         <div className='flex'>
 
         <div className=' m-2 '>
-            <input type="text" placeholder='제목' ref={titletextRef} className='border-2 border-black' />
+            <input type="text" placeholder='제목' ref={titletextRef} className=' w-[50vw] border-2 border-black p-1' />
             <div className=''>
             <TagsInput
               label="태그 입력"
@@ -174,7 +176,7 @@ export default function Tiptap( ) {
         </div>
 
         <div>
-        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors' 
+        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1' 
   onClick={() => {
     if (editor) {
       setPreview(editor.view.dom.innerHTML);
@@ -185,12 +187,12 @@ export default function Tiptap( ) {
 </button>
         <div>
           <input type="text" className='border-2 border-black m-1' />
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={addPost}>
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={addPost}>
             Add Post
           </button>
 
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors ' onClick={() => revalidate('posts')}>
-            revalidate!
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={() => revalidate('posts')}>
+            Update Post
           </button>
         </div>
           
@@ -205,7 +207,7 @@ export default function Tiptap( ) {
         
         <div className='h-[70vh] '>
           <EditorProvider 
-            slotBefore={<MenuBar uuidstate={uuidstate} />} 
+            slotBefore={<MenuBar uuidstate={uuidstate} calDate={CalDate} />} 
             extensions={extensions} 
             content={''}
             onCreate={handleEditorCreate} // editor 객체를 받을 수 있는 콜백

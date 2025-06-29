@@ -12,14 +12,15 @@ export async function POST(req: Request) {
     const formData = await req.formData();
     const path = formData.get('path') as string;
     const file = formData.get('file') as File;
-
+    const caldate = formData.get('caldate') as string;
+    console.log("caldate:", caldate);
     // Upload the file to Supabase Storage
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
 
     // Upload the file to Supabase Storage
-    const { data, error } = await supabase.storage.from('images').upload(`${path}/${file.name}`, file);
+    const { data, error } = await supabase.storage.from('images').upload(`${caldate}/${path}/${file.name}`, file);
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 });

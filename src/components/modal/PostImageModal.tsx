@@ -18,6 +18,7 @@ export function PostImageModal(props: any) {
     const file = await resizeFile(files[0]);
     const formData = new FormData();
     formData.append('path', props.uuidstate);
+    formData.append('caldate', props.calDate.toISOString().slice(0, 10));
     formData.append('file', file);
     if (file) {
       const reader = new FileReader();
