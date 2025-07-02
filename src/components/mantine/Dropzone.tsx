@@ -4,11 +4,12 @@ import { Dropzone, DropzoneProps, IMAGE_MIME_TYPE, FileWithPath } from '@mantine
 import {resizeFile} from '@/utils/ResizeFile';
 
 interface CustomDropzoneProps extends Partial<DropzoneProps> {
+  calDate: Date;
   setFile: React.Dispatch<React.SetStateAction<string | null>>;
   uuidstate: string;
 }
 
-export function Dropzon({ setFile, uuidstate }: CustomDropzoneProps) {
+export function Dropzon({ calDate ,setFile, uuidstate }: CustomDropzoneProps) {
   const [files, setFiles] = useState<FileWithPath[]>([]);
 
 
@@ -17,6 +18,7 @@ export function Dropzon({ setFile, uuidstate }: CustomDropzoneProps) {
     const formData = new FormData();
     const pathstring:string = `${uuidstate}/titleimage`;
     formData.append('path', pathstring);
+    formData.append('caldate', calDate.toISOString().slice(0, 10));
     formData.append('file', resizedfile);
     if (file) {
       const response = await fetch('/api/upload-image', {

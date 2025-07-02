@@ -1,5 +1,5 @@
-export const runtime = 'nodejs';
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+export const runtime = 'edge';
+
 import { NextResponse } from 'next/server';
 import supabaseClient from '@/utils/supabase/CsrClient';
 

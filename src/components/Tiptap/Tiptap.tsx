@@ -24,7 +24,7 @@ export default function Tiptap( ) {
   const titletextRef = useRef<HTMLInputElement>(null);
   const [titleimagestate, setTitleImageState] = useState<string | null>(null);
   const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
-  const [CalDate, setCalDate] = useState<Date|null>(null);
+  const [CalDate, setCalDate] = useState<Date>(new Date(Date.now()));
   const [Posts, setPosts] = useState<boolean>(false);
   const [category, setCategory] = useState('cs');
   const [uuidstate, setUuidstate] = useState<string>(uuidv4());
@@ -172,7 +172,7 @@ export default function Tiptap( ) {
 
 
         <div className=' ml-10 m-2 border-black border-2 p-10'>
-        <Dropzon uuidstate={uuidstate} setFile={setTitleImageState}/>
+        <Dropzon calDate={CalDate} uuidstate={uuidstate} setFile={setTitleImageState}/>
         </div>
 
         <div>
