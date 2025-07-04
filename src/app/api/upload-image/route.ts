@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     }
 
     // Upload the file to Supabase Storage
-    const { data, error } = await supabase.storage.from('images').upload(`${caldate}/${path}/${file.name}`, file);
+    const { data, error } = await supabase.storage.from('images').upload(`${caldate}/${path}`, file);
 
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
