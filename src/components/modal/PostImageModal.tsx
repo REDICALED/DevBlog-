@@ -17,7 +17,10 @@ export function PostImageModal(props: any) {
   
     const file = await resizeFile(files[0]);
     const formData = new FormData();
-    formData.append('path', props.uuidstate);
+    const ext = file.type.split('/')[1];
+    const timestamp = new Date().toISOString().slice(0, 19).replace(/[-:T]/g, '');
+    const filename = `${timestamp}.${ext}`;
+    formData.append('path', `${props.uuidstate}/${filename}`);
     formData.append('caldate', props.calDate.toISOString().slice(0, 10));
     formData.append('file', file);
     if (file) {
