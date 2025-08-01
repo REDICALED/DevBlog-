@@ -13,6 +13,7 @@ export async function GET(req: Request): Promise<NextResponse> {
       const { data: notes, error } = await supabaseClient
         .from('posts')
         .select()
+        .eq('is_display', true) 
         .range(offset, offset + limit - 1) // 200개씩 가져오기
         .order('date', { ascending: false });
 

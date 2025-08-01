@@ -127,10 +127,17 @@ export default function Tiptap( ) {
                     <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={() => loadpost(value)}>
                       Load
                     </button>
+                    
                     <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' 
                     onClick={() => setCheckModalState(true)}>
                       Delete
                     </button>
+
+                    <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' 
+                    onClick={() => setCheckModalState(true)}>
+                      Display_toggle
+                    </button>
+
                     </div>
 
 
