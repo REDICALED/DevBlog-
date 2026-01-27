@@ -1,19 +1,21 @@
-import '@mantine/dropzone/styles.css';
-import dynamic from 'next/dynamic';
+'use client';
 
-const Editmodal = dynamic(() => import('@/components/edit/edit_modal'), {
-    ssr: false
-})
+import { MantineProvider } from '@mantine/core';
+import Tiptap from '@/components/Tiptap/Tiptap';
+
+import '@mantine/dropzone/styles.css';
+
 
 export default function Edit() {
-
-
 
       
     return (
         <>
-        <Editmodal/>
-            
+        <MantineProvider>      
+                    <div className="border-2 border-black">
+                    <Tiptap/>
+                </div>
+        </MantineProvider>
         </>
     );
 }
