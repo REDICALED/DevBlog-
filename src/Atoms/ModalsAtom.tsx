@@ -9,3 +9,8 @@ export const PostImageModalState = atom<boolean>({
   key: 'PostImageModalState',
   default: false,
 });
+
+export const lastUuidState = atom<string>({
+  key: 'lastUuidState',
+  default: "",
+});
