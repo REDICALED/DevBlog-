@@ -1,10 +1,33 @@
 'use client'
 
 import { useRecoilState } from "recoil";
-import { CheckModalState } from "@/Atoms/ModalsAtom";
+import { CheckModalState, lastUuidState } from "@/Atoms/ModalsAtom";
+
+async function deletePost(uuid: string) {
+  try {
+    const response = await fetch('/api/delete-post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ uuid }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log('Post deleted successfully:', data);
+    } else {
+      console.error('Error deleting post:', data.error);
+    }
+  } catch (error) {
+    console.error('Error deleting post:', error);
+  }
+}
 
 export const CheckingModal = (props:any)=> {
     const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
+    const [getlastUuidState, setlastUuidState] = useRecoilState(lastUuidState);
     if (!checkModalState) return null;
     return (
         <div className="w-[vw] h-screen bg-slate-600">
@@ -23,7 +46,10 @@ export const CheckingModal = (props:any)=> {
                 </button>
             </div>
             <div className="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b ">
-                <button onClick={() => setCheckModalState(false)} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">네</button>
+                <button onClick={async () => {
+                    await deletePost(getlastUuidState);
+                    setCheckModalState(false);
+                }} type="button" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">네</button>
                 <button onClick={() => setCheckModalState(false)} type="button" className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 ">아뇨</button>
             </div>
         </div>

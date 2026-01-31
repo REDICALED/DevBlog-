@@ -11,7 +11,7 @@ import {Dropzon} from '@/components/mantine/Dropzone';
 import styles from '../../app/post/[id]/styles.module.scss';
 import '@mantine/core/styles.css';
 import { createClient } from '@supabase/supabase-js' // supabase client -> add post용 csr 동적 클라이언트
-import { CheckModalState } from "@/Atoms/ModalsAtom";
+import { CheckModalState, lastUuidState } from "@/Atoms/ModalsAtom";
 import { useRecoilState } from 'recoil'
 import { Search_input } from '../mantine/Search_input'
 import { revalidateTag } from 'next/cache';
@@ -24,6 +24,7 @@ export default function Tiptap( ) {
   const titletextRef = useRef<HTMLInputElement>(null);
   const [titleimagestate, setTitleImageState] = useState<string | null>(null);
   const [checkModalState, setCheckModalState] = useRecoilState(CheckModalState);
+  const [getlastUuidState, setlastUuidState] = useRecoilState(lastUuidState);
   const [CalDate, setCalDate] = useState<Date>(new Date(Date.now()));
   const [Posts, setPosts] = useState<boolean>(false);
   const [category, setCategory] = useState('cs');
@@ -72,6 +73,30 @@ export default function Tiptap( ) {
 
 
       }
+
+      async function switchDisplayPost(uuid: string, is_display: boolean) {
+        try {
+          const response = await fetch('/api/switch-display-post', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              uuid: uuid,
+              is_display: is_display,
+            }),
+          });
+          const data = await response.json();
+          if (response.ok) {
+            console.log('Display post switched successfully:', data);            
+          } else {
+            console.error('Error switching display post:', data.error);
+          }
+        } catch (error) {
+          console.error('Error switching display post:', error);
+        }
+      }
+
       async function revalidate(tag: string) {
         try {
           const response = await fetch('/api/revalidateTag', {
@@ -129,15 +154,20 @@ export default function Tiptap( ) {
                     </button>
                     
                     <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' 
-                    onClick={() => setCheckModalState(true)}>
+                    onClick={() => {
+                      setCheckModalState(true)
+                      setlastUuidState(value.uuid);
+                      }}>
                       Delete
                     </button>
 
                     <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' 
-                    onClick={() => setCheckModalState(true)}>
+                    onClick={() => {
+                      switchDisplayPost(value.uuid, value.is_display);
+                    }}>
                       Display_toggle
                     </button>
-
+                    
                     </div>
 
 
@@ -193,7 +223,7 @@ export default function Tiptap( ) {
   Preview
 </button>
         <div>
-          <input type="text" className='border-2 border-black m-1' />
+          {/* <input type="text" className='border-2 border-black m-1' /> */}
           <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={addPost}>
             Add Post
           </button>
