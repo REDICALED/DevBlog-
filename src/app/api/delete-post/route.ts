@@ -24,7 +24,6 @@ export async function POST(req: Request) {
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
-    revalidateTag(`post:${uuid}`);
 
     revalidateTag('posts');
     return NextResponse.json({ message: 'Post deleted successfully', data });
