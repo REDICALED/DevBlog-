@@ -113,11 +113,44 @@ export default function Tiptap( ) {
         }
       }
   
+async function editPost() {
+  const formattedDate = CalDate?.toISOString().slice(0, 19).replace('T', ' ');
+
+  try {
+    const response = await fetch('/api/edit-post', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        uuid: uuidstate,
+        titleimage: titleimagestate,
+        title: titletextRef.current?.value,
+        content: Preview,
+        date: formattedDate,
+        tags: Tags,
+        category: category,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log('Post edited successfully:', data);
+    } else {
+      console.error('Error editing post:', data.error);
+    }
+  } catch (error) {
+    console.error('Error editing post:', error);
+  }
+}
 
   async function loadpost(props:any) {
     editor.commands.setContent(props.content);
     setPreview(props.content);
     setTitleImageState(props.titleimage);
+    setUuidstate(props.uuid);
+    setCalDate(new Date(props.date));
     if (titletextRef.current) {
       titletextRef.current.value = props.title;  // 글 불러오면 input 필드에 값 설정
     }
@@ -233,6 +266,13 @@ export default function Tiptap( ) {
             Update Post
           </button>
           
+          <button
+          className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 h-1/3'
+          onClick={editPost}
+        >
+          Edit Loaded Post
+        </button>
+
         </div>
 
 
