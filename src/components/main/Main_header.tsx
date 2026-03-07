@@ -134,7 +134,7 @@ const handleScroll = () => {
                           }}
                         >
                            <span className={` grid  inline-block font-bold overflow-hidden transition-[font-size] duration-500 ${openingstate ? 'lg:text-[80px] text-[35px]' : 'lg:text-[40px] text-[17px]'}`}>
-                            {!openingstate ? <Link href='/'>{letter}</Link> : <span>{letter}</span>}
+                            {!openingstate ? <a href='/'>{letter}</a> : <span>{letter}</span>}
                           </span> 
                         </motion.span>
                       </motion.span>
