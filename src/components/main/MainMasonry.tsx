@@ -80,7 +80,7 @@ export default function Notes(props: any) {
                 className=" my-10">
                 <Masonry >
                     {filteredArray.map((value: any, index: number) => (
-                        <Link key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-4">
+                        <a key={index} href={`/post/${value.uuid}`} className="group relative block min-h-40 sm:min-h-64 lg:min-h-[512px] cursor-none overflow-hidden m-4">
                             { (value.titleimage && value.titleimage.length) > 0 && (
                                 <img
                                     alt={value.title}
@@ -124,7 +124,7 @@ export default function Notes(props: any) {
                                     </p>
                                 </div>
                             </div>
-                        </Link>
+                        </a>
                     ))}
                 </Masonry>
             </ResponsiveMasonry>
