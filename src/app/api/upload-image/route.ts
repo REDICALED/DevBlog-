@@ -18,10 +18,14 @@ export async function POST(req: Request) {
     if (!file) {
       return NextResponse.json({ error: 'No file provided' }, { status: 400 });
     }
-
+    
     // Upload the file to Supabase Storage
-    const { data, error } = await supabase.storage.from('images').upload(`${caldate}/${path}`, file);
-
+    const { data, error } = await supabase.storage
+      .from('images')
+      .upload(`${caldate}/${path}`, file, {
+        cacheControl: '31536000',
+        upsert: false
+      });
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 400 });
     }

@@ -137,8 +137,9 @@ export default function Tiptap( ) {
         <div className=' m-2 flex  '>
           <CalComponent CalDate={CalDate} setCalDate={setCalDate} />
           {/* 달력 */}
-          <div className=' overflow-y-scroll max-h-[25vh] h-1/2 w-1/2'>
+          <div className='  ml-[30px] max-h-[25vh] h-1/2 w-1/2'>
             <Search_input setSupaArray={setSupaArray}/>
+            <div className=' border-2 p-2 border-black mt-2 overflow-scroll h-[20vh]'>
             {/* 찾기버튼 */}
             { SupaArray && SupaArray.map((value: any, index: number) => (
               <div className='border-2 border-black m-2 p-2 ' key={index}>
@@ -173,6 +174,7 @@ export default function Tiptap( ) {
 
               </div>
             ))}
+              </div>
 
           </div>
         </div>
@@ -212,26 +214,24 @@ export default function Tiptap( ) {
         <Dropzon calDate={CalDate} uuidstate={uuidstate} setFile={setTitleImageState}/>
         </div>
 
-        <div>
-        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1' 
-  onClick={() => {
-    if (editor) {
-      setPreview(editor.view.dom.innerHTML);
-      console.log(editor.view.dom.innerHTML);
-    }
-  }}>
-  Preview
-</button>
-        <div>
+        <div className=' flex flex-col justify-between ml-10 m-2 '>
+        <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 h-1/3' 
+          onClick={() => {
+            if (editor) {
+              setPreview(editor.view.dom.innerHTML);
+              console.log(editor.view.dom.innerHTML);
+            }
+          }}>
+          Preview
+        </button>
           {/* <input type="text" className='border-2 border-black m-1' /> */}
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={addPost}>
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 h-1/3' onClick={addPost}>
             Add Post
           </button>
 
-          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 ' onClick={() => revalidate('posts')}>
+          <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 h-1/3' onClick={() => revalidate('posts')}>
             Update Post
           </button>
-        </div>
           
         </div>
 
