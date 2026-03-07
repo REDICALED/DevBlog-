@@ -2,10 +2,8 @@
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import Link from 'next/link';
-import {Search_input} from '@/components/mantine/Search_input';
 import {ToggleList} from '@/components/main/ToggleList';
 import { useEffect, useMemo, useState } from "react";
-import { format } from "path";
 import TagInput from "./MainTagInput";
 import Arrow_down from "@/assets/arrow_down.svg";
 import { OpeningState } from '@/Atoms/OpeningAtom';
