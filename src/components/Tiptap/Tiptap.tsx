@@ -15,6 +15,7 @@ import { CheckModalState, lastUuidState } from "@/Atoms/ModalsAtom";
 import { useRecoilState } from 'recoil'
 import { Search_input } from '../mantine/Search_input'
 import { revalidateTag } from 'next/cache';
+import { toast } from 'sonner'
 
 // console.log(primaryKey);
 export default function Tiptap( ) {
@@ -61,12 +62,12 @@ export default function Tiptap( ) {
           });
           const data = await response.json();
           if (response.ok) {
-            console.log('Post added successfully:', data);            
+            toast.success("Post added successfully!");
           } else {
-            console.error('Error adding post:', data.error);
+            toast.error(`Error adding post: ${data.error}`);
           }
         } catch (error) {
-          console.error('Error adding post:', error);
+          toast.error(`Error adding post: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
 
         setUuidstate(uuidv4());
@@ -88,13 +89,13 @@ export default function Tiptap( ) {
           });
           const data = await response.json();
           if (response.ok) {
-            console.log('Display post switched successfully:', data);            
+            toast.success(`Display Toggled! ${is_display ? 'Now Hidden' : 'Now Visible'}`);
           } else {
-            console.error('Error switching display post:', data.error);
-          }
+            toast.error(`Error toggling display: ${data.error}`);
+                   }
         } catch (error) {
-          console.error('Error switching display post:', error);
-        }
+          toast.error(`Error toggling display: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          }
       }
 
       async function revalidate(tag: string) {
@@ -108,8 +109,14 @@ export default function Tiptap( ) {
               tag: tag,
             }),
           });
+          if (response.ok) {
+            toast.success(`Revalidated tags! ${tag}`);
+          } else {
+            const data = await response.json();
+            toast.error(`Error revalidating tag: ${data.error}`);
+          }
         } catch (error) {
-          console.error('Error revalidate', error);
+          toast.error(`Error revalidating tag: ${error instanceof Error ? error.message : 'Unknown error'}`);
         }
       }
   
@@ -136,12 +143,12 @@ async function editPost() {
     const data = await response.json();
 
     if (response.ok) {
-      console.log('Post edited successfully:', data);
+      toast.success("Post edited successfully!");
     } else {
-      console.error('Error editing post:', data.error);
+      toast.error(`Error editing post: ${data.error}`);
     }
   } catch (error) {
-    console.error('Error editing post:', error);
+    toast.error(`Error editing post: ${error instanceof Error ? error.message : 'Unknown error'}`);
   }
 }
 
@@ -201,7 +208,7 @@ async function editPost() {
                     }}>
                       Display_toggle
                     </button>
-                    
+                    <span className={` ${value.is_display ? 'bg-blue-500' : 'bg-red-500'} border-black p-1 border-2`}>{value.is_display ? 'Yes' : 'No'}</span>
                     </div>
 
 

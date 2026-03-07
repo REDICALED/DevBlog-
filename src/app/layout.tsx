@@ -3,6 +3,7 @@ import "./globals.css";
 import RecoilRootWrapper from "@/components/Recoil/RecoilWrapper";
 import CustomCursor from "@/components/CustomCursor";
 import dynamic from "next/dynamic";
+import { Toaster } from "sonner";
 
 const Mainheader = dynamic(() => import('@/components/main/Main_header')
 , {
@@ -53,6 +54,7 @@ export default function RootLayout({
       <Mainheader />
       <CheckingModal />
       {children}
+        <Toaster position="top-center" richColors />
 				</RecoilRootWrapper>
       </body>
     </html>
