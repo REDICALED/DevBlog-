@@ -2,6 +2,7 @@
 
 import { useRecoilState } from "recoil";
 import { CheckModalState, lastUuidState } from "@/Atoms/ModalsAtom";
+import { toast } from "sonner";
 
 async function deletePost(uuid: string) {
   try {
@@ -16,9 +17,9 @@ async function deletePost(uuid: string) {
     const data = await response.json();
 
     if (response.ok) {
-      console.log('Post deleted successfully:', data);
+      toast.success("Post deleted successfully!");
     } else {
-      console.error('Error deleting post:', data.error);
+      toast.error(`Error deleting post: ${data.error}`);
     }
   } catch (error) {
     console.error('Error deleting post:', error);
