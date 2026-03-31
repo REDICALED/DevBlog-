@@ -4,6 +4,7 @@ import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit'
 import TextAlign from '@tiptap/extension-text-align'
 import Image from '@tiptap/extension-image'
+import { ImageSwiper } from './ImageSwiper'
 import HardBreak from '@tiptap/extension-hard-break'
 import { common, createLowlight } from 'lowlight';
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
@@ -76,6 +77,7 @@ const extensions = [
       lowlight: createLowlight(common)
   }),
     Image.configure({ inline: true, allowBase64: true}),
+    ImageSwiper,
     TextAlign.configure({
       types: ['heading', 'paragraph'],
       alignments: ['left', 'center', 'right', 'justify'],
