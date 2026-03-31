@@ -16,6 +16,7 @@ import { useRecoilState } from 'recoil'
 import { Search_input } from '../mantine/Search_input'
 import { revalidateTag } from 'next/cache';
 import { toast } from 'sonner'
+import PreviewHtml from '@/components/Tiptap/PreviewHtml';
 
 // console.log(primaryKey);
 export default function Tiptap( ) {
@@ -258,8 +259,8 @@ async function editPost() {
         <button className=' bg-white border-2 border-black m-2 hover:bg-slate-500 transition-colors p-1 h-1/3' 
           onClick={() => {
             if (editor) {
-              setPreview(editor.view.dom.innerHTML);
-              console.log(editor.view.dom.innerHTML);
+              setPreview(editor.getHTML());
+              console.log(editor.getHTML());
             }
           }}>
           Preview
@@ -300,7 +301,7 @@ async function editPost() {
           />
         </div>
         <div className=' border-2 border-black bg-white overflow-scroll w-[55vw]'>
-          {Preview &&  <div className={`${styles.wrapper} overflow-y-scroll h-[100vh] `} dangerouslySetInnerHTML={{ __html: Preview }} />}
+          {Preview && <PreviewHtml html={Preview} />}
         </div>
         </div>
 

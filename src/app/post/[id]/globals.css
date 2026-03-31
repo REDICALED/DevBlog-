@@ -19,6 +19,34 @@
   unicode-range: U+AC00-D7A3; /* 한글 음절 범위 */
 }
 
+.image-swiper-html {
+  max-width: 50vw;
+  max-height: 20vh;
+
+}
+
+.image-swiper-html .swiper-wrapper {
+  align-items: center;
+}
+
+.image-swiper-html .image-swiper-html__slide {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+.image-swiper-html .image-swiper-html__image {
+  display: block !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 70vh !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  object-fit: contain !important;
+}
+
 :root {
     --bg-color: #000000;
     --text-color: #f9f9f9;

@@ -19,8 +19,12 @@
     }
 
     img {
-      height: 50vh;
-      width: 50vw;
+    width: 50vw;
+    max-height: 50vh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
     }
   
     pre {
@@ -145,7 +149,12 @@
     }
 
     img {
-      height: 50vh;
+          width: 50vw;
+    max-height: 50vh;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
     }
   
     pre {
