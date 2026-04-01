@@ -70,7 +70,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="rounded-3xl border-2 border-[var(--text-color)] overflow-hidden ml-10">
+          <div className="rounded-3xl border-2 border-[var(--text-color)] overflow-hidden lg:ml-10 mt-10">
             <p className="text-sm uppercase tracking-[0.2em]"></p>
 
             <div className="">
