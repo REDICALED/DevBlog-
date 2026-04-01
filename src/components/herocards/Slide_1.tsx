@@ -3,7 +3,7 @@
 import Bc_sit from '@/assets/bc_sit.jpg'
 import SlideupTextLoop from "@/components/main/SlideupTextLoop";
 import SlideupText from "@/components/main/SlideupText";
-import {IconBrandGithubFilled, IconMailFilled } from "@tabler/icons-react";
+import {IconBrandGithubFilled, IconMailFilled, IconBriefcaseFilled } from "@tabler/icons-react";
 import SlideupChildren from "@/components/main/SlideupChildren";
  
 
@@ -57,6 +57,18 @@ export default function Slide_1() {
                       <IconMailFilled className="lg:size-[8vh] size-[18px]" />
                     </SlideupChildren>
                     <SlideupText text={"Mail"} />
+                  </div>
+                  </a>
+                </div>
+                <div>
+                  <a href={'/introduce'} target='_blank' >
+                  <div className=" rounded-md lg:mr-10 
+                  transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
+                  h-auto px-2 inline-flex place-items-center font-medium lg:text-[8vh] text-[18px] mt-3 lg:mt-10 overflow-hidden">
+                    <SlideupChildren delay={0.65}>
+                      <IconBriefcaseFilled className="lg:size-[8vh] size-[18px]" />
+                    </SlideupChildren>
+                    <SlideupText text={"Portfolio"} />
                   </div>
                   </a>
                 </div>
