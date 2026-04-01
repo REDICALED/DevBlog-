@@ -90,6 +90,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             {skills.map((skill) => (
                         <div
+              key={skill}
               className={` 
               flex-shrink-0
               transition-none hover:transition-all hover:duration-200 hover:text-[var(--bg-color)] hover:bg-[var(--text-color)] 
