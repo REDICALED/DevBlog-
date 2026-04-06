@@ -243,6 +243,7 @@ async function editPost() {
             className=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
               <option value="cs" selected>CS</option>
               <option value="dailylife">DailyLife</option>
+              <option value="foods">Foods</option>
               <option value="art">Art</option>
               <option value="etc">etc</option>
             </select>
@@ -300,7 +301,7 @@ async function editPost() {
             // onPaste={(e) => handlePaste(e)}
           />
         </div>
-        <div className=' border-2 border-black bg-white overflow-scroll w-[55vw]'>
+        <div className=' border-2 border-black bg-white overflow-scroll max-h-[80vh] w-[55vw]'>
           {Preview && <PreviewHtml html={Preview} />}
         </div>
         </div>

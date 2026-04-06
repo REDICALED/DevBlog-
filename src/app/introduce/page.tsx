@@ -3,6 +3,8 @@
 import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { useRecoilValue } from 'recoil'
+import { OpeningState } from '@/Atoms/OpeningAtom'
 import {
   educationGroups,
   experiences,
@@ -18,6 +20,7 @@ const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), {
 })
 
 export default function Home() {
+  const openingstate = useRecoilValue(OpeningState)
   useEffect(() => {
     const trackPageView = async () => {
       let visitorId = localStorage.getItem('visitor_id')
@@ -48,12 +51,13 @@ export default function Home() {
     trackPageView()
   }, [])
 
-  return (
-    <div id="top" className="w-full min-h-screen">
-      <div className='hidden'>
+  return (      
+      <main className="mx-auto max-w-6xl px-6 pb-32 pt-16 md:px-10">
+        <div className='hidden'>
         <HeroHeader />
       </div>
-      <main className="mx-auto max-w-6xl px-6 pb-32 pt-16 md:px-10">
+      {!openingstate && (
+        <>
         <section className="grid items-start border-t border-[var(--text-color)] pt-16 md:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-6">
             <p className="text-sm uppercase tracking-[0.2em]">Introduce</p>
@@ -262,7 +266,8 @@ export default function Home() {
             ))}
           </div>
         </section>
+        </>
+      )}
       </main>
-    </div>
   )
 }

@@ -8,6 +8,7 @@ import { ImageSwiper } from './ImageSwiper'
 import HardBreak from '@tiptap/extension-hard-break'
 import { common, createLowlight } from 'lowlight';
 import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight';
+import { ResizableImage } from './ResizableImage';
 
 import { Node } from "@tiptap/core";
 
@@ -76,7 +77,7 @@ const extensions = [
     CodeBlockLowlight.configure({
       lowlight: createLowlight(common)
   }),
-    Image.configure({ inline: true, allowBase64: true}),
+    ResizableImage.configure({ allowBase64: true }),
     ImageSwiper,
     TextAlign.configure({
       types: ['heading', 'paragraph'],

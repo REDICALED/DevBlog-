@@ -28,7 +28,7 @@ export default async function Home() {
             acc[post.category].push(filteredPost);
         }
         return acc;
-    }, { cs: [], dailylife: [], art: [], etc: [] });
+    }, { cs: [], dailylife: [], foods: [], art: [],  etc: [] });
 
     const BeforeTagArray = await result.notes.map((value: any) => value.tags).flat(); // tags 배열을 평탄화하여 모든 태그들 모음
 
@@ -39,7 +39,7 @@ export default async function Home() {
       return acc;
     }, {});
 
-    const categories = ['cs', 'dailylife', 'art', 'etc'];
+    const categories = ['cs', 'dailylife', 'foods', 'art', 'etc'];
     const categoryTags = categories.reduce((acc: Record<string, string[]>, category: string) => {
         // 해당 카테고리의 태그만 필터링하여 저장
         acc[category] = result.notes
