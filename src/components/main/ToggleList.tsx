@@ -6,6 +6,7 @@ export const ToggleList = ({ setCategoryState, CategoryState }: { setCategorySta
         <ToggleButton tag="All" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
         <ToggleButton tag="cs" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
         <ToggleButton tag="dailylife" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
+        <ToggleButton tag="foods" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
         <ToggleButton tag="art" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
         <ToggleButton tag="etc" setCategoryState={setCategoryState} CategoryState={CategoryState}/>
         </div>

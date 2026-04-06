@@ -21,7 +21,6 @@
 
 .image-swiper-html {
   max-width: 50vw;
-  max-height: 20vh;
 
 }
 
@@ -41,7 +40,7 @@
   width: auto !important;
   max-width: 100% !important;
   height: auto !important;
-  max-height: 70vh !important;
+  max-height: 600px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   object-fit: contain !important;
@@ -59,9 +58,25 @@
     cursor: none !important;
   }
 
-  button, a, input, textarea, select {
+
+.swiper-button-prev,
+.swiper-button-next {
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: scale(1.05);
+}
+
+  
+  button, a, input, textarea, select, .swiper-button-prev, .swiper-button-next {
     cursor: none !important;  /* 커스텀 커서만 활성화 */
   }
+
   input.mantine-Input-input,
   input.mantine-TextInput-input {
     cursor: none !important;
@@ -147,4 +162,61 @@
   .main_scrollbar::-webkit-scrollbar-thumb:active  {
     background: color-mix(in srgb, var(--bg-color) 40%, var(--text-color));
   }
+}
+
+.image-swiper-html .image-swiper-html__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-swiper-html .image-swiper-html__caption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.8;
+  text-align: center;
+  white-space: pre-wrap;
+}
+.image-swiper-html,
+.image-swiper-html .swiper,
+.image-swiper-html .swiper-wrapper,
+.image-swiper-html .swiper-slide {
+  height: auto;
+}
+
+.image-swiper-html .swiper-slide {
+  overflow: visible;
+}
+
+.image-swiper-html .image-swiper-html__inner {
+  overflow: visible;
+}
+
+.image-swiper-html .image-swiper-html__caption {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.image-swiper-html,
+.image-swiper-html .swiper,
+.image-swiper-html .swiper-wrapper,
+.image-swiper-html .swiper-slide,
+.image-swiper-html .image-swiper-html__slide,
+.image-swiper-html .image-swiper-html__inner {
+  height: auto !important;
+  max-height: none !important;
+}
+
+.image-swiper-html .swiper-slide,
+.image-swiper-html .image-swiper-html__slide,
+.image-swiper-html .image-swiper-html__inner {
+  overflow: visible !important;
+}
+
+.image-swiper-html .swiper-pagination,
+.tiptap .swiper-pagination {
+  position: static !important;
+  margin-top: 12px;
 }

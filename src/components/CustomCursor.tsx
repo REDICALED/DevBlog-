@@ -19,7 +19,10 @@ const CustomCursor: React.FC = () => {
       target.tagName.toLowerCase() === 'button' ||
       target.tagName.toLowerCase() === 'a' ||
       target.closest('button') !== null ||
-      target.closest('a') !== null;
+      target.closest('a') !== null   ||
+      target.closest('.swiper-button-prev') !== null ||
+      target.closest('.swiper-button-next') !== null;
+
   
     // 입력 필드일 때
     const isInputField =

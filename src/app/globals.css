@@ -120,3 +120,45 @@
     background: color-mix(in srgb, var(--bg-color) 40%, var(--text-color));
   }
 }
+
+.image-swiper-html .image-swiper-html__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-swiper-html .image-swiper-html__caption {
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  opacity: 0.8;
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+.image-swiper-html,
+.image-swiper-html .swiper,
+.image-swiper-html .swiper-wrapper,
+.image-swiper-html .swiper-slide {
+  height: auto;
+}
+
+.image-swiper-html .swiper-slide {
+  overflow: visible;
+}
+
+.image-swiper-html .image-swiper-html__inner {
+  overflow: visible;
+}
+
+.image-swiper-html .image-swiper-html__caption {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.image-swiper-html .swiper-pagination,
+.tiptap .swiper-pagination {
+  position: static !important;
+  margin-top: 12px;
+}
