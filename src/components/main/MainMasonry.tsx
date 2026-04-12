@@ -90,8 +90,7 @@ export default function Notes(props: any) {
                             )}
                             <div className=" rounded-lg relative flex h-full transform items-end border-[4px] border-[var(--text-color)] transition-transform">
                                 <div className="pb-1 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0">
-                                    <h3 className="p-1 mt-1 text-sm font-bold lg:text-3xl overflow-hidden whitespace-nowrap text-ellipsis">
-                                        <p className="p-1 mt-0 break-words">
+                                        <h3 className="p-1 mt-1 text-sm font-bold lg:text-3xl break-words whitespace-normal">                                        <p className="p-1 mt-0 break-words">
                                             {
                                                 value.title.replace(/<[^>]+>/g, '').length > maxTitleLength
                                                     ? `${value.title.replace(/<[^>]+>/g, '').slice(0, maxTitleLength)}...`

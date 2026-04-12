@@ -20,6 +20,10 @@ export default function Slide_2() {
                 <SlideupText text={"majored in Computer Science and studied at 42 Seoul for 2 years."}></SlideupText>
                 </div>
 
+
+                <div className=" font-medium lg:text-[4vh] text-[16px] h-auto mt-3 lg:mt-[1vh] overflow-hidden">
+                <SlideupText text={"Currently developing IT solutions for the Food Industry at Otoki Group's IT subsidiary."}></SlideupText>
+                </div>
                 {/* <div className=" font-medium lg:text-[42px] text-[16px] h-auto mt-3 lg:mt-3 overflow-hidden">
                 <SlideupText text={"Currently gaining experience through freelance projects and internships."}></SlideupText>
                 </div> */}
