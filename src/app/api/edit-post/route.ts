@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { revalidateTag } from 'next/cache';
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -26,7 +27,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     if (error) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
-
+    revalidateTag('posts');
+    revalidateTag(`post:${uuid}`);
     return NextResponse.json({ message: 'Post edited successfully', data });
   } catch (err) {
     if (err instanceof Error) {

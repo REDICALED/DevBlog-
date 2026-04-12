@@ -129,7 +129,7 @@
 
 .image-swiper-html .image-swiper-html__caption {
   margin-top: 12px;
-  font-size: 14px;
+  font-size: 100%;
   line-height: 1.5;
   opacity: 0.8;
   text-align: center;
