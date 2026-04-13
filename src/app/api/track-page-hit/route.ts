@@ -56,7 +56,7 @@ export async function POST(req: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseRoleKey)
 
-    const body = await req.json()
+    const body = await req.json().catch(() => ({}))
 
     const forwardedFor = req.headers.get('x-forwarded-for')
     const realIp = req.headers.get('x-real-ip')
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
       realIp ||
       null
 
-    const { page, visitorId, referrer } = body
+    const { page, visitorId, referrer } = body ?? {}
 
     const isBotSuspected = detectBot({
       userAgent: userAgentHeader,
