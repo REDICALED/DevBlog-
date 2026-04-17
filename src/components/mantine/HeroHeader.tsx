@@ -20,6 +20,7 @@ export default function HeroHeader() {
   const blinkRef = useRef(false);
   const isLargeScreen = window.innerWidth >= 768;
   const handleScroll = () => {
+    if (window.location.pathname === '/introduce') return;
     if (window.scrollY > 50 && window.scrollY < 100 && blinkRef.current  === false) {
       const vh = isLargeScreen ? window.innerHeight - 106 : window.innerHeight - 40;
       window.scrollTo({top:  vh, behavior: 'smooth'});
