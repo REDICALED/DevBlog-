@@ -110,7 +110,7 @@ export default function Home() {
             <p className="text-sm uppercase tracking-[0.2em]"></p>
 
             <div className="">
-              <img src="https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/307235ea-5c10-45cb-8549-25d879edea48/60%EC%B5%9C%EC%A2%85/w=1920,quality=90,fit=scale-down"  className="h-auto w-full object-cover" />
+              <img src="https://r2.aggingkobe.com/20260712_bc.png"  className="h-auto w-full object-cover" />
             </div>
           </div>
         </section>
