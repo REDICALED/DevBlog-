@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useRecoilValue } from 'recoil'
@@ -21,35 +20,6 @@ const HeroHeader = dynamic(() => import('@/components/mantine/HeroHeader'), {
 
 export default function Home() {
   const openingstate = useRecoilValue(OpeningState)
-  useEffect(() => {
-    const trackPageView = async () => {
-      let visitorId = localStorage.getItem('visitor_id')
-
-      if (!visitorId) {
-        visitorId = crypto.randomUUID()
-        localStorage.setItem('visitor_id', visitorId)
-      }
-
-      try {
-        await fetch('/api/track-page-hit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            page: '/',
-            visitorId,
-            referrer: document.referrer || '',
-            userAgent: navigator.userAgent,
-          }),
-        })
-      } catch (error) {
-        console.error('page tracking failed', error)
-      }
-    }
-
-    trackPageView()
-  }, [])
 
   return (      
       <main className="mx-auto max-w-6xl px-6 pb-32 pt-16 md:px-10">
