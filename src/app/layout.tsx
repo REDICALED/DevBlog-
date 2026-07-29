@@ -5,6 +5,7 @@ import CustomCursor from "@/components/CustomCursor";
 import dynamic from "next/dynamic";
 import { Toaster } from "sonner";
 import Script from "next/script";
+import PageViewTracker from "@/components/PageViewTracker";
 
 const Mainheader = dynamic(() => import("@/components/main/Main_header"), {
   ssr: false,
@@ -46,6 +47,7 @@ export default function RootLayout({
     <html className="scroll-smooth">
       <body className="font-custom main_scrollbar">
         <RecoilRootWrapper>
+          <PageViewTracker />
           <CustomCursor />
           <Mainheader />
           <CheckingModal />
